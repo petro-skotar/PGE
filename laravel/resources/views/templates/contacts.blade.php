@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <!-- Start main-content -->
+  <!-- Start main-content -->
   <div class="main-content-area">
 
     <!-- Divider: Contact -->
@@ -79,6 +79,7 @@
               </div>
             </form>
 
+            {{--
             <!-- Contact Form Validation-->
             <script>
               (function($) {
@@ -104,7 +105,7 @@
                   }
                 });
               })(jQuery);
-            </script>
+            </script>--}}
           </div>
         </div>
       </div>

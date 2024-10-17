@@ -89,10 +89,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="admin/articles" class="brand-link">
+    <a href="admin/articles" class="brand-link navs-logo">
       <img src="adm/favicon.png" alt="PGE Construction" class="brand-image"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">PGE <span class="ano_logo">Construction</span></span>
+      <span class="brand-text">PGE <span class="ano_logo font-weight-light">Construction</span></span>
     </a>
 
     <!-- Sidebar -->

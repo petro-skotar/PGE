@@ -704,3 +704,10 @@ a._blank span{
 .white-space{
 	white-space: nowrap;
 }
+
+.navs-logo{
+	background: #4554b1 !important;
+}
+.navs-logo .brand-text{
+	font-weight: 700;
+}
