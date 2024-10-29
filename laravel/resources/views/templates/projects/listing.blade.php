@@ -21,54 +21,20 @@
 
         <div class="section-content">
           <div class="row">
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/2.jpg') }}" alt="1.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
+
+            @if(!empty($articles))
+                @foreach($articles as $item)
+                <div class="col-md-6 col-lg-4">
+                    <div class="img-icon-service-box mb-30">
+                        <div class="tm-thumb">
+                        <img class="img-fullwidth" src="{{ $item->img() }}" alt="{{ $item->details_one->name }}">
+                        <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',[$item->details_one->url]) }}"><span class="fas fa-home"></span></a></div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/3.jpg') }}" alt="2.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/4.jpg') }}" alt="3.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/5.jpg') }}" alt="4.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/6.jpg') }}" alt="5.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/7.jpg') }}" alt="6.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
+                @endforeach
+            @endif
+
           </div>
         </div>
       </div>

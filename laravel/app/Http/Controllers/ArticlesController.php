@@ -363,7 +363,7 @@ class ArticlesController extends Controller
 	}
     public function projects()
     {
-		$articles = $this->getOffers();
+		$articles = $this->getProjects();
 		$article = Article::where('template','projects')->where('active',1)->first();
 		if(!empty($article->details_one['name'])){
 			return view('templates.projects.listing')->with([
@@ -376,7 +376,7 @@ class ArticlesController extends Controller
     }
     public function project($url)
     {
-		$Article = Article::select('articles.*')
+		$article = Article::select('articles.*')
 			->leftJoin('articles_details', function($leftJoin){
 					$leftJoin->on('articles.id', '=', 'articles_details.article_id');
 				})
@@ -387,8 +387,7 @@ class ArticlesController extends Controller
 			->where('module','projects')
 			->first();
 
-		if(!empty($Article->details_one->name)){
-
+		if(!empty($article->details_one->name)){
 			/*$faq = Article::where('template','faq')->where('active',1)->first();
 			$faqs = Article::select('articles.*')
 				->leftJoin('articles_details', function($leftJoin){
@@ -397,14 +396,14 @@ class ArticlesController extends Controller
 				->where('articles_details.lang',DATA::lang())
 				->where('articles_details.name', '!=', '')
 				->where('module',$faq->template)
-				->where('faq_categories',$Article->id)
+				->where('faq_categories',$article->id)
 				->where('parent_id',0)
 				->where('active','1')
 				->orderBy('position','asc')
 				->get();*/
 
 			return view('templates.projects.id')->with([
-				'article'=>$Article,
+				'article'=>$article,
 				//'faqs'=>$faqs,
 				//'faq'=>$faq,
 			]);
@@ -710,10 +709,6 @@ class ArticlesController extends Controller
 				$Article_details[$lang]->content = 		(!empty($request->details[$lang]['content']) ? $request->details[$lang]['content'] : '');
 				$Article_details[$lang]->content_2 = 	(!empty($request->details[$lang]['content_2']) ? $request->details[$lang]['content_2'] : '');
 				$Article_details[$lang]->content_3 = 	(!empty($request->details[$lang]['content_3']) ? $request->details[$lang]['content_3'] : '');
-				$Article_details[$lang]->code = 		(!empty($request->details[$lang]['code']) ? $request->details[$lang]['code'] : '');
-				$Article_details[$lang]->price = 		(!empty($request->details[$lang]['price']) ? $request->details[$lang]['price'] : '');
-				$Article_details[$lang]->long_time = 	(!empty($request->details[$lang]['long_time']) ? $request->details[$lang]['long_time'] : '');
-				$Article_details[$lang]->percent = 		(!empty($request->details[$lang]['percent']) ? $request->details[$lang]['percent'] : '');
                 if($request->hasFile('details.'.$lang.'.file')) {
                     $file = $request->file('details.'.$lang.'.file');
                     $file_name = DATA::module().'/'.$Article->id.'/'.$file->getClientOriginalName();
@@ -966,10 +961,6 @@ class ArticlesController extends Controller
 						$Article_details[$lang]->content = 		(!empty($request->details[$lang]['content']) ? $request->details[$lang]['content'] : '');
 						$Article_details[$lang]->content_2 = 	(!empty($request->details[$lang]['content_2']) ? $request->details[$lang]['content_2'] : '');
 						$Article_details[$lang]->content_3 = 	(!empty($request->details[$lang]['content_3']) ? $request->details[$lang]['content_3'] : '');
-						$Article_details[$lang]->code = 		(!empty($request->details[$lang]['code']) ? $request->details[$lang]['code'] : '');
-						$Article_details[$lang]->price = 		(!empty($request->details[$lang]['price']) ? $request->details[$lang]['price'] : '');
-						$Article_details[$lang]->long_time = 	(!empty($request->details[$lang]['long_time']) ? $request->details[$lang]['long_time'] : '');
-						$Article_details[$lang]->percent = 		(!empty($request->details[$lang]['percent']) ? $request->details[$lang]['percent'] : '');
                         if(!empty($request->details[$lang]['file_remove'])) {
                             $Article_details[$lang]->file = '';
                         }

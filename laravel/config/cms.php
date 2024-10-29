@@ -63,7 +63,7 @@ return [
 		'projects' => [
 			'name'=>'Our projects',
 			'controller'=>'ArticlesController',
-			'class-icon'=>'fas fa-blog',
+			'class-icon'=>'fas fa-store-alt',
 			'active'=>1,
 			'display'=> 1,
 			'module' => 'projects',

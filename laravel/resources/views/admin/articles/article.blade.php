@@ -212,6 +212,7 @@
 						</div>
 						@endif
 
+                        {{--
                         @if(in_array($module_info['module'],['projects']))
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -237,6 +238,7 @@
                                 </div>
                             </div>
                         @endif
+                        --}}
 
 						@if(!empty($module_info['fields']['content']) || (in_array($module_info['module'],['sections']) && (!empty($module_info['categories'][$Article->id]['fields']['content']) || !empty($module_info['categories'][$Article->parent_id]['sub_fields']['content']) || !empty($module_info['categories'][request()->parent_id]['sub_fields']['content']))))
 	                    <div class="col-sm-12">

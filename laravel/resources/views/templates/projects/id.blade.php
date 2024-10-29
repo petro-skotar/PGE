@@ -12,7 +12,7 @@
             <div class="row justify-content-md-center">
             <div class="col-xl-12">
                 <div class="title-wrapper m-0">
-                <h1 class="title m-0"> <span class="font-weight-700 text-theme-colored2"> Here will be the name of the project</span> </h1>
+                <h1 class="title m-0"> <span class="font-weight-700 text-theme-colored2">{!! $article->details_one->name !!}</span> </h1>
                 </div>
             </div>
             </div>
@@ -22,7 +22,7 @@
 
             <div class="pt-0">
                 <h4 class="mt-0">Project Description</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
+                {!! $article->details_one->content !!}
             </div>
 
             <dl class="description-list pt-20">
@@ -53,9 +53,9 @@
           </div>
           <div class="col-md-8">
             <div class="tm-owl-carousel-1col" data-dots="true" data-nav="true">
-              <div class="item"><img src="{{ asset('templates/pgeconstruction/images/temp/2.jpg') }}" alt="images"></div>
-              <div class="item"><img src="{{ asset('templates/pgeconstruction/images/temp/4.jpg') }}" alt="images"></div>
-              <div class="item"><img src="{{ asset('templates/pgeconstruction/images/temp/5.jpg') }}" alt="images"></div>
+                @foreach($article->img('all') as $img)
+                    <div class="item"><img src="{{ $img }}" alt="images"></div>
+                @endforeach
             </div>
           </div>
         </div>
@@ -67,6 +67,7 @@
             </blockquote>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- Section: Project -->

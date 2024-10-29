@@ -14,8 +14,8 @@ class StartSections extends Migration
     public function up()
     {
 
-		// $new_id = DB::table('articles')->max('id');
-		$new_id = 10;
+		$new_id = DB::table('articles')->max('id');
+        $new_id = 100;
 
 		# 11 Dlaczego warto <br>w nas zainwestować? ========================================
 		$new_id++;

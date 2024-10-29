@@ -148,18 +148,20 @@ class StartDATA extends Migration
 
 		# CONTENT
 
+        $new_id = 1;
+
 		# === Home page ===
 		DB::table('articles')->insert(array(
-			'id' => 1,
+			'id' => $new_id,
 			'parent_id' => 0,
-			'position' => 1,
+			'position' => $new_id,
 			'active' => 1,
 			'template' => 'main',
 			'sub' => 'yes',
 			'in_nav' => 1,
 		));
 			DB::table('articles_details')->insert(array(
-				'article_id' => 1,
+				'article_id' => $new_id,
 				'url' => '/',
 				'lang' => 'en',
 				'title' => 'PGE Construction',
@@ -173,18 +175,19 @@ class StartDATA extends Migration
 			));
 
         /*
+        $new_id++;
 		# Zespół
 		DB::table('articles')->insert(array(
-			'id' => 2,
+			'id' => $new_id,
 			'parent_id' => 1,
-			'position' => 2,
+			'position' => $new_id,
 			'active' => 1,
 			'template' => 'team',
 			'sub' => 'nav',
 			'in_nav' => 1,
 		));
 			DB::table('articles_details')->insert(array(
-				'article_id' => 2,
+				'article_id' => $new_id,
 				'url' => 'team',
 				'lang' => 'en',
 				'title' => 'Team',
@@ -197,7 +200,7 @@ class StartDATA extends Migration
 				'content' => '',
 			));
 				$parent_id = 0;
-				$new_id = 7;
+				$new_id++;
 				DB::table('articles')->insert(array(
 					'id' => $new_id,
 					'position' => $new_id,
@@ -214,18 +217,19 @@ class StartDATA extends Migration
 					));
         */
 
-		#  Nasze projekty
+		#  Projects
+        $new_id++;
 		DB::table('articles')->insert(array(
-			'id' => 3,
+			'id' => $new_id,
 			'parent_id' => 1,
-			'position' => 3,
+			'position' => $new_id,
 			'active' => 1,
 			'template' => 'projects',
 			'sub' => 'nav',
 			'in_nav' => 1,
 		));
 			DB::table('articles_details')->insert(array(
-				'article_id' => 3,
+				'article_id' => $new_id,
 				'url' => 'projects',
 				'lang' => 'en',
 				'title' => 'Projects',
@@ -238,120 +242,121 @@ class StartDATA extends Migration
 				'content' => '',
 			));
 				$parent_id = 0;
-				$new_id = 8;
+				$new_id++;
 				DB::table('articles')->insert(array(
 					'id' => $new_id,
 					'position' => $new_id,
 					'parent_id' => $parent_id,
 					'module' => 'projects',
-					'images' => '["templates/dist/img/projects/p1_1.webp","templates/dist/img/projects/p1_2.webp","templates/dist/img/projects/p1_3.webp"]',
+					'images' => '["templates/pgeconstruction/images/temp/1.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
 				));
 					DB::table('articles_details')->insert(array(
 						'article_id' => $new_id,
 						'lang' => 'en',
-						'name' => 'Innovative <br>e-commerce <br>platform',
-						'url' => 'innovative-e-commerce-platform',
-						'annotation' => 'Development and launch of a modern marketplace platform offering a wide range of products from sellers throughout Europe.',
-						'content' => '<p>Global rising popularity of the e-commere market simultaneously leads to the growth of business potential for marketplaces: platforms that offer products from many online sellers available in one place. From the perspective of entities conducting online sales this is an excellent opportunity to increase the number of customers, without the need of large financial investments, including costs related to marketing activities, in particular. Based on the currently available data and projected amounts, the market size can be calculated up until 2025.</p>',
+						'name' => 'Project one',
+						'url' => 'project-one',
+						'annotation' => '',
+						'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
 					));
 				$parent_id = 0;
-				$new_id = 9;
+				$new_id++;
 				DB::table('articles')->insert(array(
 					'id' => $new_id,
 					'position' => $new_id,
 					'parent_id' => $parent_id,
 					'module' => 'projects',
-					'images' => '["templates/dist/img/projects/p2_1.webp","templates/dist/img/projects/p2_2.webp","templates/dist/img/projects/p2_3.webp"]',
+					'images' => '["templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/1.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
 				));
 					DB::table('articles_details')->insert(array(
 						'article_id' => $new_id,
 						'lang' => 'en',
-						'name' => 'Project for construction of suburban BIO houses',
-						'url' => 'project-for-construction-of-suburban-bio-houses',
-						'annotation' => 'Construction of suburban wooden houses ideal for year-round residence.',
+						'name' => 'Project two',
+						'url' => 'project-two',
+						'annotation' => '',
 						'content' => '<p>In recent years we observe an increased demand for short-term suburban rental housing. Based on the available data, the average annual growth rate of the market is about 12%. The main factor influencing the high scale of profitability of this type of investment is the convenient location and surrounding infrastructure of the facility. With the growing awareness, consumers are demanding more ecological & climate-friendly products and services. Nowadays, from the very first stage of planning and project implementation, it is important to select sustainable materials used during the construction of the property. These materials must not only be harmless to the environment but also be durable and cost-efficient.</p>',
 					));
 				$parent_id = 0;
-				$new_id = 10;
+				$new_id++;
 				DB::table('articles')->insert(array(
 					'id' => $new_id,
 					'position' => $new_id,
 					'parent_id' => $parent_id,
 					'module' => 'projects',
-					'images' => '["templates/dist/img/projects/p3_1.webp","templates/dist/img/projects/p3_2.webp","templates/dist/img/projects/p3_3.webp"]',
+					'images' => '["templates/pgeconstruction/images/temp/3.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/1.jpg"]',
 				));
 					DB::table('articles_details')->insert(array(
 						'article_id' => $new_id,
 						'lang' => 'en',
-						'name' => 'Construction of a steel structures production plant',
-						'url' => 'construction-of-a-steel-structures-production-plan',
-						'annotation' => 'Construction of a factory near the Polish-German border, specializing in the production of steel structures.',
+						'name' => 'Project three',
+						'url' => 'project-three',
+						'annotation' => '',
 						'content' => '<p>The factory is planned be located in West Pomeranian Voivodeship in Poland, about 25 km from the German border and approximately 100 km away from Berlin.</p><p>In the Federal Republic of Germany, the steel structure market maintains a stable level of demand. In fact, its importance seems to be growing every year, given the global deficits in the general availability of raw materials. Due to limited domestic supply, German companies import 40% to 60% of steel from other countries.</p><p>Therefore the convenient location of the planned factory in the West Pomeranian Voivodeship will allow the export of nearly 90% of the manufactured products to Western Europe, the Federal Republic of Germany in particular. </p>',
 					));
+                $parent_id = 0;
+                $new_id++;
+                DB::table('articles')->insert(array(
+                    'id' => $new_id,
+                    'position' => $new_id,
+                    'parent_id' => $parent_id,
+                    'module' => 'projects',
+                    'images' => '["templates/pgeconstruction/images/temp/4.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+                ));
+                    DB::table('articles_details')->insert(array(
+                        'article_id' => $new_id,
+                        'lang' => 'en',
+                        'name' => 'Project four',
+                        'url' => 'project-four',
+                        'annotation' => '',
+                        'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
+                    ));
+                    $parent_id = 0;
+                    $new_id++;
+                    DB::table('articles')->insert(array(
+                        'id' => $new_id,
+                        'position' => $new_id,
+                        'parent_id' => $parent_id,
+                        'module' => 'projects',
+                        'images' => '["templates/pgeconstruction/images/temp/5.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+                    ));
+                        DB::table('articles_details')->insert(array(
+                            'article_id' => $new_id,
+                            'lang' => 'en',
+                            'name' => 'Project five',
+                            'url' => 'project-five',
+                            'annotation' => '',
+                            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
+                        ));
+                    $parent_id = 0;
+                    $new_id++;
+                    DB::table('articles')->insert(array(
+                        'id' => $new_id,
+                        'position' => $new_id,
+                        'parent_id' => $parent_id,
+                        'module' => 'projects',
+                        'images' => '["templates/pgeconstruction/images/temp/6.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+                    ));
+                        DB::table('articles_details')->insert(array(
+                            'article_id' => $new_id,
+                            'lang' => 'en',
+                            'name' => 'Project six',
+                            'url' => 'project-six',
+                            'annotation' => '',
+                            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
+                        ));
 
-/*
-		# Oferta dla inwestora
+		# Contacts
+        $new_id++;
 		DB::table('articles')->insert(array(
-			'id' => 4,
+			'id' => $new_id,
 			'parent_id' => 1,
-			'position' => 4,
-			'active' => 1,
-			'template' => 'offer_for_investor',
-			'sub' => 'no',
-			'in_nav' => 1,
-		));
-			DB::table('articles_details')->insert(array(
-				'article_id' => 4,
-				'url' => 'offer-for-investor',
-				'lang' => 'en',
-				'title' => 'Offer for investor',
-				'name' => 'Offer for investor',
-				'description' => 'Oferta dla inwestora',
-				'bread' => 'Offer for investor',
-				'short_name' => 'Offer for investor',
-				'annotation' => '',
-				'slogan' => 'Application form for the investor',
-				'content' => '<p>If you are interested in investing together with us in the future, please fill out the application form so that we can present you with detailed information about us, including our investor presentation and a set of sample documents.</p>',
-			));*/
-
-/*
-		# Pozyskanie inwestora
-		DB::table('articles')->insert(array(
-			'id' => 5,
-			'parent_id' => 1,
-			'position' => 5,
-			'active' => 1,
-			'template' => 'acquiring_an_investor',
-			'sub' => 'no',
-			'in_nav' => 1,
-		));
-			DB::table('articles_details')->insert(array(
-				'article_id' => 5,
-				'url' => 'acquiring-an-investor',
-				'lang' => 'en',
-				'title' => 'Acquiring an investor',
-				'name' => 'Acquiring an investor',
-				'description' => 'Acquiring an investor',
-				'bread' => 'Acquiring an investor',
-				'short_name' => 'Acquiring an investor',
-				'annotation' => '',
-				'slogan' => 'Investor application form',
-				'content' => '<p>If you have innovative ideas for new projects and you are searching for an investor, contact us and we\'ll be happy to help! After submitting the application form below, we will be able to contact you and provide you with additional information and all the necessary documents.</p>',
-			));
-
-*/
-		# Kontakt
-		DB::table('articles')->insert(array(
-			'id' => 6,
-			'parent_id' => 1,
-			'position' => 6,
+			'position' => $new_id,
 			'active' => 1,
 			'template' => 'contacts',
 			'sub' => 'no',
 			'in_nav' => 1,
 		));
 			DB::table('articles_details')->insert(array(
-				'article_id' => 6,
+				'article_id' => $new_id,
 				'url' => 'contacts',
 				'lang' => 'en',
 				'title' => 'Contacts',
@@ -364,9 +369,8 @@ class StartDATA extends Migration
 				'content' => 'Contact us. <br>Do you have further questions about our company\'s activities? Feel free to contact us via contact form, email or give us a call.',
 			));
 
-        $new_id = 92;
-
-		# Services
+        # Services
+        $new_id++;
 		DB::table('articles')->insert(array(
 			'id' => $new_id,
 			'parent_id' => 1,
@@ -390,9 +394,8 @@ class StartDATA extends Migration
 				'content' => '<p>PGE Construction Company provides a full range of construction services, including design, new construction, renovation, and repair. Our experts ensure high standards of quality, adherence to deadlines, and a personalized approach to every client. We build strong and reliable structures that stand the test of time.</p>',
 			));
 
-        $new_id++;
-
         # Services
+        $new_id++;
         DB::table('articles')->insert(array(
             'id' => $new_id,
             'parent_id' => 1,
@@ -423,7 +426,7 @@ class StartDATA extends Migration
                 'position' => $new_id,
                 'parent_id' => $parent_id,
                 'module' => 'blog',
-                'images' => '["templates/dist/img/projects/p1_1.webp","templates/dist/img/projects/p1_2.webp","templates/dist/img/projects/p1_3.webp"]',
+                'images' => '["templates/pgeconstruction/images/temp/1.jpg"]',
             ));
                 DB::table('articles_details')->insert(array(
                     'article_id' => $new_id,
@@ -431,7 +434,7 @@ class StartDATA extends Migration
                     'name' => 'Innovative <br>e-commerce <br>platform',
                     'url' => 'blog-post-1',
                     'annotation' => 'Development and launch of a modern marketplace platform offering a wide range of products from sellers throughout Europe.',
-                    'content' => '<p>Global rising popularity of the e-commere market simultaneously leads to the growth of business potential for marketplaces: platforms that offer products from many online sellers available in one place. From the perspective of entities conducting online sales this is an excellent opportunity to increase the number of customers, without the need of large financial investments, including costs related to marketing activities, in particular. Based on the currently available data and projected amounts, the market size can be calculated up until 2025.</p>',
+                    'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
                 ));
             $parent_id = 0;
             $new_id++;
@@ -440,7 +443,7 @@ class StartDATA extends Migration
                 'position' => $new_id,
                 'parent_id' => $parent_id,
                 'module' => 'blog',
-                'images' => '["templates/dist/img/projects/p2_1.webp","templates/dist/img/projects/p2_2.webp","templates/dist/img/projects/p2_3.webp"]',
+                'images' => '["templates/pgeconstruction/images/temp/2.jpg"]',
             ));
                 DB::table('articles_details')->insert(array(
                     'article_id' => $new_id,
@@ -457,7 +460,7 @@ class StartDATA extends Migration
                 'position' => $new_id,
                 'parent_id' => $parent_id,
                 'module' => 'blog',
-                'images' => '["templates/dist/img/projects/p3_1.webp","templates/dist/img/projects/p3_2.webp","templates/dist/img/projects/p3_3.webp"]',
+                'images' => '["templates/pgeconstruction/images/temp/3.jpg"]',
             ));
                 DB::table('articles_details')->insert(array(
                     'article_id' => $new_id,
