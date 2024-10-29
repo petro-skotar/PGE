@@ -12,19 +12,19 @@
 			<div class="custom-control custom-switch ajax_check">
 			  <input type="checkbox" @if ($category->mumcfm)checked="checked" @endif class="custom-control-input mumcfm" name="mumcfm" id="mumcfm{{$category->id}}">
 			  <label class="custom-control-label" for="mumcfm{{$category->id}}"></label>
-			</div>                      	
+			</div>
 		  </td>
 		  <td class="align-middle" title="aml">
 			<div class="custom-control custom-switch ajax_check">
 			  <input type="checkbox" @if ($category->aml)checked="checked" @endif class="custom-control-input aml" name="aml" id="aml{{$category->id}}">
 			  <label class="custom-control-label" for="aml{{$category->id}}"></label>
-			</div>                      	
+			</div>
 		  </td>
 		  <td class="align-middle pr-3" title="SFPFR">
 			<div class="custom-control custom-switch ajax_check">
 			  <input type="checkbox" @if ($category->fiu_cis)checked="checked" @endif class="custom-control-input fiu_cis" name="fiu_cis" id="fiu_cis{{$category->id}}">
 			  <label class="custom-control-label" for="fiu_cis{{$category->id}}"></label>
-			</div>                      	
+			</div>
 		  </td>
 		  @endif
 		  <td class="align-middle text-right"><span class="none_lang">@if(!empty($category->name_ru))RU @endif</span></td>
@@ -33,11 +33,11 @@
 			<div class="custom-control custom-switch ajax_check">
 			  <input type="checkbox" @if ($category->active)checked="checked"@endif class="custom-control-input active" name="active" id="active{{$category->id}}">
 			  <label class="custom-control-label" for="active{{$category->id}}"></label>
-			</div>                      	
+			</div>
 		  </td>
 		  <td class="align-middle">
 			<div class="btn-group">
-				<a href="{{route('mediateka.edit', $category->id)}}?type=category" class="btn btn-sm btn-flat" title="Редактировать {{$category->id}}"><i class="far fa-edit"></i></a>
+				<a href="{{route('mediateka.edit', $category->id)}}?type=category" class="btn btn-sm btn-flat" title="Edit {{$category->id}}"><i class="far fa-edit"></i></a>
 				@if($category->id != 53)
 				<form action="{{ route('mediateka.destroy' , $category->id)}}?type=category" method="POST">
 					<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
@@ -61,7 +61,7 @@
 				  <div class="btn-group">
 					<a href="{{route('mediateka.index')}}?type=documents&parent_id={{$category_lv_2->id}}" class="tn-block bg-gradient-primary btn btn-xs count_files_in_media_section {{(!count($category_lv_2->documents) ? 'disabled_doc' : '')}}"  title="Просмотр документов этого раздела"><i class="fas fa-file"></i>&nbsp; {{count($category_lv_2->documents)}}</a>
 					<a href="{{route('mediateka.create')}}?type=document&parent_id={{$category_lv_2->id}}" class="tn-block bg-gradient-primary btn btn-xs" title="Добавить документ в этот раздел"><i class="fas fa-plus"></i></a>
-				  </div>		  
+				  </div>
 				  @endif
 			  </td>
 			  @if(Auth::user()->id == 1)
@@ -69,19 +69,19 @@
 				<div class="custom-control custom-switch ajax_check">
 				  <input type="checkbox" @if ($category_lv_2->mumcfm)checked="checked" @endif class="custom-control-input mumcfm" name="mumcfm" id="mumcfm{{$category_lv_2->id}}">
 				  <label class="custom-control-label" for="mumcfm{{$category_lv_2->id}}"></label>
-				</div>                      	
+				</div>
 			  </td>
 			  <td class="align-middle" title="aml">
 				<div class="custom-control custom-switch ajax_check">
 				  <input type="checkbox" @if ($category_lv_2->aml)checked="checked" @endif class="custom-control-input aml" name="aml" id="aml{{$category_lv_2->id}}">
 				  <label class="custom-control-label" for="aml{{$category_lv_2->id}}"></label>
-				</div>                      	
+				</div>
 			  </td>
 			  <td class="align-middle pr-3" title="SFPFR">
 				<div class="custom-control custom-switch ajax_check">
 				  <input type="checkbox" @if ($category_lv_2->fiu_cis)checked="checked" @endif class="custom-control-input fiu_cis" name="fiu_cis" id="fiu_cis{{$category_lv_2->id}}">
 				  <label class="custom-control-label" for="fiu_cis{{$category_lv_2->id}}"></label>
-				</div>                      	
+				</div>
 			  </td>
 			  @endif
 			  <td class="align-middle text-right"><span class="none_lang">@if(!empty($category_lv_2->name_ru))RU @endif</span></td>
@@ -90,11 +90,11 @@
 				<div class="custom-control custom-switch ajax_check">
 				  <input type="checkbox" @if ($category_lv_2->active)checked="checked"@endif class="custom-control-input active" name="active" id="active{{$category_lv_2->id}}">
 				  <label class="custom-control-label" for="active{{$category_lv_2->id}}"></label>
-				</div>                      	
+				</div>
 			  </td>
 			  <td class="align-middle">
 				<div class="btn-group">
-					<a href="{{route('mediateka.edit', $category_lv_2->id)}}?type=category" class="btn btn-sm btn-flat" title="Редактировать {{$category_lv_2->id}}"><i class="far fa-edit"></i></a>
+					<a href="{{route('mediateka.edit', $category_lv_2->id)}}?type=category" class="btn btn-sm btn-flat" title="Edit {{$category_lv_2->id}}"><i class="far fa-edit"></i></a>
 					<form action="{{ route('mediateka.destroy' , $category_lv_2->id)}}?type=category" method="POST">
 						<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
 						<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
@@ -116,26 +116,26 @@
 							  <div class="btn-group">
 								<a href="{{route('mediateka.index')}}?type=documents&parent_id={{$category_lv_3->id}}" class="tn-block bg-gradient-primary btn btn-xs count_files_in_media_section {{(!count($category_lv_3->documents) ? 'disabled_doc' : '')}}"  title="Просмотр документов этого раздела"><i class="fas fa-file"></i>&nbsp; {{count($category_lv_3->documents)}}</a>
 								<a href="{{route('mediateka.create')}}?type=document&parent_id={{$category_lv_3->id}}" class="tn-block bg-gradient-primary btn btn-xs" title="Добавить документ в этот раздел"><i class="fas fa-plus"></i></a>
-							  </div>		  
+							  </div>
 						  </td>
 						  @if(Auth::user()->id == 1)
 						  <td class="align-middle" title="MUMCFM">
 							<div class="custom-control custom-switch ajax_check">
 							  <input type="checkbox" @if ($category_lv_3->mumcfm)checked="checked" @endif class="custom-control-input mumcfm" name="mumcfm" id="mumcfm{{$category_lv_3->id}}">
 							  <label class="custom-control-label" for="mumcfm{{$category_lv_3->id}}"></label>
-							</div>                      	
+							</div>
 						  </td>
 						  <td class="align-middle" title="aml">
 							<div class="custom-control custom-switch ajax_check">
 							  <input type="checkbox" @if ($category_lv_3->aml)checked="checked" @endif class="custom-control-input aml" name="aml" id="aml{{$category_lv_3->id}}">
 							  <label class="custom-control-label" for="aml{{$category_lv_3->id}}"></label>
-							</div>                      	
+							</div>
 						  </td>
 						  <td class="align-middle pr-3" title="SFPFR">
 							<div class="custom-control custom-switch ajax_check">
 							  <input type="checkbox" @if ($category_lv_3->fiu_cis)checked="checked" @endif class="custom-control-input fiu_cis" name="fiu_cis" id="fiu_cis{{$category_lv_3->id}}">
 							  <label class="custom-control-label" for="fiu_cis{{$category_lv_3->id}}"></label>
-							</div>                      	
+							</div>
 						  </td>
 						  @endif
 						  <td class="align-middle text-right"><span class="none_lang">@if(!empty($category_lv_3->name_ru))RU @endif</span></td>
@@ -144,11 +144,11 @@
 							<div class="custom-control custom-switch ajax_check">
 							  <input type="checkbox" @if ($category_lv_3->active)checked="checked"@endif class="custom-control-input active" name="active" id="active{{$category_lv_3->id}}">
 							  <label class="custom-control-label" for="active{{$category_lv_3->id}}"></label>
-							</div>                      	
+							</div>
 						  </td>
 						  <td class="align-middle">
 							<div class="btn-group">
-								<a href="{{route('mediateka.edit', $category_lv_3->id)}}?type=category" class="btn btn-sm btn-flat" title="Редактировать {{$category_lv_3->id}}"><i class="far fa-edit"></i></a>
+								<a href="{{route('mediateka.edit', $category_lv_3->id)}}?type=category" class="btn btn-sm btn-flat" title="Edit {{$category_lv_3->id}}"><i class="far fa-edit"></i></a>
 								<form action="{{ route('mediateka.destroy' , $category_lv_3->id)}}?type=category" method="POST">
 									<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
 									<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
@@ -159,10 +159,10 @@
 					@endif
 				@endforeach
 			@endif
-			
+
 			@endif
 		@endforeach
-		
+
 	@endif
 
 @endforeach

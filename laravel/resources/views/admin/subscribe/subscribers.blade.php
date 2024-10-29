@@ -50,7 +50,7 @@
                      			</span>
                      		</td>
 	                      <td class="align-middle pl-2 pr-4">
-                            <a href="{{route('subscribe.edit', $subscriber->id)}}" title="Редактировать">{{$subscriber->name}}</a><br>
+                            <a href="{{route('subscribe.edit', $subscriber->id)}}" title="Edit">{{$subscriber->name}}</a><br>
                             {{$subscriber->email}}
                           </td>
 	                      <td class="align-middle pl-2 pr-4"></td>
@@ -65,7 +65,7 @@
 						  </td>
 	                      <td class="align-middle pr-2">
 	                      	  <div class="btn-group">
-                                <a href="{{route('subscribe.edit', $subscriber->id)}}" class="btn btn-sm btn-flat" title="Редактировать"><i class="far fa-edit"></i></a>
+                                <a href="{{route('subscribe.edit', $subscriber->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 								<form action="{{ route('subscribe.destroy' , $subscriber->id)}}" method="POST">
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
 		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>

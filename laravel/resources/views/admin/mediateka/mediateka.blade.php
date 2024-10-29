@@ -8,7 +8,7 @@
 		<div class="fz_loagind_wrapper">
 			<div class="">
 				<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-				<p class="">Ожидайте, идет сохранение</p>
+				<p class="">Please wait, saving in progress</p>
 			</div>
 		</div>
 	</div>
@@ -18,24 +18,24 @@
         <div class="row mb-2">
           <div class="col-sm-6 mb-2">
             <h1 class="m-0 text-dark">
-				@if($type == 'category')Раздел медиатеки @endif 
+				@if($type == 'category')Раздел медиатеки @endif
 				@if($type == 'document')Документ @endif
 				<span>
-					{{ request()->routeIs('mediateka.edit') ? '(Редактирование)': ''}}
-					{{ request()->routeIs('mediateka.create') ? '(Создание)' : ''}}
+					{{ request()->routeIs('mediateka.edit') ? '(Editing)': ''}}
+					{{ request()->routeIs('mediateka.create') ? '(Creation)' : ''}}
 				</span>
 			</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-			<button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Сохранить</button>            
+			<button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Save</button>
 			@if($type == 'document' && !empty($_GET['parent_id']))
 			<a href="{{route('mediateka.index')}}?type=documents&parent_id={{$_GET['parent_id']}}" class="btn btn-primary float-right">Назад к списку </a>
 			@elseif($type == 'document' && !empty($Mediateka->category_id))
-			<a href="{{route('mediateka.index')}}?type=documents&parent_id={{$Mediateka->category_id}}" class="btn btn-primary float-right">Назад</a>
+			<a href="{{route('mediateka.index')}}?type=documents&parent_id={{$Mediateka->category_id}}" class="btn btn-primary float-right">Back</a>
 			@else
-			<a href="{{route('mediateka.index')}}" class="btn btn-primary float-right">Назад</a>
+			<a href="{{route('mediateka.index')}}" class="btn btn-primary float-right">Back</a>
 			@endif
-			
+
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -49,7 +49,7 @@
         @if(count($errors) > 0)
 		<div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+          <h5><i class="icon fas fa-ban"></i> Error<</h5>
 			<ul>
 			@foreach ($errors->all() as $error)
 				<li>{!! $error !!}</li>
@@ -73,18 +73,18 @@
 
 			<div class="row">
 			  <div class="col-12 @if($type == 'document')col-sm-9 @endif">
-				
+
 				<div class="card card-primary card-outline card-outline-tabs">
 				  <div class="card-header">
 					<h3 class="card-title">Раздел</h3>
 				  </div>
 				  <div class="card-body">
-					<div class="tab-content" id="custom-tabs-four-tabContent">                  
+					<div class="tab-content" id="custom-tabs-four-tabContent">
 					  <label>К какому разделу принадлежит</label>
 					  <select class="form-control select2" name="parent_id">
 						@if($type == 'category')
 						<option value="0">-- Это главный раздел --</option>
-						@endif					
+						@endif
 						@if(!empty($MediatekaCategories))
 							@foreach($MediatekaCategories as $category)
 								@if($category->parent_id==0)
@@ -97,19 +97,19 @@
 												@if($category_lv_3->parent_id==$category_lv_2->id)
 												<option value="{{$category_lv_3->id}}" @if ($update_parent_id == $category_lv_3->id || (!empty($_GET['parent_id']) && $_GET['parent_id'] == $category_lv_3->id)) selected @endif>&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;{{($category_lv_3->name_ru ? $category_lv_3->name_ru : $category_lv_3->name_en)}}</option>
 												@endif
-											@endforeach										
+											@endforeach
 										@endif
 									@endforeach
 									@endif
 								@endif
 							@endforeach
 						@endif
-					  </select>				  
+					  </select>
 					</div>
 				  </div>
 				  <!-- /.card -->
 				</div>
-				
+
 				@if($type == 'category')
 				<div class="card card-primary card-outline card-outline-tabs">
 				  <div class="card-header">
@@ -130,13 +130,13 @@
 				  <!-- /.card -->
 
 					<div class="card-footer">
-					  <button type="submit" class="btn btn-info trigger_btn">Сохранить</button>
+					  <button type="submit" class="btn btn-info trigger_btn">Save</button>
 					</div>
 				</div>
 				@endif
-				
+
 				@if($type == 'document')
-					<div class="row">	
+					<div class="row">
 						<div class="col-sm-12">
 							<div class="card card-primary card-outline card-outline-tabs">
 							  <div class="card-header">
@@ -151,10 +151,10 @@
 											<textarea name="name" required class="form-control {{ request()->routeIs('mediateka.create') ? 'create_post' : ''}}" rows="5" placeholder="Тег <H1>">{{($Mediateka->name ? $Mediateka->name : old('name') )}}</textarea>
 										  </div>
 										</div>
-										
+
 										<div class="col-sm-6">
 										  <div class="form-group">
-											<label>Краткое название файла *</label>
+											<label>Short name файла *</label>
 											<input name="filename" required value="{{($Mediateka->filename ? $Mediateka->filename : old('filename') )}}" type="text" class="form-control  {{ request()->routeIs('mediateka.create') ? 'duble_post' : ''}}" placeholder="document.doc">
 										  </div>
 										  <div class="form-group">
@@ -162,7 +162,7 @@
 											  <input name="author" value="{{($Mediateka->author ? $Mediateka->author : old('author') )}}" type="text" class="form-control" placeholder="">
 											</div>
 										</div>
-										
+
 										<div class="col-6">
 											<div class="form-group">
 												<label>Файл</label>
@@ -175,7 +175,7 @@
 													<div class="custom-control custom-checkbox">
 													  <input class="custom-control-input" type="checkbox" id="filepath_remove" name="filepath_remove" value="1" >
 													  <label for="filepath_remove" class="custom-control-label font-weight-normal">Удалить файл после сохранения</label>
-													</div>								
+													</div>
 													<div class="file_rezult">
 														<a href="{{route('download_files',$Mediateka->code())}}" target="_blank">Скачать загруженый файл</a>
 													</div>
@@ -184,7 +184,7 @@
 											  </div>
 											  @if($file_types)
 											  <div class="form-group">
-												<label>Категория файла</label>
+												<label>File category</label>
 												<select name="category_type" class="form-control">
 													@foreach($file_types as $format_key=>$file_type)
 													<option value="{{$format_key}}" {{($Mediateka->category_type && $Mediateka->category_type == $format_key ? 'selected' : '')}}>{{$file_type['name']['ru']}}</option>
@@ -193,7 +193,7 @@
 											  </div>
 											  @endif
 										</div>
-										<div class="col-6">											
+										<div class="col-6">
 											  <div class="form-group">
 												<label>Превью документа</label>
 												<div class="custom-file">
@@ -211,12 +211,12 @@
 													</div>
 												</div>
 												@endif
-												<div class="ano">												  
+												<div class="ano">
 												  Если превью не указано, то оно будет сформировано автоматически (для форматов: pdf, doc, docx, png, jpg, jpeg, mp4)
 												</div>
 											  </div>
 										</div>
-										
+
 										<div class="col-sm-12">
 											<div class="form-group">
 											  <label>Хештеги <span>(через запятую)</span></label>
@@ -228,8 +228,8 @@
 										</div>
 										<div class="col-sm-6" style="display: none;">
 										  <div class="form-group">
-											<label>Хлебные крошки</label>
-											<input name="bread" value="{{($Mediateka->bread ? $Mediateka->bread : old('bread') )}}" type="text" class="form-control {{ request()->routeIs('mediateka.create') ? 'duble_post' : ''}}" placeholder="Хлебные крошки">
+											<label>Breadcrumbs</label>
+											<input name="bread" value="{{($Mediateka->bread ? $Mediateka->bread : old('bread') )}}" type="text" class="form-control {{ request()->routeIs('mediateka.create') ? 'duble_post' : ''}}" placeholder="Breadcrumbs">
 										  </div>
 										</div>
 										<div class="col-sm-6">
@@ -240,22 +240,22 @@
 										</div>
 										<div class="col-sm-6">
 										  <div class="form-group">
-											<label>Краткое описание</label>
+											<label>Short description</label>
 											<textarea name="description" class="form-control {{ request()->routeIs('mediateka.create') ? 'duble_post' : ''}}" rows="3" placeholder="META-тег <description>">{{($Mediateka->description ? $Mediateka->description : old('description') )}}</textarea>
 										  </div>
 										</div>
 										<div class="col-sm-12">
 										  <div class="form-group">
-											<label>Описание</label>
+											<label>Description</label>
 											<textarea name="content" class="form-control editor" id="editor" rows="3">{{($Mediateka->content ? $Mediateka->content : old('content') )}}</textarea>
 										  </div>
 										</div>
 									</div>
 								  </div>
-								  
+
 							  </div>
 								<div class="card-footer">
-								  <button type="submit" class="btn btn-info trigger_btn">Сохранить</button>
+								  <button type="submit" class="btn btn-info trigger_btn">Save</button>
 								</div>
 							</div>
 						</div>
@@ -314,7 +314,7 @@
 							@endforeach
 						  </div>
 						  <hr>
-						  							
+
 						  @if(Auth::user()->id == 1)
 						  <div class="form-group">
 							<label>Отображать на сайте:</label>
@@ -334,19 +334,19 @@
 						  <hr>
 						  @endif
 						  {{--
-							  @if($roles)						 
+							  @if($roles)
 								   <div class="form-group">
 									<label>Доступен для роли:</label>
-									
+
 									@foreach($roles as $r)
 									<div class="custom-control custom-checkbox @if($r->id==1) hide @endif">
 									  <input class="custom-control-input" type="checkbox" id="role_{{$r->id}}" name="group_roles[]" @if($r->id==1) checked @endif @if (in_array($r->id,$group_roles_array)) checked @endif value="{{$r->id}}">
 									  <label for="role_{{$r->id}}" class="custom-control-label font-weight-normal">{{$r->name}}</label>
 									</div>
 									@endforeach
-									
+
 								  </div>
-								  <hr>						  						                        
+								  <hr>
 							  @endif
 						  --}}
 							<div class="form-group">
@@ -358,7 +358,7 @@
 								</div>
 								<div class="custom-control custom-radio">
 								  <input class="custom-control-input" type="radio" id="open_for_users_1" name="open_for_users" @if ($Mediateka->open_for_users) checked @endif value="1">
-								  <label for="open_for_users_1" class="custom-control-label font-weight-normal">Да</label>						  
+								  <label for="open_for_users_1" class="custom-control-label font-weight-normal">Да</label>
 								</div>
 
 							</div>
@@ -371,13 +371,13 @@
 							  <label for="open_comments_{{$key}}" class="custom-control-label font-weight-normal">{!!$comment_config!!}</label>
 							</div>
 							@endforeach
-						  </div>				  
+						  </div>
 						</div>
 
 					</div>
 				</div>
 					<div class="card-footer">
-					  <button type="submit" class="btn btn-info trigger_btn">Сохранить</button>
+					  <button type="submit" class="btn btn-info trigger_btn">Save</button>
 					</div>
 			   </div>
 

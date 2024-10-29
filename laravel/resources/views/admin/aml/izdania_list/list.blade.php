@@ -8,7 +8,7 @@
 					<div class="fz_loagind_wrapper">
 						<div class="">
 							<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-							<p class="">Ожидайте, идет сохранение</p>
+							<p class="">Please wait, saving in progress</p>
 						</div>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 					@if(count($errors) > 0)
 					<div class="alert alert-danger alert-dismissible">
 					  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					  <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+					  <h5><i class="icon fas fa-ban"></i> Error<</h5>
 							<ul>
 							@foreach ($errors->all() as $error)
 								<li>{!! $error !!}</li>
@@ -59,7 +59,7 @@
 						@endisset
 					</div>
 					@endisset
-					
+
         <div class="row">
          <div class="col-12 col-md-8">
             <div class="card">
@@ -129,7 +129,7 @@
 							</div>
 							@endforeach
 						  </div>
-						  
+
 					</div>
 					</div>
 						<div class="card-footer">

@@ -8,7 +8,7 @@
 		<div class="fz_loagind_wrapper">
 			<div class="">
 				<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-				<p class="">Ожидайте, идет сохранение</p>
+				<p class="">Please wait, saving in progress</p>
 			</div>
 		</div>
 	</div>
@@ -17,11 +17,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">{{$module_info['title']}} <span>{{ request()->routeIs($module_info['module'].'.edit') ? '(Редактирование)': ''}} {{ request()->routeIs($module_info['module'].'.create') ? '(Создание)' : ''}}</span></h1>
+            <h1 class="m-0 text-dark">{{$module_info['title']}} <span>{{ request()->routeIs($module_info['module'].'.edit') ? '(Editing)': ''}} {{ request()->routeIs($module_info['module'].'.create') ? '(Creation)' : ''}}</span></h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
-            <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Сохранить</button>
-			@if(!in_array(Auth::user()->role_id,[8,6]))<a href="{{route($module_info['module'].'.index')}}" class="btn btn-primary float-right">Назад</a>@endif
+            <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Save</button>
+			@if(!in_array(Auth::user()->role_id,[8,6]))<a href="{{route($module_info['module'].'.index')}}" class="btn btn-primary float-right">Back</a>@endif
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -35,7 +35,7 @@
         @if(count($errors) > 0)
 		<div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+          <h5><i class="icon fas fa-ban"></i> Error<</h5>
 
 				<ul>
 				@foreach ($errors->all() as $error)
@@ -96,7 +96,7 @@
 									{{$module_info['categories'][request()->parent_id]['sub_fields']['name']['title']}}
 								@else Название @endif <span>[{{$lang}}]</span></label>
 	                        <textarea name="details[{{$lang}}][name]" class="form-control name_field {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'create_post' : ''}}" rows="2" placeholder="@if(!empty($module_info['fields']['name']['placeholder'])){!!$module_info['fields']['name']['placeholder']!!} @elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][$Article->id]['fields']['name']['placeholder'])){!!$module_info['categories'][$Article->id]['fields']['name']['placeholder']!!} @elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][$Article->parent_id]['sub_fields']['name']['placeholder'])){!!$module_info['categories'][$Article->parent_id]['sub_fields']['name']['placeholder']!!} @elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][request()->parent_id]['sub_fields']['name']['placeholder'])){!!$module_info['categories'][request()->parent_id]['sub_fields']['name']['placeholder']!!} @endif ">{{($Article_details[$lang]->name ? $Article_details[$lang]->name : old('details.'.$lang.'.name') )}}</textarea>
-							<div class="ano"> (!) Это поле является индикатором существования страницы/записи на сайте на текущем языке ({{$lang}}). Если оно пустое, то вся информация на этой вкладке не будет сохранена. Соответственно для удаления этой записи текущего языка, оставьте это поле пустым и нажмите любую кнопку "Сохранить".</div>
+							<div class="ano"> (!) This field is an indicator of the existence of a page/post on the site in the current language. ({{$lang}}). Если оно пустое, то вся информация на этой вкладке не будет сохранена. Соответственно для удаления этой записи текущего языка, оставьте это поле пустым и нажмите любую кнопку "Сохранить".</div>
 						  </div>
 	                    </div>
 
@@ -114,11 +114,11 @@
 								@if($Article->id != 1)
 								<div class="col-sm-12">
 									<div class="form-group">
-									  <label>URL * <span>(путь к странице):</span></label>
+									  <label>URL * <span>(page path):</span></label>
 									  <div class="input-group">
 										  <input name="details[{{$lang}}][url]" type="text" class="form-control duble_post_url_{{$lang}}" data-add_path="/{{(in_array($module_info['module'],['offers','industries','career','team'])?$module_info['module'].'/':'')}}" placeholder="Url ..." value="{{($Article_details[$lang]->url ? $Article_details[$lang]->url : old('details.'.$lang.'.url') )}}">
 										  <div class="input-group-append">
-											<a href="" class="input-group-text re_url" title="Определить автоматически"><i class="fas fa-magic"></i></a>
+											<a href="" class="input-group-text re_url" title="Detect automatically"><i class="fas fa-magic"></i></a>
 											{{--<a href="" class="input-group-text to_page" title="Посмотреть" target="_blank"><i class="fas fa-desktop"></i></a>--}}
 										  </div>
 									  </div>
@@ -132,42 +132,42 @@
 							@if(empty($parent_article) && $Article->parent_id == 0 || in_array($module_info['module'],['articles','industries']))
 							<div class="col-md-{{ (in_array($module_info['module'],['projects']) ? '6' : '12') }}">
 							  <div class="form-group">
-								<label>Заголовок <span>[META тег &lt;TITLE&gt;, {{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][title]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="META-тег <title>">{{($Article_details[$lang]->title ? $Article_details[$lang]->title : old('details.'.$lang.'.title') )}}</textarea>
+								<label>Title <span>[META тег &lt;TITLE&gt;, {{$lang}}]</span></label>
+								<textarea name="details[{{$lang}}][title]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="META tag <title>">{{($Article_details[$lang]->title ? $Article_details[$lang]->title : old('details.'.$lang.'.title') )}}</textarea>
 							  </div>
 							</div>
 							<div class="col-md-3" @if(!in_array($module_info['module'],['-----'])) style="display: none;" @endif>
 							  <div class="form-group">
-								<label>Краткое название <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][short_name]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="Например, пункт меню">{{($Article_details[$lang]->short_name ? $Article_details[$lang]->short_name : old('details.'.$lang.'.short_name') )}}</textarea>
+								<label>Short name <span>[{{$lang}}]</span></label>
+								<textarea name="details[{{$lang}}][short_name]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="For example, a menu item">{{($Article_details[$lang]->short_name ? $Article_details[$lang]->short_name : old('details.'.$lang.'.short_name') )}}</textarea>
 							  </div>
 							</div>
                             @if(in_array($module_info['module'],['articles','blog']))
 							<div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Краткое название <span>[пункт меню, {{$lang}}]</span></label>
-                                    <textarea name="details[{{$lang}}][short_name]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="Краткое название">{{($Article_details[$lang]->short_name ? $Article_details[$lang]->short_name : old('details.'.$lang.'.short_name') )}}</textarea>
+                                    <label>Short name <span>[menu item, {{$lang}}]</span></label>
+                                    <textarea name="details[{{$lang}}][short_name]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="Short name">{{($Article_details[$lang]->short_name ? $Article_details[$lang]->short_name : old('details.'.$lang.'.short_name') )}}</textarea>
                                 </div>
 							</div>
                             @endif
                             @if(in_array($module_info['module'],['articles','blog', 'projects']))
 							<div class="col-md-6">
 							  <div class="form-group">
-								<label>Хлебные крошки <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][bread]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="Хлебные крошки">{{($Article_details[$lang]->bread ? $Article_details[$lang]->bread : old('details.'.$lang.'.bread') )}}</textarea>
+								<label>Breadcrumbs <span>[{{$lang}}]</span></label>
+								<textarea name="details[{{$lang}}][bread]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="Breadcrumbs">{{($Article_details[$lang]->bread ? $Article_details[$lang]->bread : old('details.'.$lang.'.bread') )}}</textarea>
 							  </div>
 							</div>
 							@endif
 							<div class="col-md-6">
 							  <div class="form-group">
-								<label>Краткое описание <span>[META тег &lt;desctiption&gt;, {{$lang}}]</span></label>
+								<label>Short description <span>[META тег &lt;desctiption&gt;, {{$lang}}]</span></label>
 								<textarea name="details[{{$lang}}][description]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="5" placeholder="META-тег <description>">{{($Article_details[$lang]->description ? $Article_details[$lang]->description : old('details.'.$lang.'.description') )}}</textarea>
 							  </div>
 							</div>
 							@if(in_array($module_info['module'],['articles','blog']))
 							<div class="col-md-6">
 							  <div class="form-group">
-								<label>Слоган <span>[под &lt;H1&gt; {{$lang}}]</span></label>
+								<label>Slogan <span>[under &lt;H1&gt; {{$lang}}]</span></label>
 								<textarea name="details[{{$lang}}][slogan]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="5" placeholder="Слоган (если есть)">{{($Article_details[$lang]->slogan ? $Article_details[$lang]->slogan : old('details.'.$lang.'.slogan') )}}</textarea>
 							  </div>
 							</div>
@@ -176,35 +176,8 @@
 							@if(in_array($module_info['module'],['projects']))
 							<div class="col-md-6">
 							  <div class="form-group">
-								<label>Cel projektu <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][annotation]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="5" placeholder="Cel projektu">{{($Article_details[$lang]->annotation ? $Article_details[$lang]->annotation : old('details.'.$lang.'.annotation') )}}</textarea>
-							  </div>
-							</div>
-							@endif
-
-							@if(in_array($module_info['module'],['projects']))
-							<div class="col-md-3">
-							  <div class="form-group">
-								<label>Kod <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][code]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="Например, 01">{{($Article_details[$lang]->code ? $Article_details[$lang]->code : old('details.'.$lang.'.code') )}}</textarea>
-							  </div>
-							</div>
-							<div class="col-md-3">
-							  <div class="form-group">
-								<label>Kwota dofinansowania <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][price]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="Например, 8 340 000 zł">{{($Article_details[$lang]->price ? $Article_details[$lang]->price : old('details.'.$lang.'.price') )}}</textarea>
-							  </div>
-							</div>
-							<div class="col-md-3">
-							  <div class="form-group">
-								<label>Okres zwrotu <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][long_time]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="Например, 36 miesięcy">{{($Article_details[$lang]->long_time ? $Article_details[$lang]->long_time : old('details.'.$lang.'.long_time') )}}</textarea>
-							  </div>
-							</div>
-							<div class="col-md-3">
-							  <div class="form-group">
-								<label>Oczekiwany zwrot <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][percent]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="Например, 17%">{{($Article_details[$lang]->percent ? $Article_details[$lang]->percent : old('details.'.$lang.'.percent') )}}</textarea>
+								<label>Annotation <span>[{{$lang}}]</span></label>
+								<textarea name="details[{{$lang}}][annotation]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="5" placeholder="Annotation">{{($Article_details[$lang]->annotation ? $Article_details[$lang]->annotation : old('details.'.$lang.'.annotation') )}}</textarea>
 							  </div>
 							</div>
 							@endif
@@ -215,7 +188,7 @@
 						@if(in_array($module_info['module'],['team']))
 							<div class="col-sm-12">
 							  <div class="form-group">
-								<label>Должность <span>[{{$lang}}]</span></label>
+								<label>Job title <span>[{{$lang}}]</span></label>
 								<textarea name="details[{{$lang}}][annotation]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="2" placeholder="">{{($Article_details[$lang]->annotation ? $Article_details[$lang]->annotation : old('details.'.$lang.'.annotation') )}}</textarea>
 							  </div>
 							</div>
@@ -233,7 +206,7 @@
 									{{$module_info['categories'][$Article->parent_id]['sub_fields']['annotation']['title']}}
 								@elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][request()->parent_id]['sub_fields']['annotation']['title']))
 									{{$module_info['categories'][request()->parent_id]['sub_fields']['annotation']['title']}}
-								@else Должность @endif<span>[{{$lang}}]</span></label>
+								@else Job title @endif<span>[{{$lang}}]</span></label>
 							<textarea name="details[{{$lang}}][annotation]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="5">{{($Article_details[$lang]->annotation ? $Article_details[$lang]->annotation : old('details.'.$lang.'.annotation') )}}</textarea>
 						  </div>
 						</div>
@@ -243,7 +216,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>
-                                        Файл презентации</label>
+                                        Presentation file</label>
                                     <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="details[{{$lang}}][file]" id="file">
                                     <label class="custom-file-label" for="file">Выбрать файл</label>
@@ -277,7 +250,7 @@
 									{{$module_info['categories'][$Article->parent_id]['sub_fields']['content']['title']}}
 								@elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][request()->parent_id]['sub_fields']['content']['title']))
 									{{$module_info['categories'][request()->parent_id]['sub_fields']['content']['title']}}
-								@else Описание @endif<span>[{{$lang}}]</span></label>
+								@else Description @endif<span>[{{$lang}}]</span></label>
 	                        <textarea name="details[{{$lang}}][content]" class="form-control editor" id="editor-{{$lang}}" rows="3">{{($Article_details[$lang]->content ? $Article_details[$lang]->content : old('details.'.$lang.'.content') )}}</textarea>
 	                      </div>
 	                    </div>
@@ -286,13 +259,13 @@
 						@if(in_array($module_info['module'],['industries']))
 	                    <div class="col-sm-12">
 	                      <div class="form-group">
-	                        <label>@if(!empty($module_info['fields']['content_2']['title'])) {{$module_info['fields']['content_2']['title']}} @else Дополнительное описание 2 @endif <span>[{{$lang}}]</span></label>
+	                        <label>@if(!empty($module_info['fields']['content_2']['title'])) {{$module_info['fields']['content_2']['title']}} @else Additional description 2 @endif <span>[{{$lang}}]</span></label>
 	                        <textarea name="details[{{$lang}}][content_2]" class="form-control editor" id="editor-2-{{$lang}}" rows="3" data-h="150">{{($Article_details[$lang]->content_2 ? $Article_details[$lang]->content_2 : old('details.'.$lang.'.content_2') )}}</textarea>
 	                      </div>
 	                    </div>
 	                    <div class="col-sm-12">
 	                      <div class="form-group">
-	                        <label>@if(!empty($module_info['fields']['content_3']['title'])) {{$module_info['fields']['content_3']['title']}} @else Дополнительное описание 3 @endif <span>[{{$lang}}]</span></label>
+	                        <label>@if(!empty($module_info['fields']['content_3']['title'])) {{$module_info['fields']['content_3']['title']}} @else Additional description 3 @endif <span>[{{$lang}}]</span></label>
 	                        <textarea name="details[{{$lang}}][content_3]" class="form-control editor" id="editor-3-{{$lang}}" rows="3" data-h="150">{{($Article_details[$lang]->content_3 ? $Article_details[$lang]->content_3 : old('details.'.$lang.'.content_3') )}}</textarea>
 	                      </div>
 	                    </div>
@@ -304,7 +277,7 @@
                 </div>
                </div>
            	    <div class="card-footer">
-                  <button type="submit" class="btn btn-info">Сохранить</button>
+                  <button type="submit" class="btn btn-info">Save</button>
                 </div>
               </div>
 
@@ -327,7 +300,7 @@
 						<div class="form-group">
 							<div class="custom-control custom-checkbox">
 							  <input name="active" class="custom-control-input" type="checkbox" id="active" name="active" value="1" @if (request()->routeIs($module_info['module'].'.create'))  {{'checked' }} @elseif ($Article->active) checked @endif>
-							  <label for="active" class="custom-control-label">Активная</label>
+							  <label for="active" class="custom-control-label">Active</label>
 							</div>
 						</div>
 
@@ -335,7 +308,7 @@
 						@if(in_array($module_info['module'],['career']) && !empty($employmenttypes))
 							<hr>
 							<div class="form-group">
-								<label>Вид занятости<span>:</span></label>
+								<label>Type of employment<span>:</span></label>
 								@foreach($employmenttypes as $employmenttype)
 									<div class="custom-control custom-checkbox ml-2">
 									  <input name="employmenttype[]" class="custom-control-input" type="checkbox" id="employmenttype_{{ $employmenttype }}" name="active" value="{{ $employmenttype }}" @if ($Article->employmenttype && in_array($employmenttype,json_decode($Article->employmenttype))) checked @endif>
@@ -343,7 +316,7 @@
 									</div>
 								@endforeach
 							</div>
-							<div class="ano">Параметр employmentType<br> Подробнее о видах занятости <a href="https://developers.google.com/search/docs/advanced/structured-data/job-posting?hl=ru" target="_blank">тут</a></div>
+							<div class="ano">Parameter employmentType<br> More about employment types <a href="https://developers.google.com/search/docs/advanced/structured-data/job-posting?hl=ru" target="_blank">тут</a></div>
 							<hr>
 						@endif
 
@@ -352,13 +325,13 @@
 						<div class="form-group">
 							<div class="custom-control custom-checkbox">
 							  <input name="in_nav" class="custom-control-input" type="checkbox" id="in_nav" name="in_nav" value="1" @if (request()->routeIs($module_info['module'].'.create'))  {{'checked' }} @elseif ($Article->in_nav) checked @endif>
-							  <label for="in_nav" class="custom-control-label">Отображать в главном меню</label>
+							  <label for="in_nav" class="custom-control-label">Show in main menu</label>
 							</div>
 						</div>
 					@endif
 						<div class="bootstrap-timepicker">
 						  <div class="form-group">
-		                    <label>Дата создания/публикации:</label>
+		                    <label>Date of creation/publication:</label>
 							<div class="input-group date" id="created_at" data-target-input="nearest">
 							  <input type="text" data-event_time name="created_at" class="form-control datetimepicker-input" data-target="#created_at" value="{{ request()->routeIs($module_info['module'].'.create') ? date('Y-m-d H:i:s') : $Article->created_at }}"  placeholder="2021-12-31 15:30:00"/>
 							  <div class="input-group-append" data-target="#created_at" data-toggle="datetimepicker">
@@ -369,8 +342,8 @@
 						</div>
 						@if(in_array($module_info['module'], ['articles','projects','faq','reviews','benefits','sections']))
 						  <div class="form-group">
-		                    <label>Позиция в списке:</label>
-							<input name="position" value="{{($Article->position ? $Article->position : old('position') )}}" type="text" class="form-control" placeholder="0 или пусто - выставится автомаически">
+		                    <label>Position in the list:</label>
+							<input name="position" value="{{($Article->position ? $Article->position : old('position') )}}" type="text" class="form-control" placeholder="0 or empty - set automatically">
 						  </div>
 						@endif
 
@@ -406,31 +379,31 @@
 
 						@if($module_info['module']=='articles')
                       <div class="form-group">
-                        <label>Шаблон:</label>
+                        <label>Template:</label>
                         <select class="form-control" name="template">
                         	<option value="article" @if($Article->template and $Article->template=='article') selected="selected" @endif>Single page</option>
-									<option value="main" @if($Article->template and $Article->template=='main') selected="selected" @endif>Main page</option>
-									<option value="offer_for_investor" @if($Article->template and $Article->template=='offer_for_investor') selected="selected" @endif>Offer for investor</option>
-									<option value="acquiring_an_investor" @if($Article->template and $Article->template=='acquiring_an_investor') selected="selected" @endif>Acquiring an investor</option>
+                            <option value="main" @if($Article->template and $Article->template=='main') selected="selected" @endif>Main page</option>
+                            <option value="offer_for_investor" @if($Article->template and $Article->template=='offer_for_investor') selected="selected" @endif>Offer for investor</option>
+                            <option value="acquiring_an_investor" @if($Article->template and $Article->template=='acquiring_an_investor') selected="selected" @endif>Acquiring an investor</option>
 
-									<option value="about_why_us" @if($Article->template and $Article->template=='about_why_us') selected="selected" @endif>About - Why us</option>
-									<option value="about_shop" @if($Article->template and $Article->template=='about_shop') selected="selected" @endif>About - Shop</option>
-									<option value="faq" @if($Article->template and $Article->template=='faq') selected="selected" @endif>About - FAQ</option>
-									<option value="services" @if($Article->template and $Article->template=='services') selected="selected" @endif>Services</option>
-									<option value="industries" @if($Article->template and $Article->template=='industries') selected="selected" @endif>Industries</option>
-									<option value="prices" @if($Article->template and $Article->template=='prices') selected="selected" @endif>Prices</option>
-									<option value="blog" @if($Article->template and $Article->template=='blog') selected="selected" @endif>Blog</option>
-									<option value="projects" @if($Article->template and $Article->template=='projects') selected="selected" @endif>Projects</option>
-									<option value="contacts" @if($Article->template and $Article->template=='contacts') selected="selected" @endif>Contacts</option>
-									<option value="team" @if($Article->template and $Article->template=='team') selected="selected" @endif>Team</option>
-									<option value="projects" @if($Article->template and $Article->template=='projects') selected="selected" @endif>Projects</option>
+                            <option value="about_why_us" @if($Article->template and $Article->template=='about_why_us') selected="selected" @endif>About - Why us</option>
+                            <option value="about_shop" @if($Article->template and $Article->template=='about_shop') selected="selected" @endif>About - Shop</option>
+                            <option value="faq" @if($Article->template and $Article->template=='faq') selected="selected" @endif>About - FAQ</option>
+                            <option value="services" @if($Article->template and $Article->template=='services') selected="selected" @endif>Services</option>
+                            <option value="industries" @if($Article->template and $Article->template=='industries') selected="selected" @endif>Industries</option>
+                            <option value="prices" @if($Article->template and $Article->template=='prices') selected="selected" @endif>Prices</option>
+                            <option value="blog" @if($Article->template and $Article->template=='blog') selected="selected" @endif>Blog</option>
+                            <option value="projects" @if($Article->template and $Article->template=='projects') selected="selected" @endif>Projects</option>
+                            <option value="contacts" @if($Article->template and $Article->template=='contacts') selected="selected" @endif>Contacts</option>
+                            <option value="team" @if($Article->template and $Article->template=='team') selected="selected" @endif>Team</option>
+                            <option value="projects" @if($Article->template and $Article->template=='projects') selected="selected" @endif>Projects</option>
 						</select>
                       </div>
 					   @endif
 
 						@if(!empty($Article->getSubTemplates($module_info['module'])))
 						<div class="form-group">
-							<label>Шаблон отрасли:</label>
+							<label>Industry template:</label>
 							<select class="form-control" name="sub_template">
 								<option value="">Не указано</option>
 								@foreach($Article->getSubTemplates($module_info['module']) as $sub_template)
@@ -450,10 +423,10 @@
 									{{$module_info['categories'][$Article->parent_id]['sub_fields']['files']['title']}}
 								@elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][request()->parent_id]['sub_fields']['content']['title']))
 									{{$module_info['categories'][request()->parent_id]['sub_fields']['files']['title']}}
-								@else Файлы @endif</label>
+								@else Files @endif</label>
 							<div class="custom-file">
 							  <input type="file" class="custom-file-input" name="files[]" id="files" multiple="multiple" >
-							  <label class="custom-file-label" for="files">Выбрать файлы</label>
+							  <label class="custom-file-label" for="files">Select files</label>
 							</div>
 							@if($Article->files)
 								<ul class="list_thumb as_files">
@@ -483,10 +456,10 @@
 									{{$module_info['categories'][$Article->parent_id]['sub_fields']['images']['title']}}
 								@elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][request()->parent_id]['sub_fields']['content']['title']))
 									{{$module_info['categories'][request()->parent_id]['sub_fields']['images']['title']}}
-								@else Фото @endif</label>
+								@else Photo @endif</label>
 							<div class="custom-file">
 							  <input type="file" class="custom-file-input" name="images[]" id="images" multiple="multiple" >
-							  <label class="custom-file-label" for="images">Выбрать фото</label>
+							  <label class="custom-file-label" for="images">Select photo</label>
 							</div>
 							@if(!empty($Article->images))
 								<ul class="list_thumb">
@@ -516,7 +489,7 @@
 									{{$module_info['categories'][$Article->parent_id]['sub_fields']['filepath']['title']}}
 								@elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][request()->parent_id]['sub_fields']['filepath']['title']))
 									{{$module_info['categories'][request()->parent_id]['sub_fields']['filepath']['title']}}
-								@else Фото @endif</label>
+								@else Photo @endif</label>
 							<div class="custom-file">
 							  <input type="file" class="custom-file-input" name="filepath" id="filepath">
 							  <label class="custom-file-label" for="filepath">Выбрать файл</label>
@@ -545,7 +518,7 @@
 									{{$module_info['categories'][$Article->parent_id]['sub_fields']['logopath']['title']}}
 								@elseif(in_array($module_info['module'],['sections']) && !empty($module_info['categories'][request()->parent_id]['sub_fields']['content']['title']))
 									{{$module_info['categories'][request()->parent_id]['sub_fields']['logopath']['title']}}
-								@else Описание @endif</label>
+								@else Description @endif</label>
 							<div class="custom-file">
 							  <input type="file" class="custom-file-input" name="logopath" id="logopath">
 							  <label class="custom-file-label" for="logopath">Выбрать файл</label>
@@ -567,7 +540,7 @@
 					@if(in_array($module_info['module'],['articles','offers']))
 					 @if((empty($parent_article) && $Article->parent_id == 0) || in_array($module_info['module'],['articles']))
 						<div class="form-group">
-                        <label>Возможность создавать дочерние страницы:</label>
+                        <label>Ability to create child pages:</label>
                         @if(in_array($module_info['module'],['articles','offers','team']))
 							<div class="custom-control custom-radio">
 							  <input class="custom-control-input" type="radio" id="sub_no" name="sub" @if (!$Article->id || $Article->sub=='no') checked @endif value="no">
@@ -600,7 +573,7 @@
 
 					@if(in_array($module_info['module'],['faq']))
 						<div class="form-group">
-                        <label>Категория:</label>
+                        <label>Category:</label>
 							@foreach(DATA::faqCategories as $key=>$val)
 							<div class="custom-control custom-radio">
 							  <input class="custom-control-input" type="radio" id="faq{{$key}}" name="faq_category" @if((!$Article->id && $loop->first) || $Article->faq_category==$key) checked @endif value="{{$key}}">
@@ -616,7 +589,7 @@
 
 						{{--
 						<div class="form-group">
-							<label>Категория:</label>
+							<label>Category:</label>
 							@foreach($module_info['categories'] as $key=>$val)
 							<div class="custom-control custom-radio">
 							  <input class="custom-control-input" type="radio" id="sections{{$key}}" name="section_id" @if((!$Article->id && $loop->first) || $Article->section_id==$key || (!empty(request()->section_id) && request()->section_id == $key)) checked @endif value="{{$key}}">
@@ -633,7 +606,7 @@
                 </div>
             </div>
            	    <div class="card-footer">
-                  <button type="submit" class="btn btn-info trigger_btn">Сохранить</button>
+                  <button type="submit" class="btn btn-info trigger_btn">Save</button>
                 </div>
 		   </div>
 

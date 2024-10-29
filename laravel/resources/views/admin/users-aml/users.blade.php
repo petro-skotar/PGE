@@ -22,10 +22,10 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
+
         <div class="row">
           <div class="col-12">
-          @if ($managers)		  
+          @if ($managers)
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Список пользователей {!! ($table_search ? '<span class="table_search_title">|<b>Результаты поиска</b>: <u>'.$table_search.'</u></span>':'') !!}</h3>
@@ -59,7 +59,7 @@
 						  </td>
 	                      <td class="align-middle">
 	                      	  <div class="btn-group">
-		                        <a href="{{route('users-aml.edit', $manager->id)}}" class="btn btn-sm btn-flat" title="Редактировать {{$manager->id}}"><i class="far fa-edit"></i></a>
+		                        <a href="{{route('users-aml.edit', $manager->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 								@if($manager->id==1)
 		                       	<button type="submit" class="btn btn-sm btn-flat disabled" title="Главного администратора нельзя удалить"><i class="far fa-trash-alt"></i></button>
 								@else
@@ -70,7 +70,7 @@
 								@endif
 		                      </div>
 	                      </td>
-	                    </tr>					 
+	                    </tr>
 				  @endforeach
                 </table>
               </div>
@@ -83,20 +83,20 @@
 				</div>
             @endif
               <!-- /.card-body -->
-               
-               
-             
+
+
+
             </div>
             <!-- /.card -->
             @endif
           </div>
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

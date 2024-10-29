@@ -8,7 +8,7 @@
 					<div class="fz_loagind_wrapper">
 						<div class="">
 							<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-							<p class="">Ожидайте, идет сохранение</p>
+							<p class="">Please wait, saving in progress</p>
 						</div>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 			@if(count($errors) > 0)
 			<div class="alert alert-danger alert-dismissible">
 			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			  <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+			  <h5><i class="icon fas fa-ban"></i> Error<</h5>
 					<ul>
 					@foreach ($errors->all() as $error)
 						<li>{!! $error !!}</li>
@@ -59,7 +59,7 @@
 				@endisset
 			</div>
 			@endisset
-					
+
         <div class="row">
          <div class="col-12 col-md-8">
                 @php $k=0 @endphp
@@ -82,7 +82,7 @@
 						  </td>
 	                      <td class="align-middle pr-2">
 							  <div class="btn-group">
-	                      	  <a href="" class="btn btn-sm btn-flat edit_napravlenia" title="Редактировать направление"><i class="far fa-edit"></i></a>
+	                      	  <a href="" class="btn btn-sm btn-flat edit_napravlenia" title="Edit"><i class="far fa-edit"></i></a>
 		                        <form action="{{ route('napravlenia_list.destroy', $napravlenia->id)}}" method="POST">
 									<input type="hidden" name="type" value="napravlenia" />
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
@@ -133,7 +133,7 @@
 									<tr>
 									  <td class="pl-3 pr-3 align-middle" style="padding: 5px 0; width: 100%; background: #f9f9f9;">
 										<b>{{$program->name}}</b>
-										
+
 										<form class="program_form hidden" action="{{ route('napravlenia_list.update', $program->id) }}" method="post"  enctype="multipart/form-data" id="form">@csrf
 											<input type="hidden" name="_method" value="put">
 											<input type="hidden" name="type" value="programs" />
@@ -162,11 +162,11 @@
 											  </div>
 											 </div>
 										</form>
-										
+
 									  </td>
 									  <td class="pl-0 pr-0 align-middle text-center" style="padding: 5px 0; background: #f9f9f9;">
 										  <div class="btn-group">
-										  <a href="" class="btn btn-sm btn-flat edit_programs" title="Редактировать программу"><i class="far fa-edit"></i></a>
+										  <a href="" class="btn btn-sm btn-flat edit_programs" title="Edit"><i class="far fa-edit"></i></a>
 											<form action="{{ route('napravlenia_list.destroy', $program->id)}}" method="POST">
 												<input type="hidden" name="type" value="programs" />
 												<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
@@ -243,7 +243,7 @@
 												</form>
 											</div>
 										</div>
-									  </td>									  
+									  </td>
 									 </tr>
 								</table>
 								<br>
@@ -262,9 +262,9 @@
 										  <div class="card-body">
 											<div class="tab-content" id="custom-tabs-four-tabContent">
 												<div class="row">
-												  <div class="col-12">													
+												  <div class="col-12">
 													  <div class="form-group">
-														<textarea name="name" required class="form-control" style="height: 127px;" placeholder="Название программы" />{{old('name')}}</textarea>															
+														<textarea name="name" required class="form-control" style="height: 127px;" placeholder="Название программы" />{{old('name')}}</textarea>
 													  </div>
 												  </div>
 											   </div>
@@ -283,8 +283,8 @@
 										 </div>
 									</form>
 								</div>
-							</td>                          
-	                    </tr>							
+							</td>
+	                    </tr>
 					</table>
               </div>
               <!-- /.card-body -->
@@ -306,7 +306,7 @@
 					<input type="hidden" name="type" value="napravlenia" />
 					<div class="card card-primary card-outline card-outline-tabs">
 					  <div class="card-header">
-						<h3 class="card-title">Создание нового направления</h3>
+						<h3 class="card-title">Creation нового направления</h3>
 					  </div>
 					  <div class="card-body">
 						<div class="tab-content" id="custom-tabs-four-tabContent">
@@ -335,11 +335,11 @@
 							</div>
 							@endforeach
 						  </div>
-						  
+
 					</div>
 					</div>
 						<div class="card-footer">
-						  <button type="submit" class="btn btn-info trigger_btn">Создать направление</button>
+						  <button type="submit" class="btn btn-info trigger_btn">Create a direction</button>
 						</div>
 				   </div>
 				</form>

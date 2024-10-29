@@ -14,7 +14,6 @@
                   <div class="prc">
                     <div class="pr_title">
                       <h1>{!! $article->details_one->name !!}</h1>
-                      <div class="pr_code">{!! $article->details_one->code !!}</div>
                     </div>
                   </div>
                 </div>
@@ -24,9 +23,6 @@
                     <div class="prc_m_desc">
                       <p class="pr_b"> <span>@if(!empty(App\Models\Article::getArticle(55)->details_one->name)){!! App\Models\Article::getArticle(55)->details_one->name !!}:@endif</span></p>
                       <p>{!! $article->details_one->annotation !!}</p>
-                      @if(!empty(App\Models\Article::getArticle(56)->details_one->name))<p class="pr_b"><span>{!! App\Models\Article::getArticle(56)->details_one->name !!}:</span><span>{!! $article->details_one->price !!}</span></p>@endif
-                      @if(!empty(App\Models\Article::getArticle(57)->details_one->name))<p class="pr_b"><span>{!! App\Models\Article::getArticle(57)->details_one->name !!}:</span><span>{!! $article->details_one->long_time !!}</span></p>@endif
-                      @if(!empty(App\Models\Article::getArticle(58)->details_one->name))<p class="pr_b"><span>{!! App\Models\Article::getArticle(58)->details_one->name !!}:</span><span>{!! $article->details_one->percent !!}</span></p>@endif
                       @if(!empty(App\Models\Article::getArticle(84)->details_one->name) && !empty($article->details_one->file) && File::exists('storage/'.$article->details_one->file))<a href="{!! asset('storage/'.$article->details_one->file) !!}" class="proects_presentation" target="_blank"><img src="{{ asset('templates/dist/img/icon/download-arrow.svg') }}" alt="Polityka inwestycyjna"><span>{!! App\Models\Article::getArticle(84)->details_one->name !!}</span></a>@endif
                     </div>
                   </div>

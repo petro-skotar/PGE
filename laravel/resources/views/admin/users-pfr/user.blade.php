@@ -11,7 +11,7 @@
 		<div class="fz_loagind_wrapper">
 			<div class="">
 				<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-				<p class="">Ожидайте, идет сохранение</p>
+				<p class="">Please wait, saving in progress</p>
 			</div>
 		</div>
 	</div>
@@ -20,11 +20,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Государства ПФР <span>/ {{ Config::get('cms.modules.uchastniki-pfr.sub.users-pfr.name') }}</span> <span>- {{ request()->routeIs('users-pfr.edit') ? 'Редактирование': ''}} {{ request()->routeIs('users-pfr.create') ? 'Создание' : ''}}</span></h1>
+            <h1 class="m-0 text-dark">Государства ПФР <span>/ {{ Config::get('cms.modules.uchastniki-pfr.sub.users-pfr.name') }}</span> <span>- {{ request()->routeIs('users-pfr.edit') ? 'Editing': ''}} {{ request()->routeIs('users-pfr.create') ? 'Creation' : ''}}</span></h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
-            <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Сохранить</button>            
-			<a href="{{route('users-pfr.index')}}" class="btn btn-primary float-right">Назад</a>
+            <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Save</button>
+			<a href="{{route('users-pfr.index')}}" class="btn btn-primary float-right">Back</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -38,7 +38,7 @@
         @if(count($errors) > 0)
 		<div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+          <h5><i class="icon fas fa-ban"></i> Error<</h5>
 				<ul>
 				@foreach ($errors->all() as $error)
 					<li>{!! $error !!}</li>
@@ -69,12 +69,12 @@
         <div class="row">
           <div class="col-12 col-sm-6">
             <div class="card card-primary card-outline card-outline-tabs">
-              <div class="card-header">                
+              <div class="card-header">
 				<h3 class="card-title">Данные</h3>
               </div>
               <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
-                  
+
 				  <div class="form-group">
 					<label>Фамилия *</label>
 					<input name="surname" value="{{($manager->surname ? $manager->surname : old('surname') )}}" required type="text" class="form-control" placeholder="">
@@ -96,7 +96,7 @@
 					<input name="email" required value="{{($manager->email ? $manager->email : old('email') )}}" @if($manager->id == 1)disabled @endif type="text" class="form-control" placeholder="Email (для входа)">
 				  </div>
 				  <div class="form-group">
-					<label>Должность *</label>
+					<label>Job title *</label>
 					<input name="post" value="{{($manager->post ? $manager->post : old('post') )}}" required type="text" class="form-control" placeholder="">
 				  </div>
 				  <div class="form-group">
@@ -112,14 +112,14 @@
 						</div>
 					</div>
 				  </div>
-				  
-						
+
+
                 </div>
               </div>
               <!-- /.card -->
 
            	    <div class="card-footer">
-                  <button type="submit" class="btn btn-info">Сохранить</button>
+                  <button type="submit" class="btn btn-info">Save</button>
                 </div>
             </div>
           </div>
@@ -157,8 +157,8 @@
 						<label>Росударство ПФР *</label>
 						<select class="form-control select2" required name="pfr_artile_id">
 						<option value="0">-- Не указано --</option>
-						@foreach ($organizations as $r)							
-							<option value="{{$r->id}}" @if(!empty($r->uchastniki_pfr_connect_user->id) && $manager->pfr_artile_id != $r->id) disabled title="К этой организации уже привязан другой пользователь: {{$r->uchastniki_pfr_connect_user->surname}} {{$r->uchastniki_pfr_connect_user->name}} {{$r->uchastniki_pfr_connect_user->patronymic}}" @endif @if($manager->pfr_artile_id == $r->id) selected @endif>{{$r->details_one->name}}</option>							
+						@foreach ($organizations as $r)
+							<option value="{{$r->id}}" @if(!empty($r->uchastniki_pfr_connect_user->id) && $manager->pfr_artile_id != $r->id) disabled title="К этой организации уже привязан другой пользователь: {{$r->uchastniki_pfr_connect_user->surname}} {{$r->uchastniki_pfr_connect_user->name}} {{$r->uchastniki_pfr_connect_user->patronymic}}" @endif @if($manager->pfr_artile_id == $r->id) selected @endif>{{$r->details_one->name}}</option>
 						@endforeach
 						</select>
                      </div>
@@ -167,10 +167,10 @@
                 </div>
             </div>
            	    <div class="card-footer">
-                  <button type="submit" class="btn btn-info trigger_btn">Сохранить</button>
+                  <button type="submit" class="btn btn-info trigger_btn">Save</button>
                 </div>
 		   </div>
-           
+
 		  </div>
 
 

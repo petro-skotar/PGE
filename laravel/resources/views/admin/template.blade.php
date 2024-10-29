@@ -51,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../" target="_blank" class="nav-link">На сайт</a>
+        <a href="../" target="_blank" class="nav-link">Go to website</a>
       </li>
 	  {{--
 	  @if(Auth::user()->id == 1)
@@ -78,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<form method="POST" action="{{ route('logout') }}">
 			@csrf
 			<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-				<i class="fas fa-sign-out-alt"></i> Выйти
+				<i class="fas fa-sign-out-alt"></i> Log out
 			</a>
 		</form>
       </li>
@@ -195,9 +195,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('adm/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('adm/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- Редактор -->
+<!-- Editor -->
 <script src="{{ asset('adm/plugins/ckeditor/ckeditor.js') }}"></script>
-<!-- файлы -->
+<!-- Files -->
 <script src="{{ asset('adm/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- Select2 -->
 <script src="{{ asset('adm/plugins/select2/js/select2.full.min.js') }}"></script>

@@ -8,13 +8,13 @@
 					<div class="fz_loagind_wrapper">
 						<div class="">
 							<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-							<p class="">Ожидайте, идет сохранение</p>
+							<p class="">Please wait, saving in progress</p>
 						</div>
 					</div>
 				</div>
-				
-				
-					
+
+
+
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -34,7 +34,7 @@
 					@if(count($errors) > 0)
 					<div class="alert alert-danger alert-dismissible">
 					  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					  <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+					  <h5><i class="icon fas fa-ban"></i> Error<</h5>
 							<ul>
 							@foreach ($errors->all() as $error)
 								<li>{!! $error !!}</li>
@@ -63,7 +63,7 @@
 					@endisset
         <div class="row">
          <div class="col-12 col-sm-8">
-          @if ($ReestrAML)		  
+          @if ($ReestrAML)
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Список файлов {!! ($table_search ? '<span class="table_search_title">|<b>Результаты поиска</b>: <u>'.$table_search.'</u></span>':'') !!}</h3>
@@ -97,7 +97,7 @@
 		                      </div>
 	                      </td>
 	                    </tr>
-					 
+
 				  @endforeach
                 </table>
               </div>
@@ -112,28 +112,28 @@
 				</div>
             @endif
               <!-- /.card-body -->
-               
+
             </div>
             <!-- /.card -->
             @endif
-			
-			
+
+
           </div>
-			
+
          <div class="col-12 col-sm-4">
 		<form action="{{ request()->routeIs('reestr-aml.create') ? route('reestr-aml.store'): ''}}" method="post"  enctype="multipart/form-data" id="form">@csrf
 					<div class="card card-primary card-outline card-outline-tabs">
-					  <div class="card-header">                
+					  <div class="card-header">
 						<h3 class="card-title">Загрузка нового файла</h3>
 					  </div>
 					  <div class="card-body">
 						<div class="tab-content" id="custom-tabs-four-tabContent">
-						  
+
 						  <div class="form-group">
 							<label>Имя файла *</label>
 							<input name="name" value="{{old('name')}}" required type="text" class="form-control">
 						  </div>
-								
+
 							<div class="form-group">
 								<label>Файл *</label>
 								<div class="custom-file">
@@ -149,14 +149,14 @@
 				   </div>
 			</form>
 				  </div>
-			
+
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

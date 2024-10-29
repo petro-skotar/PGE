@@ -49,10 +49,6 @@ class CreateArticlesTable extends Migration
             $table->text('content')->nullable(true);
             $table->text('content_2')->nullable(true);
             $table->text('content_3')->nullable(true);
-            $table->string('code',255)->nullable(true)->default('');
-            $table->string('price',255)->nullable(true)->default('');
-            $table->string('long_time',255)->nullable(true)->default('');
-            $table->string('percent',255)->nullable(true)->default('');
             $table->timestamps();
         });
     }

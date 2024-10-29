@@ -8,7 +8,7 @@
 		<div class="fz_loagind_wrapper">
 			<div class="">
 				<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-				<p class="">Ожидайте, идет сохранение</p>
+				<p class="">Please wait, saving in progress</p>
 			</div>
 		</div>
 	</div>
@@ -31,7 +31,7 @@
 					@if(count($errors) > 0)
 					<div class="alert alert-danger alert-dismissible">
 					  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					  <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+					  <h5><i class="icon fas fa-ban"></i> Error<</h5>
 							<ul>
 							@foreach ($errors->all() as $error)
 								<li>{!! $error !!}</li>
@@ -60,7 +60,7 @@
 					@endisset
         <div class="row">
          <div class="col-12">
-          @if ($ReestrAML)		  
+          @if ($ReestrAML)
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Список файлов {!! ($table_search ? '<span class="table_search_title">|<b>Результаты поиска</b>: <u>'.$table_search.'</u></span>':'') !!}</h3>
@@ -83,7 +83,7 @@
 						<tr data-id="{{$item->id}}" data-url="{{route('reestr-aml.update', $item->id)}}" >
 							<td class="align-middle ucolor" colspan="3">
 								@if(!empty($item->aml_artile_id))
-								<span class="handle">	
+								<span class="handle">
 									<i class="far fa-building"></i>
 								</span> &nbsp;
 									<b>{{ $item->organization_aml($item->aml_artile_id)->details_one->name }}</b>
@@ -99,7 +99,7 @@
 	                      <td class="align-middle pl-4 fs14 text-nowrap">
 							{{ Date::parse($item->created_at)->format('j F Y г. H:i') }}
 						  </td>
-	                    </tr>					 
+	                    </tr>
 				  @endforeach
                 </table>
               </div>
@@ -114,23 +114,23 @@
 				</div>
             @endif
               <!-- /.card-body -->
-               
+
             </div>
             <!-- /.card -->
             @endif
-			
-			
+
+
           </div>
-			
-         
-			
+
+
+
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

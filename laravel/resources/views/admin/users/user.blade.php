@@ -11,7 +11,7 @@
 		<div class="fz_loagind_wrapper">
 			<div class="">
 				<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-				<p class="">Ожидайте, идет сохранение</p>
+				<p class="">Please wait, saving in progress</p>
 			</div>
 		</div>
 	</div>
@@ -20,11 +20,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Пользователи <span>{{ request()->routeIs('users.edit') ? '(Редактирование)': ''}} {{ request()->routeIs('users.create') ? '(Создание)' : ''}}</span></h1>
+            <h1 class="m-0 text-dark">Пользователи <span>{{ request()->routeIs('users.edit') ? '(Editing)': ''}} {{ request()->routeIs('users.create') ? '(Creation)' : ''}}</span></h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
 			<button type="submit" class="btn btn-info float-right"><i class="icon fas fa-save"></i>&nbsp; Сохранить</button>
-			<a href="{{route('users.index')}}" class="btn btn-success float-right mr-2">Назад</a>			  
+			<a href="{{route('users.index')}}" class="btn btn-success float-right mr-2">Back</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -38,7 +38,7 @@
         @if(count($errors) > 0)
 		<div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+          <h5><i class="icon fas fa-ban"></i> Error<</h5>
 				<ul>
 				@foreach ($errors->all() as $error)
 					<li>{!! $error !!}</li>
@@ -46,7 +46,7 @@
 				</ul>
         </div>
 		@endif
-		
+
 		@if (!empty(Session::get('messages_save')))
 		<div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -69,12 +69,12 @@
         <div class="row">
           <div class="col-12 col-sm-8">
             <div class="card card-primary card-outline card-outline-tabs">
-              <div class="card-header">                
+              <div class="card-header">
 				<h3 class="card-title">Данные</h3>
               </div>
               <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
-                  
+
 				  <div class="form-group">
 					<label>Фамилия</label>
 					<input name="surname" value="{{($manager->surname ? $manager->surname : old('surname') )}}" type="text" class="form-control" placeholder="">
@@ -100,7 +100,7 @@
 					<input name="place_of_work" value="{{($manager->place_of_work ? $manager->place_of_work : old('place_of_work') )}}" required type="text" class="form-control" placeholder="">
 				  </div>
 				  <div class="form-group">
-					<label>Должность *</label>
+					<label>Job title *</label>
 					<input name="post" value="{{($manager->post ? $manager->post : old('post') )}}" required type="text" class="form-control" placeholder="">
 				  </div>
 				  <div class="form-group">
@@ -115,16 +115,16 @@
 					<label>Комментарий</label>
 					<textarea class="form-control" id="comments" rows="3" name="comments">{{($manager->comments ? $manager->comments : old('comments') )}}</textarea>
 				  </div>
-				  
-				 
-				  
-						
+
+
+
+
 					 <div class="form-group">
-							
+
 						<div class="input-group-append" style="display: none;">
 							<input name="password" value="" type="text" class="form-control @if(request()->routeIs('users.create')) auto_create_password @endif" placeholder="Новый пароль">
 							<a style="display: none1;" href="" class="input-group-text create_password" title="Сгенерировать пароль" target="_blank"><i class="fas fa-key"></i></a>
-						</div>					
+						</div>
 					@if(request()->routeIs('users.create'))
 						<div class="alert callout callout-info">
 						  <h5 class="h_only"><i class="icon fas fa-info"></i> Пароль будет создан автоматически и отправлен на почту пользователю</h5>
@@ -136,11 +136,11 @@
 							</div>
 						</div>
 					@endif
-						
+
 					</div>
-					
-				  
-						
+
+
+
                 </div>
               </div>
               <!-- /.card -->
@@ -158,7 +158,7 @@
                 </div>
             </div>
           </div>
-		
+
 		@if(!request()->routeIs('users.create'))
           <div class="col-12 col-sm-4">
 
@@ -192,10 +192,10 @@
                 </div>
             </div>
            	    <div class="card-footer">
-                  <button type="submit" class="btn btn-info">Сохранить</button>
+                  <button type="submit" class="btn btn-info">Save</button>
                 </div>
 		   </div>
-           
+
 		  </div>
 		@endif
 

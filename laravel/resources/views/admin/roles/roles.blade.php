@@ -22,10 +22,10 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
+
         <div class="row">
           <div class="col-12">
-          @if ($roles)		  
+          @if ($roles)
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Список ролей</h3>
@@ -53,7 +53,7 @@
 									<?php $rm_roles[] = $rm['module']; ?>
 		                        <?php } ?>
                      		</td>
-	                      <td class="align-middle full-width"><a href="{{route('roles.edit', $role->id)}}">{{$role->name}}</a></td>                      
+	                      <td class="align-middle full-width"><a href="{{route('roles.edit', $role->id)}}">{{$role->name}}</a></td>
 	                      <td class="align-middle text-center m_roles pl-30 pr-30">
 		                        <?php foreach (Config::get('cms.modules') as $mod=>$m){?>
 								<span class="config_role pl-10 <?php if(in_array($mod, $rm_roles)) echo 'active'; ?>" title="<?php echo $m['name'];?>"><i class="<?php echo $m['class-icon'];?>"></i></span>
@@ -61,7 +61,7 @@
 	                      </td>
 	                      <td class="align-middle">
 	                      	  <div class="btn-group">
-		                        <a href="{{route('roles.edit', $role->id)}}" class="btn btn-sm btn-flat" title="Редактировать {{$role->id}}"><i class="far fa-edit"></i></a>
+		                        <a href="{{route('roles.edit', $role->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 		                        @if($role->id==1)
 		                       	<button type="submit" class="btn btn-sm btn-flat disabled" title="Главного администратора нельзя удалить"><i class="far fa-trash-alt"></i></button>
 								@else
@@ -73,25 +73,25 @@
 		                      </div>
 	                      </td>
 	                    </tr>
-					 
+
 				  @endforeach
                 </table>
               </div>
               <!-- /.card-body -->
-               
-               
-             
+
+
+
             </div>
             <!-- /.card -->
             @endif
           </div>
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

@@ -22,10 +22,10 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
+
         <div class="row">
           <div class="col-12">
-          @if ($setting)		  
+          @if ($setting)
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Список</h3>
@@ -49,12 +49,12 @@
 		                      		<i class="fa fa-tasks"></i>
                      			</span>
                      		</td>
-	                      <td class="align-middle" style="min-width: 200px;"><a href="{{route('setting.edit', $val->id)}}">{{$val->desc}}</a></td>	                      
+	                      <td class="align-middle" style="min-width: 200px;"><a href="{{route('setting.edit', $val->id)}}">{{$val->desc}}</a></td>
 	                      <td class="align-middle">{{ ($val->val ? $val->val : ($val->files ? '/storage/'.$val->files[0] : '')) }}</td>
-	                      <td class="align-middle">{{$val->code}}</td>	                      
+	                      <td class="align-middle">{{$val->code}}</td>
 	                      <td class="align-middle">
 	                      	<div class="btn-group">
-		                        <a href="{{route('setting.edit', $val->id)}}" class="btn btn-sm btn-flat" title="Редактировать"><i class="far fa-edit"></i></a>
+		                        <a href="{{route('setting.edit', $val->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 		                        <form action="{{ route('setting.destroy' , $val->id)}}" method="POST">
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
 		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
@@ -62,25 +62,25 @@
 		                      </div>
 	                      </td>
 	                    </tr>
-					 
+
 				  @endforeach
                 </table>
               </div>
               <!-- /.card-body -->
-               
-               
-             
+
+
+
             </div>
             <!-- /.card -->
             @endif
           </div>
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

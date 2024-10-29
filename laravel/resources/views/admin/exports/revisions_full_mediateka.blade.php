@@ -7,15 +7,16 @@
         <th></th>
     </tr>
     <tr>
-        <th>Категория</th>
-        <th>Подкатегория</th>
-        <th>Документ</th>
-        <th>Ссылка на документ</th>
-        <th>Формат файла</th>
-        <th>Язык</th>
-        <th>Количество просмотров страницы документа</th>		
-        <th>Количество скачиваний/чтений файла</th>
-        <th>Доступен для скачивания</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Document</th>
+        <th>Document Link</th>
+        <th>File Format</th>
+        <th>Language</th>
+        <th>Document Page Views</th>
+
+        <th>File Downloads/Reads</th>
+        <th>Available for Download</th>
     </tr>
     </thead>
     <tbody>

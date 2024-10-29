@@ -20,9 +20,9 @@
 					</div>
 				  </form>
 					@if($type == 'categories')
-					<a href="{{route('mediateka.create')}}?type=category" class="btn btn-info float-right ml-2 mb-2 text-nowrap"><i class="fas fa-plus"></i> Создать раздел</a>
+					<a href="{{route('mediateka.create')}}?type=category" class="btn btn-info float-right ml-2 mb-2 text-nowrap"><i class="fas fa-plus"></i> Create a section</a>
 					@else
-					<a href="{{route('mediateka.create')}}?type=document{{(!empty($_GET['parent_id']) ? '&parent_id='.$_GET['parent_id'] : '')}}" class="btn btn-info float-right ml-2 mb-2 text-nowrap"><i class="fas fa-plus"></i> Создать новый документ</a>
+					<a href="{{route('mediateka.create')}}?type=document{{(!empty($_GET['parent_id']) ? '&parent_id='.$_GET['parent_id'] : '')}}" class="btn btn-info float-right ml-2 mb-2 text-nowrap"><i class="fas fa-plus"></i> Create a new document</a>
 					@endif
 					<!-- a href="{{route('mediateka.create')}}?type=document{{(!empty($_GET['parent_id']) ? '&parent_id='.$_GET['parent_id'] : '')}}" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Создать документ</a>-->
 			  </div>
@@ -35,106 +35,106 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
+
         <div class="row">
           <div class="col-12">
 			  @if (!empty($MediatekaCategories))
-						 
+
 				<div class="card">
 				  <div class="card-header">
 					<h3 class="card-title">Список разделов</h3>
-										
+
 				  </div>
 				  <!-- /.card-header -->
 				  <div class="card-body table-responsive p-0">
 					<table class="table table-sm table-hover text-nowrap listing ui-sortable">
-						@include('admin.mediateka.item_categories', ['MediatekaCategories' => $MediatekaCategories])				
+						@include('admin.mediateka.item_categories', ['MediatekaCategories' => $MediatekaCategories])
 					</table>
 				  </div>
-				  <!-- /.card-body -->               
-				  
+				  <!-- /.card-body -->
+
 					<div class="card-footer">
-						<div class="row">	
-							<div class="col-sm-12">	
-								<a href="{{route('mediateka.create')}}?type=category" class="btn btn-info"><i class="fas fa-plus"></i> Создать раздел</a>
+						<div class="row">
+							<div class="col-sm-12">
+								<a href="{{route('mediateka.create')}}?type=category" class="btn btn-info"><i class="fas fa-plus"></i> Create a section</a>
 							</div>
 						</div>
-					</div>			
+					</div>
 				</div>
 				<!-- /.card -->
-				
+
 			  @endif
-			  
+
 			  @if (!empty($MediatekaCategories_for_Events))
-						 
+
 				<div class="card">
 				  <div class="card-header">
 					<h3 class="card-title">Список документов мероприятий</h3>
-					
-					
+
+
 				  </div>
 				  <!-- /.card-header -->
 				  <div class="card-body table-responsive p-0">
 					<table class="table table-sm table-hover text-nowrap listing ui-sortable">
-						@include('admin.mediateka.item_categories', ['MediatekaCategories' => $MediatekaCategories_for_Events])				
+						@include('admin.mediateka.item_categories', ['MediatekaCategories' => $MediatekaCategories_for_Events])
 					</table>
 				  </div>
-				  <!-- /.card-body -->               
-				  
+				  <!-- /.card-body -->
+
 					<div class="card-footer">
-						<div class="row">	
-							<div class="col-sm-12">	
-								<a href="{{route('mediateka.create')}}?type=category" class="btn btn-info"><i class="fas fa-plus"></i> Создать раздел</a>
+						<div class="row">
+							<div class="col-sm-12">
+								<a href="{{route('mediateka.create')}}?type=category" class="btn btn-info"><i class="fas fa-plus"></i> Create a section</a>
 							</div>
 						</div>
-					</div>			
+					</div>
 				</div>
 				<!-- /.card -->
-				
+
 			@endif
-			
-			@if ($type=='documents')			
-			
+
+			@if ($type=='documents')
+
 				<div class="card">
 				  <!-- /.card-header -->
 					@if($documents->count())
 					  @include('admin.mediateka.item_document', ['documents' => $documents])
 					@else
 					  <div class="card-body table-responsive">
-						<div class="row">	
-							<div class="col-sm-12">	
+						<div class="row">
+							<div class="col-sm-12">
 								@if(!$table_search)
 									<p>В этом разделе еще нет документов.</p>
 								@else
 									<p>По вашему запросу ничего не найдено.</p>
-								@endif							
+								@endif
 							</div>
 						</div>
 					  </div>
 					@endif
-					
+
 					@if(!$table_search)
 					<div class="card-footer">
-						<div class="row">	
-							<div class="col-sm-12">	
-								<a href="{{route('mediateka.create')}}?type=document{{(!empty($_GET['parent_id']) ? '&parent_id='.$_GET['parent_id'] : '')}}" class="btn btn-info"><i class="fas fa-plus"></i> Создать новый документ</a>
+						<div class="row">
+							<div class="col-sm-12">
+								<a href="{{route('mediateka.create')}}?type=document{{(!empty($_GET['parent_id']) ? '&parent_id='.$_GET['parent_id'] : '')}}" class="btn btn-info"><i class="fas fa-plus"></i> Create a new document</a>
 							</div>
 						</div>
 					</div>
 					@endif
-				  <!-- /.card-body -->               
+				  <!-- /.card-body -->
 				   {{ $documents->appends(request()->query())->links('vendor.pagination.tailwind') }}
 				</div>
-				
+
             @endif
           </div>
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

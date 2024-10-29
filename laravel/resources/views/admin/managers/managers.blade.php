@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Администраторы сайта</h1>
+            <h1 class="m-0 text-dark">Site administrators</h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
             <a href="{{route('managers.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Создать</a>
@@ -22,13 +22,13 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
+
         <div class="row">
           <div class="col-12">
-          @if ($managers)		  
+          @if ($managers)
             <div class="card">
 			  <div class="card-header">
-                <h3 class="card-title">Список администраторов {!! ($table_search ? '<span class="table_search_title">|<b>Результаты поиска</b>: <u>'.$table_search.'</u></span>':'') !!}</h3>
+                <h3 class="card-title">List of administrators {!! ($table_search ? '<span class="table_search_title">|<b>Результаты поиска</b>: <u>'.$table_search.'</u></span>':'') !!}</h3>
                 <div class="card-tools">
                   <form class="input-group input-group-sm" style="width: 150px;" action="{{ route('managers.index') }}" method="GET">
                     <input type="text" name="table_search" class="form-control float-right" value="{{ $table_search }}" placeholder="Найти">
@@ -57,12 +57,12 @@
 							<div class="custom-control custom-switch ajax_check">
 							  <input type="checkbox" @if ($manager->active)checked="checked" @endif class="custom-control-input active" name="active" id="active{{$manager->id}}">
 							  <label class="custom-control-label" for="active{{$manager->id}}"></label>
-							</div>                      	
+							</div>
 							@endif
 						  </td>
 	                      <td class="align-middle">
 	                      	  <div class="btn-group">
-		                        <a href="{{route('managers.edit', $manager->id)}}" class="btn btn-sm btn-flat" title="Редактировать {{$manager->id}}"><i class="far fa-edit"></i></a>
+		                        <a href="{{route('managers.edit', $manager->id)}}" class="btn btn-sm btn-flat" title="Edit {{$manager->id}}"><i class="far fa-edit"></i></a>
 								@if($manager->id==1)
 		                       	<button type="submit" class="btn btn-sm btn-flat disabled" title="Главного администратора нельзя удалить"><i class="far fa-trash-alt"></i></button>
 								@else
@@ -74,7 +74,7 @@
 		                      </div>
 	                      </td>
 	                    </tr>
-					 
+
 				  @endforeach
                 </table>
               </div>
@@ -87,20 +87,20 @@
 				</div>
             @endif
               <!-- /.card-body -->
-               
-               
-             
+
+
+
             </div>
             <!-- /.card -->
             @endif
           </div>
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

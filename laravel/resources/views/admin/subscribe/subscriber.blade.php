@@ -12,7 +12,7 @@
 		<div class="fz_loagind_wrapper">
 			<div class="">
 				<img src="{{ asset('adm/dist/img/loading.gif') }}" />
-				<p class="">Ожидайте, идет сохранение</p>
+				<p class="">Please wait, saving in progress</p>
 			</div>
 		</div>
 	</div>
@@ -21,11 +21,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Подписчики <span>{{ request()->routeIs('subscribe.edit') ? '(Редактирование)': ''}} {{ request()->routeIs('subscribe.create') ? '(Создание)' : ''}}</span></h1>
+            <h1 class="m-0 text-dark">Подписчики <span>{{ request()->routeIs('subscribe.edit') ? '(Editing)': ''}} {{ request()->routeIs('subscribe.create') ? '(Creation)' : ''}}</span></h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
-            <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Сохранить</button>
-			<a href="{{route('subscribe.index')}}" class="btn btn-primary float-right">Назад</a>
+            <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Save</button>
+			<a href="{{route('subscribe.index')}}" class="btn btn-primary float-right">Back</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -39,7 +39,7 @@
         @if(count($errors) > 0)
 		<div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h5><i class="icon fas fa-ban"></i> Ошибка</h5>
+          <h5><i class="icon fas fa-ban"></i> Error<</h5>
 				<ul>
 				@foreach ($errors->all() as $error)
 					<li>{!! $error !!}</li>
@@ -82,7 +82,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Должность</label>
+                    <label>Job title</label>
                     <textarea name="position" rows="6" class="form-control" placeholder="">{{($subscribe->position ? $subscribe->position : old('position') )}}</textarea>
                 </div>
 
@@ -91,7 +91,7 @@
               <!-- /.card -->
 
            	    <div class="card-footer">
-                  <button type="submit" class="btn btn-info trigger_btn">Сохранить</button>
+                  <button type="submit" class="btn btn-info trigger_btn">Save</button>
                 </div>
 
             </div>
@@ -107,7 +107,7 @@
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
                           <input name="active" class="custom-control-input" type="checkbox" id="active" name="active" value="1" @if (request()->routeIs('subscribe.create'))  {{'checked' }} @elseif ($subscribe->active) checked @endif>
-                          <label for="active" class="custom-control-label">Активная</label>
+                          <label for="active" class="custom-control-label">Active</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info trigger_btn">Сохранить</button>
+                    <button type="submit" class="btn btn-info trigger_btn">Save</button>
                 </div>
             </div>
           </div>

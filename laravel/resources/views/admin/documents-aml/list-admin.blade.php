@@ -22,10 +22,10 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
+
         <div class="row">
           <div class="col-12">
-          @if ($documents)		  
+          @if ($documents)
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Список документов {!! ($table_search ? '<span class="table_search_title">|<b>Результаты поиска</b>: <u>'.$table_search.'</u></span>':'') !!}</h3>
@@ -64,7 +64,7 @@
 					  <td class="align-middle text-right">@if ($document->filepath)<a href="{{route('download_aml_files',$document->code())}}" class="btn btn-sm btn-flat" title="Скачать документ" target="_blank"><i class="fa fa-download"></i></a>@endif</td>
 					  <td class="align-middle">
 						  <div class="btn-group">
-							<a href="{{route('documents-aml.edit', $document->id)}}" class="btn btn-sm btn-flat" title="Редактировать {{$document->id}}"><i class="far fa-edit"></i></a>
+							<a href="{{route('documents-aml.edit', $document->id)}}" class="btn btn-sm btn-flat" title="Edit {{$document->id}}"><i class="far fa-edit"></i></a>
 							@if($document->id==1)
 							<button type="submit" class="btn btn-sm btn-flat disabled" title="Главного администратора нельзя удалить"><i class="far fa-trash-alt"></i></button>
 							@else
@@ -75,7 +75,7 @@
 							@endif
 						  </div>
 					  </td>
-					</tr>					 
+					</tr>
 				  @endforeach
                 </table>
               </div>
@@ -88,20 +88,20 @@
 				</div>
             @endif
               <!-- /.card-body -->
-               
-               
-             
+
+
+
             </div>
             <!-- /.card -->
             @endif
           </div>
         </div>
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 @endsection

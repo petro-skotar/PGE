@@ -13,20 +13,20 @@ class StartDATA extends Migration
      */
     public function up()
     {
-        # === Главный администратор ===
+        # === Main administrator ===
 		DB::table('users')->insert(array(
-			'email' => 'info@example.com',
-			'password' => '$2y$10$ObdB6ZIjx8hGgxsGfFYNs.m2ilC.CJFPbRrIRAC8x5o7AmZxziDCa', //admin@123
+			'email' => env('ROOT_EMAIL'),
+			'password' => env('ROOT_PASSWORD'),
 			'name' => 'Admin',
 			'role' => 'admin',
 			'role_id' => 1,
 			'active' => 1,
 		));
-			# Роли
+			# Roles
 			DB::table('roles')->insert(array(
 				'name' => 'Administrator',
 			));
-			# Открываем доступ до модулей
+			# Opening access to modules
 			DB::table('roles_modules')->insert(array(
 				[
 					'role_id' => 1,
@@ -95,17 +95,11 @@ class StartDATA extends Migration
 				],
 			));
 
-		# Настройки
+		# Settings
 		DB::table('setting')->insert(array(
 			'desc' => 'Main email',
 			'code' => 'system_email',
-			'val' => 'info@example.com',
-			'module' => 'custom',
-		));
-		DB::table('setting')->insert(array(
-			'desc' => 'Email Trello',
-			'code' => 'trello_email',
-			'val' => 'YOURCODE@boards.trello.com',
+			'val' => env('ROOT_EMAIL'),
 			'module' => 'custom',
 		));
 		DB::table('setting')->insert(array(
@@ -121,7 +115,7 @@ class StartDATA extends Migration
 			'module' => 'custom',
 		));
 		DB::table('setting')->insert(array(
-			'desc' => 'The code immediately after... <body>',
+			'desc' => 'The code immediately after <body>',
 			'code' => 'code_body',
 			'val' => '',
 			'module' => 'custom',
@@ -133,52 +127,28 @@ class StartDATA extends Migration
 			'module' => 'contacts',
 		));
 		DB::table('setting')->insert(array(
-			'desc' => 'Контакт Email',
+			'desc' => 'Contact Email',
 			'code' => 'contact_email',
-			'val' => 'info@example.com',
+			'val' => env('ROOT_EMAIL'),
 			'module' => 'contacts',
 		));
 		DB::table('setting')->insert(array(
-			'desc' => 'Контакт Instagram',
+			'desc' => 'Contact Instagram',
 			'code' => 'contact_instagram',
 			'val' => 'Instagram',
 			'module' => 'contacts',
 		));
 		DB::table('setting')->insert(array(
-			'desc' => 'Контакт Facebook',
+			'desc' => 'Contact Facebook',
 			'code' => 'contact_facebook',
 			'val' => 'Facebook',
 			'module' => 'contacts',
 		));
-		DB::table('setting')->insert(array(
-			'desc' => 'Контакт WhatsApp',
-			'code' => 'contact_whatsapp',
-			'val' => '',
-			'module' => 'contacts',
-		));
-		DB::table('setting')->insert(array(
-			'desc' => 'Контакт Telegram',
-			'code' => 'contact_telegram',
-			'val' => '',
-			'module' => 'contacts',
-		));
-		DB::table('setting')->insert(array(
-			'desc' => 'Контакт Youtube',
-			'code' => 'contact_youtube',
-			'val' => '',
-			'module' => 'contacts',
-		));
-		DB::table('setting')->insert(array(
-			'desc' => 'Контакт Skype',
-			'code' => 'contact_skype',
-			'val' => '',
-			'module' => 'contacts',
-		));
 
 
-		# КОНТЕНТ
+		# CONTENT
 
-		# === Главная страница ===
+		# === Home page ===
 		DB::table('articles')->insert(array(
 			'id' => 1,
 			'parent_id' => 0,
@@ -283,10 +253,6 @@ class StartDATA extends Migration
 						'url' => 'innovative-e-commerce-platform',
 						'annotation' => 'Development and launch of a modern marketplace platform offering a wide range of products from sellers throughout Europe.',
 						'content' => '<p>Global rising popularity of the e-commere market simultaneously leads to the growth of business potential for marketplaces: platforms that offer products from many online sellers available in one place. From the perspective of entities conducting online sales this is an excellent opportunity to increase the number of customers, without the need of large financial investments, including costs related to marketing activities, in particular. Based on the currently available data and projected amounts, the market size can be calculated up until 2025.</p>',
-						'code' => '01',
-						'price' => '8 340 000 zł',
-						'long_time' => '36 months',
-						'percent' => '17%',
 					));
 				$parent_id = 0;
 				$new_id = 9;
@@ -304,10 +270,6 @@ class StartDATA extends Migration
 						'url' => 'project-for-construction-of-suburban-bio-houses',
 						'annotation' => 'Construction of suburban wooden houses ideal for year-round residence.',
 						'content' => '<p>In recent years we observe an increased demand for short-term suburban rental housing. Based on the available data, the average annual growth rate of the market is about 12%. The main factor influencing the high scale of profitability of this type of investment is the convenient location and surrounding infrastructure of the facility. With the growing awareness, consumers are demanding more ecological & climate-friendly products and services. Nowadays, from the very first stage of planning and project implementation, it is important to select sustainable materials used during the construction of the property. These materials must not only be harmless to the environment but also be durable and cost-efficient.</p>',
-						'code' => '02',
-						'price' => '3 900 000 zł',
-						'long_time' => '36 months',
-						'percent' => '14%',
 					));
 				$parent_id = 0;
 				$new_id = 10;
@@ -325,10 +287,6 @@ class StartDATA extends Migration
 						'url' => 'construction-of-a-steel-structures-production-plan',
 						'annotation' => 'Construction of a factory near the Polish-German border, specializing in the production of steel structures.',
 						'content' => '<p>The factory is planned be located in West Pomeranian Voivodeship in Poland, about 25 km from the German border and approximately 100 km away from Berlin.</p><p>In the Federal Republic of Germany, the steel structure market maintains a stable level of demand. In fact, its importance seems to be growing every year, given the global deficits in the general availability of raw materials. Due to limited domestic supply, German companies import 40% to 60% of steel from other countries.</p><p>Therefore the convenient location of the planned factory in the West Pomeranian Voivodeship will allow the export of nearly 90% of the manufactured products to Western Europe, the Federal Republic of Germany in particular. </p>',
-						'code' => '03',
-						'price' => '9 600 000 zł',
-						'long_time' => '48 months',
-						'percent' => '15%',
 					));
 
 /*
@@ -474,10 +432,6 @@ class StartDATA extends Migration
                     'url' => 'blog-post-1',
                     'annotation' => 'Development and launch of a modern marketplace platform offering a wide range of products from sellers throughout Europe.',
                     'content' => '<p>Global rising popularity of the e-commere market simultaneously leads to the growth of business potential for marketplaces: platforms that offer products from many online sellers available in one place. From the perspective of entities conducting online sales this is an excellent opportunity to increase the number of customers, without the need of large financial investments, including costs related to marketing activities, in particular. Based on the currently available data and projected amounts, the market size can be calculated up until 2025.</p>',
-                    'code' => '01',
-                    'price' => '8 340 000 zł',
-                    'long_time' => '36 months',
-                    'percent' => '17%',
                 ));
             $parent_id = 0;
             $new_id++;
@@ -495,10 +449,6 @@ class StartDATA extends Migration
                     'url' => 'blog-post-2',
                     'annotation' => 'Construction of suburban wooden houses ideal for year-round residence.',
                     'content' => '<p>In recent years we observe an increased demand for short-term suburban rental housing. Based on the available data, the average annual growth rate of the market is about 12%. The main factor influencing the high scale of profitability of this type of investment is the convenient location and surrounding infrastructure of the facility. With the growing awareness, consumers are demanding more ecological & climate-friendly products and services. Nowadays, from the very first stage of planning and project implementation, it is important to select sustainable materials used during the construction of the property. These materials must not only be harmless to the environment but also be durable and cost-efficient.</p>',
-                    'code' => '02',
-                    'price' => '3 900 000 zł',
-                    'long_time' => '36 months',
-                    'percent' => '14%',
                 ));
             $parent_id = 0;
             $new_id++;
@@ -516,10 +466,6 @@ class StartDATA extends Migration
                     'url' => 'blog-post-3',
                     'annotation' => 'Construction of a factory near the Polish-German border, specializing in the production of steel structures.',
                     'content' => '<p>The factory is planned be located in West Pomeranian Voivodeship in Poland, about 25 km from the German border and approximately 100 km away from Berlin.</p><p>In the Federal Republic of Germany, the steel structure market maintains a stable level of demand. In fact, its importance seems to be growing every year, given the global deficits in the general availability of raw materials. Due to limited domestic supply, German companies import 40% to 60% of steel from other countries.</p><p>Therefore the convenient location of the planned factory in the West Pomeranian Voivodeship will allow the export of nearly 90% of the manufactured products to Western Europe, the Federal Republic of Germany in particular. </p>',
-                    'code' => '03',
-                    'price' => '9 600 000 zł',
-                    'long_time' => '48 months',
-                    'percent' => '15%',
                 ));
 
 		// Get all the tables from your database

@@ -13,10 +13,10 @@ class StartSections extends Migration
      */
     public function up()
     {
-        
+
 		// $new_id = DB::table('articles')->max('id');
 		$new_id = 10;
-			
+
 		# 11 Dlaczego warto <br>w nas zainwestować? ========================================
 		$new_id++;
 		DB::table('articles')->insert(array(
@@ -102,8 +102,8 @@ class StartSections extends Migration
 						'annotation' => 'Business <br>relations',
 						'content' => '<p> Our knowledge on the equity market has allowed us to establish business contacts with experts in many industries. Thanks to them, we have secured support and assistance at all stages of the investment process.</p>',
 					));
-					
-			
+
+
 		# 15 JAK DZIAŁA FIN ASI ========================================
 		$new_id++;
 		DB::table('articles')->insert(array(
@@ -221,8 +221,8 @@ class StartSections extends Migration
 						'name' => 'Exit from the agreement',
 						'annotation' => 'Joint sales to a strategic investor, financial investor and IPO. Selling shares enables investors to achieve the best return on investment. The revenue results from the effect of complementarity, which generates additional value.',
 					));
-			
-			
+
+
 		# 21 NASZE MOCNE STRONY ========================================
 		$new_id++;
 		DB::table('articles')->insert(array(
@@ -362,8 +362,8 @@ class StartSections extends Migration
 						'name' => 'Communicativeness and openness',
 						'annotation' => 'Cooperation and ongoing contact with our clients makes us a trustworthy brand, and in addition. Once the agreement is signed, the investor officially works with FIN ASI, and has an insight into the implementation of current plans, support at all stages of ',
 					));
-		
-		
+
+
 		# 28 Baner na stronie głównej ===========================================
 		$new_id++;
 		DB::table('articles')->insert(array(
@@ -383,7 +383,7 @@ class StartSections extends Migration
 				'lang' => 'en',
 				'name' => 'Baner na stronie głównej',
 			));
-		
+
 		# 29 Pliki na strone OFERTA DLA INWESTORA ===========================================
 		$new_id++;
 		DB::table('articles')->insert(array(
@@ -420,9 +420,9 @@ class StartSections extends Migration
 						'article_id' => $new_id,
 						'lang' => 'en',
 						'name' => 'How to become an investor',
-					));		
+					));
 
-		# 31 Текстовые фразы
+		# 31 Text on the website
 		$new_id++;
 		DB::table('articles')->insert(array(
 			'id' => $new_id,
@@ -737,7 +737,7 @@ class StartSections extends Migration
 						'lang' => 'en',
 						'name' => 'I agree to receive the investor presentation and a set of sample documents on the provided email address.',
 					));
-					
+
 				$new_id++;
 				DB::table('articles')->insert(array(
 					'id' => $new_id,
@@ -757,7 +757,7 @@ class StartSections extends Migration
 						'name' => 'Language',
 						'annotation' => '',
 					));
-					
+
 				$new_id++;
 				DB::table('articles')->insert(array(
 					'id' => $new_id,
@@ -1096,8 +1096,8 @@ class StartSections extends Migration
 						'lang' => 'en',
 						'name' => 'I consent to the processing of personal data for purposes related to participation in projects implemented by FIN Alternatywna Spółka Inwestycyjna Sp. z o.o..',
 					));
-				
-			
+
+
 		// Get all the tables from your database
 		$tables = \DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = \'public\' ORDER BY table_name;');
 		// Set the tables in the database you would like to ignore
@@ -1105,14 +1105,14 @@ class StartSections extends Migration
 		//loop through the tables
 		foreach ($tables as $table) {
 		   // if the table is not to be ignored then:
-		   if (!in_array($table->table_name, $ignores)) { 
+		   if (!in_array($table->table_name, $ignores)) {
 			   //Get the max id from that table and add 1 to it
 			   $seq = \DB::table($table->table_name)->max('id') + 1;
-			   // alter the sequence to now RESTART WITH the new sequence index from above        
+			   // alter the sequence to now RESTART WITH the new sequence index from above
 			   \DB::select('ALTER SEQUENCE ' . $table->table_name . '_id_seq RESTART WITH ' . $seq);
 			}
 		}
-		
+
     }
 
     /**
