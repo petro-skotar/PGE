@@ -387,6 +387,19 @@ class ArticlesController extends Controller
 			->where('module','projects')
 			->first();
 
+        $projects = Article::select('articles.*')
+            ->leftJoin('articles_details', function($leftJoin){
+                $leftJoin->on('articles.id', '=', 'articles_details.article_id');
+            })
+            ->where('articles.id', '!=', $article->id)
+            ->where('articles_details.lang',DATA::lang())
+			->where('articles_details.name', '!=', '')
+			->where('module','projects')
+			->where('parent_id',0)
+			->where('active','1')
+			->inRandomOrder()
+            ->limit(3)->get();
+
 		if(!empty($article->details_one->name)){
 			/*$faq = Article::where('template','faq')->where('active',1)->first();
 			$faqs = Article::select('articles.*')
@@ -404,6 +417,7 @@ class ArticlesController extends Controller
 
 			return view('templates.projects.id')->with([
 				'article'=>$article,
+				'projects'=>$projects,
 				//'faqs'=>$faqs,
 				//'faq'=>$faq,
 			]);
@@ -709,6 +723,10 @@ class ArticlesController extends Controller
 				$Article_details[$lang]->content = 		(!empty($request->details[$lang]['content']) ? $request->details[$lang]['content'] : '');
 				$Article_details[$lang]->content_2 = 	(!empty($request->details[$lang]['content_2']) ? $request->details[$lang]['content_2'] : '');
 				$Article_details[$lang]->content_3 = 	(!empty($request->details[$lang]['content_3']) ? $request->details[$lang]['content_3'] : '');
+				$Article_details[$lang]->client = 	    (!empty($request->details[$lang]['client']) ? $request->details[$lang]['client'] : '');
+				$Article_details[$lang]->location = 	(!empty($request->details[$lang]['location']) ? $request->details[$lang]['location'] : '');
+				$Article_details[$lang]->start_date = 	(!empty($request->details[$lang]['start_date']) ? $request->details[$lang]['start_date'] : '');
+				$Article_details[$lang]->end_date = 	(!empty($request->details[$lang]['end_date']) ? $request->details[$lang]['end_date'] : '');
                 if($request->hasFile('details.'.$lang.'.file')) {
                     $file = $request->file('details.'.$lang.'.file');
                     $file_name = DATA::module().'/'.$Article->id.'/'.$file->getClientOriginalName();
@@ -961,6 +979,10 @@ class ArticlesController extends Controller
 						$Article_details[$lang]->content = 		(!empty($request->details[$lang]['content']) ? $request->details[$lang]['content'] : '');
 						$Article_details[$lang]->content_2 = 	(!empty($request->details[$lang]['content_2']) ? $request->details[$lang]['content_2'] : '');
 						$Article_details[$lang]->content_3 = 	(!empty($request->details[$lang]['content_3']) ? $request->details[$lang]['content_3'] : '');
+                        $Article_details[$lang]->client = 	    (!empty($request->details[$lang]['client']) ? $request->details[$lang]['client'] : '');
+                        $Article_details[$lang]->location = 	(!empty($request->details[$lang]['location']) ? $request->details[$lang]['location'] : '');
+                        $Article_details[$lang]->start_date = 	(!empty($request->details[$lang]['start_date']) ? $request->details[$lang]['start_date'] : '');
+                        $Article_details[$lang]->end_date = 	(!empty($request->details[$lang]['end_date']) ? $request->details[$lang]['end_date'] : '');
                         if(!empty($request->details[$lang]['file_remove'])) {
                             $Article_details[$lang]->file = '';
                         }

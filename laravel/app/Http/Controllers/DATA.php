@@ -10,7 +10,7 @@ use Config;
 class DATA extends Controller
 {
 	# Версия сайта | также сбрасывает кеш css-стилей и js-скриптов
-	public $version = '1.33';
+	public $version = '1.01';
 
 	# Информация о сайте
 	static function home(){

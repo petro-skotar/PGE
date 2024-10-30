@@ -31,7 +31,7 @@
     <link href="{{ asset('templates/pgeconstruction/js/menuzord/css/menuzord.css') }}" rel="stylesheet"/>
 
     <!-- CSS | Main style file -->
-    <link href="{{ asset('templates/pgeconstruction/css/style-main.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('templates/pgeconstruction/css/style-main.css') }}?{{ $VERSION }}" rel="stylesheet" type="text/css">
     <link id="menuzord-menu-skins" href="{{ asset('templates/pgeconstruction/css/menuzord-skins/menuzord-rounded-boxed.css') }}" rel="stylesheet"/>
 
     <!-- CSS | Responsive media queries -->
@@ -102,7 +102,7 @@
 
     <!-- Footer Scripts -->
     <!-- JS | Custom script for all pages -->
-    <script src="{{ asset('templates/pgeconstruction/js/custom.js') }}"></script>
+    <script src="{{ asset('templates/pgeconstruction/js/custom.js') }}?{{ $VERSION }}"></script>
 
   </body>
 </html>

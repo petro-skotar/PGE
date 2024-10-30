@@ -26,18 +26,26 @@
             </div>
 
             <dl class="description-list pt-20">
+            @if(!empty($article->details_one->client))
               <dt>Client:</dt>
-              <dd>Kodesolution Ltd</dd>
+              <dd>{!! $article->details_one->client !!}</dd>
+            @endif
 
+            @if(!empty($article->details_one->location))
               <dt>Location:</dt>
-              <dd>#405, Lan Streen, Los Vegas, USA</dd>
+              <dd>{!! $article->details_one->location !!}</dd>
+            @endif
 
+            @if(!empty($article->details_one->start_date))
               <dt>Start Date:</dt>
-              <dd>January 26, 2016</dd>
+              <dd>{!! $article->details_one->start_date !!}</dd>
+            @endif
 
-              <dt>End Date:</dt>
-              <dd>February 10, 2016</dd>
-
+            @if(!empty($article->details_one->end_date))
+              @if(empty($article->details_one->start_date))<dt>Project Completed:</dt>@else<dt>End Date:</dt>@endif
+              <dd>{!! $article->details_one->end_date !!}</dd>
+            @endif
+            {{--
               <dt class="mb-20">Share:</dt>
               <dd>
                 <div class="styled-icons icon-dark icon-theme-colored1 icon-circled">
@@ -47,6 +55,7 @@
                   <a href="#"><i class="fab fa-google-plus"></i></a>
                 </div>
               </dd>
+              --}}
             </dl>
 
 
@@ -84,62 +93,31 @@
         </div>
         <div class="section-content">
           <div class="row">
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/2.jpg') }}" alt="1.jpg">
-                  <div class="icon bg-theme-colored1"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
+
+            @if(!empty($projects))
+                @foreach($projects as $item)
+                <div class="col-md-6 col-lg-4">
+                    <div class="img-icon-service-box mb-30">
+                        <div class="tm-thumb">
+                            <img class="img-fullwidth" src="{{ $item->img() }}" alt="{{ $item->details_one->name }}">
+                            <a href="{{ route('viewProject',[$item->details_one->url]) }}"><span class="fas fa-home"></span></a>
+                        </div>
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="{{ route('viewProject',[$item->details_one->url]) }}"><span>{{ $item->details_one->name }}</span></a></h4>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/3.jpg') }}" alt="2.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/4.jpg') }}" alt="3.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/5.jpg') }}" alt="4.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/6.jpg') }}" alt="5.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div class="img-icon-service-box mb-30">
-                <div class="tm-thumb">
-                  <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/7.jpg') }}" alt="6.jpg">
-                  <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',['innovative-e-commerce-platform']) }}"><span class="fas fa-home"></span></a></div>
-                </div>
-              </div>
-            </div>
+                @endforeach
+            @endif
+
           </div>
         </div>
       </div>
       <div class="tm-floating-objects">
-        <span class="floating-object-1 tm-animation-floating" data-tm-bg-img="images/photos/bg-shape4.png" data-tm-opacity=".3" data-tm-width="14%" data-tm-height="27%" data-tm-left="auto" data-tm-right="0" data-tm-top="0"></span>
+        <span class="floating-object-1 tm-animation-floating" data-tm-bg-img="{{ asset('templates/pgeconstruction/images/photos/bg-shape4.png') }}" data-tm-opacity=".3" data-tm-width="14%" data-tm-height="27%" data-tm-left="auto" data-tm-right="0" data-tm-top="0"></span>
       </div>
       <div class="tm-floating-objects">
-        <span class="floating-object-1 tm-animation-floating" data-tm-bg-img="images/photos/bg-shape5.png" data-tm-opacity=".5" data-tm-width="36%" data-tm-height="50%" data-tm-left="0" data-tm-top="51%" data-tm-z-index="0"></span>
+        <span class="floating-object-1 tm-animation-floating" data-tm-bg-img="{{ asset('templates/pgeconstruction/images/photos/bg-shape5.png') }}" data-tm-opacity=".5" data-tm-width="36%" data-tm-height="50%" data-tm-left="0" data-tm-top="51%" data-tm-z-index="0"></span>
       </div>
     </section>
     <!-- End Divider -->

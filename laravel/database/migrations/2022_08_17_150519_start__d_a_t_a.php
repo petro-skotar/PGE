@@ -123,13 +123,19 @@ class StartDATA extends Migration
 		DB::table('setting')->insert(array(
 			'desc' => 'Contact Phone',
 			'code' => 'contact_phone',
-			'val' => '+1 XXX XXX XXXX',
+			'val' => '+1 250-627-7266',
 			'module' => 'contacts',
 		));
 		DB::table('setting')->insert(array(
 			'desc' => 'Contact Email',
 			'code' => 'contact_email',
 			'val' => env('ROOT_EMAIL'),
+			'module' => 'contacts',
+		));
+		DB::table('setting')->insert(array(
+			'desc' => 'Contact Address',
+			'code' => 'contact_address',
+			'val' => '801 Fraser St, Prince Rupert, BC V8J 1R1, Canada',
 			'module' => 'contacts',
 		));
 		DB::table('setting')->insert(array(
@@ -141,7 +147,7 @@ class StartDATA extends Migration
 		DB::table('setting')->insert(array(
 			'desc' => 'Contact Facebook',
 			'code' => 'contact_facebook',
-			'val' => 'Facebook',
+			'val' => 'https://www.facebook.com/profile.php?id=100088896532988',
 			'module' => 'contacts',
 		));
 
@@ -165,7 +171,7 @@ class StartDATA extends Migration
 				'url' => '/',
 				'lang' => 'en',
 				'title' => 'PGE Construction',
-				'name' => 'Construction company',
+				'name' => 'PGE Construction company',
 				'description' => 'PGE Construction company',
 				'bread' => 'Home',
 				'short_name' => 'Home',
@@ -248,15 +254,25 @@ class StartDATA extends Migration
 					'position' => $new_id,
 					'parent_id' => $parent_id,
 					'module' => 'projects',
-					'images' => '["templates/pgeconstruction/images/temp/1.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+					'images' => '[
+                        "templates/pgeconstruction/images/projects/01/01.jpg",
+                        "templates/pgeconstruction/images/projects/01/02.jpg",
+                        "templates/pgeconstruction/images/projects/01/03.jpg",
+                        "templates/pgeconstruction/images/projects/01/04.jpg",
+                        "templates/pgeconstruction/images/projects/01/05.jpg",
+                        "templates/pgeconstruction/images/projects/01/06.jpg"
+                    ]',
 				));
 					DB::table('articles_details')->insert(array(
 						'article_id' => $new_id,
 						'lang' => 'en',
-						'name' => 'Project one',
-						'url' => 'project-one',
-						'annotation' => '',
-						'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
+						'name' => 'Roof Replacement and Exterior Painting of a Heritage House in Prince Rupert',
+						'url' => 'roof-replacement-exterior-painting-heritage-house-prince-rupert',
+						'client' => 'Private house',
+						'location' => 'Prince Rupert',
+						'start_date' => 'August 01, 2024',
+						'end_date' => 'October 01, 2024',
+						'content' => '<p>Just wrapping up another roof replacement and exterior paint job in Prince Rupert. It was a pleasure to work on such a charming heritage house!<br>Call us for home renovations in Prince Rupert. 250-627-7266 <br>Kitchens, bathrooms, drywall, flooring, decks, etc. <br>Quality workmanship, quality customer service.</p>',
 					));
 				$parent_id = 0;
 				$new_id++;
@@ -265,15 +281,30 @@ class StartDATA extends Migration
 					'position' => $new_id,
 					'parent_id' => $parent_id,
 					'module' => 'projects',
-					'images' => '["templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/1.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+					'images' => '[
+                        "templates/pgeconstruction/images/projects/02/02.jpg",
+                        "templates/pgeconstruction/images/projects/02/01.jpg",
+                        "templates/pgeconstruction/images/projects/02/03.jpg",
+                        "templates/pgeconstruction/images/projects/02/04.jpg",
+                        "templates/pgeconstruction/images/projects/02/05.jpg",
+                        "templates/pgeconstruction/images/projects/02/06.jpg",
+                        "templates/pgeconstruction/images/projects/02/07.jpg",
+                        "templates/pgeconstruction/images/projects/02/08.jpg",
+                        "templates/pgeconstruction/images/projects/02/09.jpg",
+                        "templates/pgeconstruction/images/projects/02/10.jpg"
+                    ]',
 				));
 					DB::table('articles_details')->insert(array(
 						'article_id' => $new_id,
 						'lang' => 'en',
-						'name' => 'Project two',
-						'url' => 'project-two',
+						'name' => 'Project Completion: Pressure Treated Deck, Stairs and Engineered landing.',
+						'url' => 'project-completion-pressure-treated-deck-stairs-engineered-landing',
+						'client' => 'Private house',
+						'location' => 'Prince Rupert',
+						'start_date' => 'June 01, 2024',
+						'end_date' => 'August 23, 2024',
 						'annotation' => '',
-						'content' => '<p>In recent years we observe an increased demand for short-term suburban rental housing. Based on the available data, the average annual growth rate of the market is about 12%. The main factor influencing the high scale of profitability of this type of investment is the convenient location and surrounding infrastructure of the facility. With the growing awareness, consumers are demanding more ecological & climate-friendly products and services. Nowadays, from the very first stage of planning and project implementation, it is important to select sustainable materials used during the construction of the property. These materials must not only be harmless to the environment but also be durable and cost-efficient.</p>',
+						'content' => '<p>Finishing up a pressure treated second floor deck, staircase and engineered landing. The home owner can now access the 2nd floor access door. total height of staircase in 3.1m. Now for wood stain! <br>Call us for a quote on quality home renovations in Prince Rupert 250-627-7266</p>',
 					));
 				$parent_id = 0;
 				$new_id++;
@@ -282,15 +313,25 @@ class StartDATA extends Migration
 					'position' => $new_id,
 					'parent_id' => $parent_id,
 					'module' => 'projects',
-					'images' => '["templates/pgeconstruction/images/temp/3.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/1.jpg"]',
+					'images' => '[
+                        "templates/pgeconstruction/images/projects/03/01.jpg",
+                        "templates/pgeconstruction/images/projects/03/02.jpg",
+                        "templates/pgeconstruction/images/projects/03/03.jpg",
+                        "templates/pgeconstruction/images/projects/03/04.jpg",
+                        "templates/pgeconstruction/images/projects/03/05.jpg"
+                    ]',
 				));
 					DB::table('articles_details')->insert(array(
 						'article_id' => $new_id,
 						'lang' => 'en',
-						'name' => 'Project three',
-						'url' => 'project-three',
+						'name' => 'Another Roof Replacement Complete: Quality Inspected and Team Tanned!',
+						'url' => 'another-roof-replacement-complete-quality-inspected-team-tanned',
+						'client' => 'Private house',
+						'location' => 'Prince Rupert',
+						'start_date' => 'July 10, 2024',
+						'end_date' => 'August 22, 2024',
 						'annotation' => '',
-						'content' => '<p>The factory is planned be located in West Pomeranian Voivodeship in Poland, about 25 km from the German border and approximately 100 km away from Berlin.</p><p>In the Federal Republic of Germany, the steel structure market maintains a stable level of demand. In fact, its importance seems to be growing every year, given the global deficits in the general availability of raw materials. Due to limited domestic supply, German companies import 40% to 60% of steel from other countries.</p><p>Therefore the convenient location of the planned factory in the West Pomeranian Voivodeship will allow the export of nearly 90% of the manufactured products to Western Europe, the Federal Republic of Germany in particular. </p>',
+						'content' => '<p>Just finished final inspection of another roof replacement. The team have all gotten really solid tans in the last couple of months! Call us for quality home renovations in Prince Rupert! 250-627-7266 </p>',
 					));
                 $parent_id = 0;
                 $new_id++;
@@ -299,15 +340,25 @@ class StartDATA extends Migration
                     'position' => $new_id,
                     'parent_id' => $parent_id,
                     'module' => 'projects',
-                    'images' => '["templates/pgeconstruction/images/temp/4.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+                    'images' => '[
+                        "templates/pgeconstruction/images/projects/04/01.jpg",
+                        "templates/pgeconstruction/images/projects/04/02.jpg",
+                        "templates/pgeconstruction/images/projects/04/03.jpg",
+                        "templates/pgeconstruction/images/projects/04/04.jpg",
+                        "templates/pgeconstruction/images/projects/04/05.jpg"
+                    ]',
                 ));
                     DB::table('articles_details')->insert(array(
                         'article_id' => $new_id,
                         'lang' => 'en',
-                        'name' => 'Project four',
-                        'url' => 'project-four',
+                        'name' => 'Roof Replacement Success: Revitalizing a Home from the 1940s',
+                        'url' => 'roof-replacement-success-revitalizing-home-1940s',
+						'client' => 'Private house',
+						'location' => 'Prince Rupert',
+						'start_date' => 'July 05, 2024',
+						'end_date' => 'August 07, 2024',
                         'annotation' => '',
-                        'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
+                        'content' => '<p>Finishing up a roof replacement today. Ended up peeling off the old roof from the 1940s. Replaced the structural rot, sheeted, peel-and-stuck and then replaced flashing and re-shingled. The new roof will last longer than a lot of us... Job done! Call Ray for home renovation quotes 250-627-7266</p>',
                     ));
                     $parent_id = 0;
                     $new_id++;
@@ -316,15 +367,25 @@ class StartDATA extends Migration
                         'position' => $new_id,
                         'parent_id' => $parent_id,
                         'module' => 'projects',
-                        'images' => '["templates/pgeconstruction/images/temp/5.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+                        'images' => '[
+                            "templates/pgeconstruction/images/projects/05/01.jpg",
+                            "templates/pgeconstruction/images/projects/05/02.jpg",
+                            "templates/pgeconstruction/images/projects/05/03.jpg",
+                            "templates/pgeconstruction/images/projects/05/04.jpg",
+                            "templates/pgeconstruction/images/projects/05/05.jpg"
+                        ]',
                     ));
                         DB::table('articles_details')->insert(array(
                             'article_id' => $new_id,
                             'lang' => 'en',
-                            'name' => 'Project five',
-                            'url' => 'project-five',
+                            'name' => 'Successfully Completed: Exterior Painting of a Tall House with Safety Precautions',
+                            'url' => 'successfully-completed-exterior-painting-tall-house-safety-precautions',
+                            'client' => 'Private house',
+                            'location' => 'Prince Rupert',
+                            'start_date' => 'July 01, 2024',
+                            'end_date' => 'July 28, 2024',
                             'annotation' => '',
-                            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
+                            'content' => '<p>just completed the exterior painting a very tall house using safety harnesses, scaffolding and ladder jacks.  Working up high is not for everyone. <br>Our team is available for home renovations in Prince Rupert.  250-627-7266</p>',
                         ));
                     $parent_id = 0;
                     $new_id++;
@@ -333,15 +394,25 @@ class StartDATA extends Migration
                         'position' => $new_id,
                         'parent_id' => $parent_id,
                         'module' => 'projects',
-                        'images' => '["templates/pgeconstruction/images/temp/6.jpg", "templates/pgeconstruction/images/temp/2.jpg", "templates/pgeconstruction/images/temp/3.jpg"]',
+                        'images' => '[
+                            "templates/pgeconstruction/images/projects/06/05.jpg",
+                            "templates/pgeconstruction/images/projects/06/02.jpg",
+                            "templates/pgeconstruction/images/projects/06/01.jpg",
+                            "templates/pgeconstruction/images/projects/06/03.jpg",
+                            "templates/pgeconstruction/images/projects/06/04.jpg"
+                        ]',
                     ));
                         DB::table('articles_details')->insert(array(
                             'article_id' => $new_id,
                             'lang' => 'en',
-                            'name' => 'Project six',
-                            'url' => 'project-six',
+                            'name' => 'Flooding Issues Resolved: Drainage Improvements Completed',
+                            'url' => 'flooding-issues-resolved-drainage-improvements-completed',
+                            'client' => 'Private house',
+                            'location' => 'Prince Rupert',
+                            'start_date' => 'January 20, 2024',
+                            'end_date' => 'February 01, 2024',
                             'annotation' => '',
-                            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>',
+                            'content' => '<p>Recently we have done a number of drainage improvements for homeowners who had flooding issues.   Maintenance or construction needs? Call us for an estimate 250-627-7266 -booking for March/April 2024</p>',
                         ));
 
 		# Contacts

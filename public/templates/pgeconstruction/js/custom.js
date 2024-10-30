@@ -2887,8 +2887,11 @@ var THEMEMASCOT = {};
 
           $this.owlCarousel({
             rtl: THEMEMASCOT.isRTL.check(),
-            autoplay: data_autoplay,
-            autoplayTimeout: data_duration,
+            //autoplay: data_autoplay,
+            //autoplayTimeout: data_duration,
+            autoplay:false,
+            autoplayTimeout:5000, // off
+            autoplayHoverPause: true,
             autoHeight: true,
             responsiveClass: true,
             loop: data_loop,

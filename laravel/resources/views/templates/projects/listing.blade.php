@@ -27,8 +27,11 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="img-icon-service-box mb-30">
                         <div class="tm-thumb">
-                        <img class="img-fullwidth" src="{{ $item->img() }}" alt="{{ $item->details_one->name }}">
-                        <div class="icon bg-theme-colored2"><a href="{{ route('viewProject',[$item->details_one->url]) }}"><span class="fas fa-home"></span></a></div>
+                            <img class="img-fullwidth" src="{{ $item->img() }}" alt="{{ $item->details_one->name }}">
+                            <a href="{{ route('viewProject',[$item->details_one->url]) }}"><span class="fas fa-home"></span></a>
+                        </div>
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="{{ route('viewProject',[$item->details_one->url]) }}"><span>{{ $item->details_one->name }}</span></a></h4>
                         </div>
                     </div>
                 </div>

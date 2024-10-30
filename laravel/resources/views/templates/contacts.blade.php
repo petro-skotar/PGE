@@ -18,7 +18,7 @@
                 </div>
                 <div class="icon-text">
                   <h5 class="icon-box-title mt-0">Phone</h5>
-                  <div class="content"><a href="tel:+123.456.7890">+123.456.7890</a></div>
+                  <div class="content"><a href="tel:{{Str::of($SETTING['contact_phone']['val'])->replace([' ','(',')','-'], '')}}">{!! $SETTING['contact_phone']['val'] !!}</a></div>
                 </div>
                 <div class="clearfix"></div>
               </div>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="icon-text">
                   <h5 class="icon-box-title mt-0">Email</h5>
-                  <div class="content"><a href="mailto:needhelp@yourdomain.com">needhelp@yourdomain.com</a></div>
+                  <div class="content"><a href="mailto:{!! $SETTING['contact_email']['val'] !!}">{!! $SETTING['contact_email']['val'] !!}</a></div>
                 </div>
                 <div class="clearfix"></div>
               </div>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="icon-text">
                   <h5 class="icon-box-title mt-0">Address</h5>
-                  <div class="content">801 Fraser St, Prince Rupert, BC V8J 1R1, Canada</div>
+                  <div class="content">{!! $SETTING['contact_address']['val'] !!}</div>
                 </div>
                 <div class="clearfix"></div>
               </div>

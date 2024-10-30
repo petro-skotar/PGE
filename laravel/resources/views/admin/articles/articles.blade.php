@@ -120,12 +120,13 @@
 						  </td>
 	                      <td class="align-middle text-right">
 	                      	<div class="btn-group">
-								@if(!empty($article->url))
-								<a href="@if($article->module == 'offers'){{route('viewOffer', $article->url)}}
-											 @elseif($article->module == 'industries'){{route('viewIndustry', $article->url)}}
-											 @elseif($article->module == 'careers'){{route('viewCareer', $article->url)}}
-											 @elseif($article->module == 'our-teams'){{route('viewOurTeam', $article->url)}}
-											 @else{{route('viewArticle', $article->url)}}
+								@if(!empty($article->details_lang($LANG)['url']))
+								<a href="@if($article->module == 'offers'){{route('viewOffer', $article->details_lang($LANG)['url'])}}
+											 @elseif($article->module == 'industries'){{route('viewIndustry', $article->details_lang($LANG)['url'])}}
+											 @elseif($article->module == 'careers'){{route('viewCareer', $article->details_lang($LANG)['url'])}}
+											 @elseif($article->module == 'our-teams'){{route('viewOurTeam', $article->details_lang($LANG)['url'])}}
+											 @elseif($article->module == 'projects'){{route('viewProject', $article->details_lang($LANG)['url'])}}
+											 @else{{route('viewArticle', $article->details_lang($LANG)['url'])}}
 										 @endif" class="btn btn-sm btn-flat" title="Посмотреть на сайте" target="_blank"><i class="fas fa-desktop"></i></a>
 		                        @endif
 								<a href="{{route($module_info['module'].'.edit', $article->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
@@ -180,8 +181,8 @@
 								  </td>
 								  <td class="align-middle text-right">
 									<div class="btn-group">
-										@if(!empty($article->url))
-										<a href="{{route('viewArticle', $article->url)}}" class="btn btn-sm btn-flat" title="Посмотреть на сайте" target="_blank"><i class="fas fa-desktop"></i></a>
+										@if(!empty($article->details_lang($LANG)['url']))
+										<a href="{{route('viewArticle', $article->details_lang($LANG)['url'])}}" class="btn btn-sm btn-flat" title="Посмотреть на сайте" target="_blank"><i class="fas fa-desktop"></i></a>
 										@endif
 										<a href="{{route($module_info['module'].'.edit', $article->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 										@if(!in_array($module_info['module'],['sections-off']))
@@ -235,8 +236,8 @@
 										  </td>
 										  <td class="align-middle text-right">
 											<div class="btn-group">
-												@if(!empty($article->url))
-												<a href="{{route('viewArticle', $article->url)}}" class="btn btn-sm btn-flat" title="Посмотреть на сайте" target="_blank"><i class="fas fa-desktop"></i></a>
+												@if(!empty($article->details_lang($LANG)['url']))
+												<a href="{{route('viewArticle', $article->details_lang($LANG)['url'])}}" class="btn btn-sm btn-flat" title="Посмотреть на сайте" target="_blank"><i class="fas fa-desktop"></i></a>
 												@endif
 												<a href="{{route($module_info['module'].'.edit', $article->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 												@if(!in_array($module_info['module'],['sections']))
@@ -281,8 +282,8 @@
 												  </td>
 												  <td class="align-middle text-right">
 													<div class="btn-group">
-														@if(!empty($article->url))
-														<a href="{{route('viewArticle', $article->url)}}" class="btn btn-sm btn-flat" title="Посмотреть на сайте" target="_blank"><i class="fas fa-desktop"></i></a>
+														@if(!empty($article->details_lang($LANG)['url']))
+														<a href="{{route('viewArticle', $article->details_lang($LANG)['url'])}}" class="btn btn-sm btn-flat" title="Посмотреть на сайте" target="_blank"><i class="fas fa-desktop"></i></a>
 														@endif
 														<a href="{{route($module_info['module'].'.edit', $article->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 														@if(!in_array($module_info['module'],['sections']))

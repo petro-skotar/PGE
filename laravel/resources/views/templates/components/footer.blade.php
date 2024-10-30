@@ -63,9 +63,9 @@
               <h4 class="widget-title">Contact</h4>
               <div class="tm-widget tm-widget-contact">
                 <ul class="contact-info">
-                  <li class="contact-address"><i class="fas fa-map-marked-alt font-icon sm-display-block mr-10"></i> 801 Fraser St, Prince Rupert, BC V8J 1R1, Canada</li>
-                  <li class="contact-email"><i class="fas fa-envelope font-icon sm-display-block mr-10"></i> info@example.com</li>
-                  <li class="contact-phone"><i class="fas fa-phone font-icon sm-display-block mr-10"></i> Tel: <a href="tel:+12506419746">250-641-9746</a></li>
+                  <li class="contact-address"><i class="fas fa-map-marked-alt font-icon sm-display-block mr-10"></i> {!! $SETTING['contact_address']['val'] !!}</li>
+                  <li class="contact-email"><i class="fas fa-envelope font-icon sm-display-block mr-10"></i> {!! $SETTING['contact_email']['val'] !!}</li>
+                  <li class="contact-phone"><i class="fas fa-phone font-icon sm-display-block mr-10"></i> Tel: <a href="tel:{{Str::of($SETTING['contact_phone']['val'])->replace([' ','(',')','-'], '')}}">{!! $SETTING['contact_phone']['val'] !!}</a></li>
                 </ul>
                 {{--<div class="tm-sc-button">
                   <a href="#" class="btn btn-theme-colored2 mt-10">Request a Quote</a>

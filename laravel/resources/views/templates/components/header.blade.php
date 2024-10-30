@@ -5,15 +5,15 @@
           <div class="row">
             <div class="col-xl-auto header-top-left align-self-center text-center text-xl-start">
               <ul class="element contact-info">
-                <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: <a href="tel:+12506419746">250-641-9746</a></li>
-                <li class="contact-email"><i class="fa fa-envelope font-icon sm-display-block"></i> info@example.com</li>
+                <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: <a href="tel:{{Str::of($SETTING['contact_phone']['val'])->replace([' ','(',')','-'], '')}}">{!! $SETTING['contact_phone']['val'] !!}</a></li>
+                <li class="contact-email"><i class="fa fa-envelope font-icon sm-display-block"></i> {!! $SETTING['contact_email']['val'] !!}</li>
                 <li class="contact-address"><i class="fa fa-map font-icon sm-display-block"></i> 801 Fraser St, Prince Rupert, BC</li>
               </ul>
             </div>
             <div class="col-xl-auto ms-xl-auto header-top-right align-self-center text-center text-xl-end">
               <div class="element pt-0 pb-0">
                 <ul class="styled-icons icon-dark icon-theme-colored1 icon-circled clearfix">
-                  <li><a class="social-link" href="#" ><i class="fab fa-facebook"></i></a></li>
+                  <li><a class="social-link" href="{!! $SETTING['contact_facebook']['val'] !!}" ><i class="fab fa-facebook"></i></a></li>
                   <li><a class="social-link" href="#" ><i class="fab fa-instagram"></i></a></li>
                 </ul>
               </div>

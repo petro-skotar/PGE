@@ -460,54 +460,23 @@
       </div>
       <div class="section-content">
         <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <div class="img-icon-service-box mb-30">
-              <div class="tm-thumb">
-                <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/2.jpg') }}" alt="1.jpg">
-                <a href="page-project-details.html"><div class="icon bg-theme-colored2"><span class="fas fa-home"></span></div></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="img-icon-service-box mb-30">
-              <div class="tm-thumb">
-                <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/3.jpg') }}" alt="2.jpg">
-                <a href="page-project-details.html"><div class="icon bg-theme-colored2"><span class="fas fa-home"></span></div></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="img-icon-service-box mb-30">
-              <div class="tm-thumb">
-                <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/7.jpg') }}" alt="3.jpg">
-                <a href="page-project-details.html"><div class="icon bg-theme-colored2"><span class="fas fa-home"></span></div></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="img-icon-service-box mb-30">
-              <div class="tm-thumb">
-                <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/5.jpg') }}" alt="4.jpg">
-                <a href="page-project-details.html"><div class="icon bg-theme-colored2"><span class="fas fa-home"></span></div></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="img-icon-service-box mb-30">
-              <div class="tm-thumb">
-                <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/6.jpg') }}" alt="5.jpg">
-                <a href="page-project-details.html"><div class="icon bg-theme-colored2"><span class="fas fa-home"></span></div></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="img-icon-service-box mb-30">
-              <div class="tm-thumb">
-                <img class="img-fullwidth" src="{{ asset('templates/pgeconstruction/images/temp/9.jpg') }}" alt="6.jpg">
-                <a href="page-project-details.html"><div class="icon bg-theme-colored2"><span class="fas fa-home"></span></div></a>
-              </div>
-            </div>
-          </div>
+
+            @if(!empty($projects))
+                @foreach($projects as $item)
+                <div class="col-md-6 col-lg-4">
+                    <div class="img-icon-service-box mb-30">
+                        <div class="tm-thumb">
+                            <img class="img-fullwidth" src="{{ $item->img() }}" alt="{{ $item->details_one->name }}">
+                            <a href="{{ route('viewProject',[$item->details_one->url]) }}"><span class="fas fa-home"></span></a>
+                        </div>
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="{{ route('viewProject',[$item->details_one->url]) }}"><span>{{ $item->details_one->name }}</span></a></h4>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @endif
+
         </div>
       </div>
     </div>

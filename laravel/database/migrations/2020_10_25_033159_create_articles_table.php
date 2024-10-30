@@ -49,6 +49,10 @@ class CreateArticlesTable extends Migration
             $table->text('content')->nullable(true);
             $table->text('content_2')->nullable(true);
             $table->text('content_3')->nullable(true);
+            $table->string('client',255)->nullable(true)->default('');
+            $table->string('location',255)->nullable(true)->default('');
+            $table->string('start_date',255)->nullable(true)->default('');
+            $table->string('end_date',255)->nullable(true)->default('');
             $table->timestamps();
         });
     }
