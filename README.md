@@ -1,7 +1,5 @@
 # PGE Construction
 
-```
-
 ## Getting started
 
 ```
