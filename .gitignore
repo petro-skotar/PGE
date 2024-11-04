@@ -1,5 +1,6 @@
 /---
 /.osp
+/.htaccess
 /laravel/node_modules
 /laravel/storage/*.key
 /laravel/storage/app/public/
