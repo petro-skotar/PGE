@@ -182,8 +182,8 @@ return [
 			'name'=>'Static content',
 			'controller'=>'ArticlesController',
 			'class-icon'=>'fab fa-hive',
-			'active'=>1,
-			'display'=> 1,
+			'active'=>0,
+			'display'=> 0,
 			'module' => 'sections',
 			'title' => 'Static content',
 			'add_button' => 'Add',
@@ -322,8 +322,8 @@ return [
 					'name'=>'User Roles',
 					'controller'=>'RolesController',
 					'class-icon'=>'fa fa-tasks',
-					'active'=>1,
-					'display'=> 1
+					'active'=>0,
+					'display'=> 0
 				],
 				'setting' => [
 					'name'=>'Other settings',

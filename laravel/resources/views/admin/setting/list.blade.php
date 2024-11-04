@@ -12,7 +12,7 @@
             <h1 class="m-0 text-dark">Настроки</h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
-            <a href="{{route('setting.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Создать</a>
+            <a href="{{route('setting.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Create</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -57,7 +57,7 @@
 		                        <a href="{{route('setting.edit', $val->id)}}" class="btn btn-sm btn-flat" title="Edit"><i class="far fa-edit"></i></a>
 		                        <form action="{{ route('setting.destroy' , $val->id)}}" method="POST">
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 		                        </form>
 		                      </div>
 	                      </td>

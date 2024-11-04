@@ -80,7 +80,7 @@
 					<input name="surname" value="{{($manager->surname ? $manager->surname : old('surname') )}}" type="text" class="form-control" placeholder="">
 				  </div>
 				  <div class="form-group">
-					<label>Имя *</label>
+					<label>Name *</label>
 					<input name="name" value="{{($manager->name ? $manager->name : old('name') )}}" required @if($manager->id == 1)disabled @endif type="text" class="form-control" placeholder="Имя администратора">
 				  </div>
 				  <div class="form-group">
@@ -165,7 +165,7 @@
             <!-- general form elements disabled -->
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">Доступ</h3>
+                <h3 class="card-title">Access</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

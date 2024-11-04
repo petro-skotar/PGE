@@ -20,7 +20,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Администраторы <span>{{ request()->routeIs('managers.edit') ? '(Editing)': ''}} {{ request()->routeIs('managers.create') ? '(Creation)' : ''}}</span></h1>
+            <h1 class="m-0 text-dark">Administrators <span>{{ request()->routeIs('managers.edit') ? '(Editing)': ''}} {{ request()->routeIs('managers.create') ? '(Creation)' : ''}}</span></h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
             <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Save</button>
@@ -70,13 +70,13 @@
           <div class="col-12 col-sm-6">
             <div class="card card-primary card-outline card-outline-tabs">
               <div class="card-header">
-				<h3 class="card-title">Данные</h3>
+				<h3 class="card-title">Data</h3>
               </div>
               <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
 
 				  <div class="form-group">
-					<label>Имя *</label>
+					<label>Name *</label>
 					<input name="name" required value="{{($manager->name ? $manager->name : old('name') )}}"  @if($manager->id == 1)readonly @endif type="text" class="form-control" placeholder="Имя администратора">
 				  </div>
 				  <div class="form-group">
@@ -84,15 +84,15 @@
 					<input name="email" required value="{{($manager->email ? $manager->email : old('email') )}}" @if($manager->id == 1)readonly @endif type="text" class="form-control" placeholder="Email (для входа)">
 				  </div>
 				  <div class="form-group">
-					<label>Пароль</label>
+					<label>Password</label>
 					@if(!request()->routeIs('managers.create'))
 						<br>
 					<a href="" class="create_new_pass">Create a new password</a></p>
 					@endif
 					<div class="input-group new_pass @if(!request()->routeIs('managers.create')) hide @endif">
-						<input name="password" @if(request()->routeIs('users-aml.create'))required @endif value="" type="text" class="form-control" placeholder="Пароль">
+						<input name="password" @if(request()->routeIs('users-aml.create'))required @endif value="" type="text" class="form-control" placeholder="Password">
 						<div class="input-group-append">
-							<a href="" class="input-group-text create_password_key no_submit" title="Сгенерировать пароль"><i class="fas fa-key"></i></a>
+							<a href="" class="input-group-text create_password_key no_submit" title="Generate password"><i class="fas fa-key"></i></a>
 						</div>
 					</div>
 				  </div>
@@ -113,7 +113,7 @@
             <!-- general form elements disabled -->
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">Доступ</h3>
+                <h3 class="card-title">Access</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

@@ -79,7 +79,7 @@
 	                      	  <div class="btn-group">
 		                        <form action="{{ route('izdania_list.destroy', $item->id)}}" method="POST">
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 		                        </form>
 		                      </div>
 	                      </td>

@@ -133,7 +133,7 @@
 		                        @if(!in_array($module_info['module'],['sections-off']))
 								<form action="{{ route($module_info['module'].'.destroy' , $article->id)}}" method="POST">
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 		                        </form>
 		                        @endif
 		                      </div>
@@ -188,7 +188,7 @@
 										@if(!in_array($module_info['module'],['sections-off']))
 										<form action="{{ route($module_info['module'].'.destroy' , $article->id)}}" method="POST">
 											<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-											<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+											<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 										</form>
 										@endif
 									  </div>
@@ -243,7 +243,7 @@
 												@if(!in_array($module_info['module'],['sections']))
 												<form action="{{ route($module_info['module'].'.destroy' , $article->id)}}" method="POST">
 													<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-													<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+													<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 												</form>
 												@endif
 											  </div>
@@ -289,7 +289,7 @@
 														@if(!in_array($module_info['module'],['sections']))
 														<form action="{{ route($module_info['module'].'.destroy' , $article->id)}}" method="POST">
 															<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-															<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+															<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 														</form>
 														@endif
 													  </div>

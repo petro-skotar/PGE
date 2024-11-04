@@ -17,7 +17,7 @@ class StartDATA extends Migration
 		DB::table('users')->insert(array(
 			'email' => env('ROOT_EMAIL'),
 			'password' => env('ROOT_PASSWORD'),
-			'name' => 'Admin',
+			'name' => 'Ray',
 			'role' => 'admin',
 			'role_id' => 1,
 			'active' => 1,
@@ -223,6 +223,32 @@ class StartDATA extends Migration
 					));
         */
 
+
+        # Services
+        $new_id++;
+		DB::table('articles')->insert(array(
+			'id' => $new_id,
+			'parent_id' => 1,
+			'position' => $new_id,
+			'active' => 1,
+			'template' => 'services',
+			'sub' => 'yes',
+			'in_nav' => 1,
+		));
+			DB::table('articles_details')->insert(array(
+				'article_id' => $new_id,
+				'url' => 'services',
+				'lang' => 'en',
+				'title' => 'Services PGE Construction Company',
+				'name' => 'Services',
+				'description' => 'Services PGE Construction Company',
+				'bread' => 'Services',
+				'short_name' => 'Services',
+				'annotation' => '',
+				'slogan' => 'Services PGE Construction Company',
+				'content' => '<p>PGE Construction Company provides a full range of construction services, including design, new construction, renovation, and repair. Our experts ensure high standards of quality, adherence to deadlines, and a personalized approach to every client. We build strong and reliable structures that stand the test of time.</p>',
+			));
+
 		#  Projects
         $new_id++;
 		DB::table('articles')->insert(array(
@@ -247,34 +273,6 @@ class StartDATA extends Migration
 				'slogan' => '',
 				'content' => '',
 			));
-                $parent_id = 0;
-                $new_id++;
-                DB::table('articles')->insert(array(
-                    'id' => $new_id,
-                    'position' => $new_id,
-                    'parent_id' => $parent_id,
-                    'module' => 'projects',
-                    'images' => '[
-                        "templates/pgeconstruction/images/projects/18/05.jpg",
-                        "templates/pgeconstruction/images/projects/18/02.jpg",
-                        "templates/pgeconstruction/images/projects/18/01.jpg",
-                        "templates/pgeconstruction/images/projects/18/03.jpg",
-                        "templates/pgeconstruction/images/projects/18/04.jpg"
-                    ]',
-                ));
-                    DB::table('articles_details')->insert(array(
-                        'article_id' => $new_id,
-                        'lang' => 'en',
-                        'name' => 'Helping Homeowners Resolve Flooding with Drainage Upgrades',
-                        'url' => 'helping-homeowners-resolve-flooding-drainage-upgrades',
-                        'client' => 'Private house',
-                        'location' => 'Prince Rupert',
-                        'start_date' => '',
-                        'end_date' => 'March/April 2024',
-                        'annotation' => '',
-                        'content' => '<p>Recently we have done a number of drainage improvements for homeowners who had flooding issues. Maintenance or construction needs? Call us for an estimate 250-627-7266</p>',
-                    ));
-
                 $parent_id = 0;
                 $new_id++;
                 DB::table('articles')->insert(array(
@@ -443,57 +441,7 @@ class StartDATA extends Migration
                         'content' => '<p>Just wrapping up another roof replacement and exterior paint job in Prince Rupert. It was a pleasure to work on such a charming heritage house!<br>Call us for home renovations in Prince Rupert. 250-627-7266 <br>Kitchens, bathrooms, drywall, flooring, decks, etc. <br>Quality workmanship, quality customer service.</p>',
                     ));
 
-		# Contacts
-        $new_id++;
-		DB::table('articles')->insert(array(
-			'id' => $new_id,
-			'parent_id' => 1,
-			'position' => $new_id,
-			'active' => 1,
-			'template' => 'contacts',
-			'sub' => 'no',
-			'in_nav' => 1,
-		));
-			DB::table('articles_details')->insert(array(
-				'article_id' => $new_id,
-				'url' => 'contacts',
-				'lang' => 'en',
-				'title' => 'Contacts',
-				'name' => 'Contacts',
-				'description' => 'Contacts',
-				'bread' => 'Contacts',
-				'short_name' => 'Contacts',
-				'annotation' => '',
-				'slogan' => '',
-				'content' => 'Contact us. <br>Do you have further questions about our company\'s activities? Feel free to contact us via contact form, email or give us a call.',
-			));
-
-        # Services
-        $new_id++;
-		DB::table('articles')->insert(array(
-			'id' => $new_id,
-			'parent_id' => 1,
-			'position' => $new_id,
-			'active' => 1,
-			'template' => 'services',
-			'sub' => 'yes',
-			'in_nav' => 1,
-		));
-			DB::table('articles_details')->insert(array(
-				'article_id' => $new_id,
-				'url' => 'services',
-				'lang' => 'en',
-				'title' => 'Services PGE Construction Company',
-				'name' => 'Services',
-				'description' => 'Services PGE Construction Company',
-				'bread' => 'Services',
-				'short_name' => 'Services',
-				'annotation' => '',
-				'slogan' => 'Services PGE Construction Company',
-				'content' => '<p>PGE Construction Company provides a full range of construction services, including design, new construction, renovation, and repair. Our experts ensure high standards of quality, adherence to deadlines, and a personalized approach to every client. We build strong and reliable structures that stand the test of time.</p>',
-			));
-
-        # Services
+        # Blog
         $new_id++;
         DB::table('articles')->insert(array(
             'id' => $new_id,
@@ -570,17 +518,38 @@ class StartDATA extends Migration
                     'content' => '<p>The factory is planned be located in West Pomeranian Voivodeship in Poland, about 25 km from the German border and approximately 100 km away from Berlin.</p><p>In the Federal Republic of Germany, the steel structure market maintains a stable level of demand. In fact, its importance seems to be growing every year, given the global deficits in the general availability of raw materials. Due to limited domestic supply, German companies import 40% to 60% of steel from other countries.</p><p>Therefore the convenient location of the planned factory in the West Pomeranian Voivodeship will allow the export of nearly 90% of the manufactured products to Western Europe, the Federal Republic of Germany in particular. </p>',
                 ));
 
-		// Get all the tables from your database
+
+		# Contacts
+        $new_id++;
+		DB::table('articles')->insert(array(
+			'id' => $new_id,
+			'parent_id' => 1,
+			'position' => $new_id,
+			'active' => 1,
+			'template' => 'contacts',
+			'sub' => 'no',
+			'in_nav' => 1,
+		));
+			DB::table('articles_details')->insert(array(
+				'article_id' => $new_id,
+				'url' => 'contacts',
+				'lang' => 'en',
+				'title' => 'Contacts',
+				'name' => 'Contacts',
+				'description' => 'Contacts',
+				'bread' => 'Contacts',
+				'short_name' => 'Contacts',
+				'annotation' => '',
+				'slogan' => '',
+				'content' => 'Contact us. <br>Do you have further questions about our company\'s activities? Feel free to contact us via contact form, email or give us a call.',
+			));
+
+		# ================================================
 		$tables = \DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = \'public\' ORDER BY table_name;');
-		// Set the tables in the database you would like to ignore
 		$ignores = array('admin_setting', 'model_has_permissions', 'model_has_roles', 'password_resets', 'role_has_permissions', 'sessions');
-		//loop through the tables
 		foreach ($tables as $table) {
-		   // if the table is not to be ignored then:
 		   if (!in_array($table->table_name, $ignores)) {
-			   //Get the max id from that table and add 1 to it
 			   $seq = \DB::table($table->table_name)->max('id') + 1;
-			   // alter the sequence to now RESTART WITH the new sequence index from above
 			   \DB::select('ALTER SEQUENCE ' . $table->table_name . '_id_seq RESTART WITH ' . $seq);
 			}
 		}

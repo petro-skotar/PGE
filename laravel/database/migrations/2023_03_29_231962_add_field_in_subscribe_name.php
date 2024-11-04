@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldInSubscribeName4 extends Migration
+class AddFieldInSubscribeName extends Migration
 {
     /**
      * Run the migrations.

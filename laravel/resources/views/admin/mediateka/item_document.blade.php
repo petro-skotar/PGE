@@ -82,7 +82,7 @@ $cat_name = '';
 				<a href="{{route('mediateka.edit', $document->id)}}?type=document" class="btn btn-sm btn-flat" title="Edit {{$document->id}}"><i class="far fa-edit"></i></a>
 				<form action="{{ route('mediateka.destroy' , $document->id)}}?type=documents{{(!empty($_GET['parent_id']) ? '&parent_id='.$_GET['parent_id'] : '')}}" method="POST">
 					<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-					<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+					<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 				</form>
 			  </div>
 		  </td>

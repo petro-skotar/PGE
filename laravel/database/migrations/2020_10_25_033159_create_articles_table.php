@@ -55,6 +55,7 @@ class CreateArticlesTable extends Migration
             $table->string('location',255)->nullable(true)->default('');
             $table->string('start_date',255)->nullable(true)->default('');
             $table->string('end_date',255)->nullable(true)->default('');
+            $table->string('file',250)->nullable(true)->default('');
             $table->timestamps();
         });
     }

@@ -11,9 +11,9 @@
           <div class="col-sm-8">
             <h1 class="m-0 text-dark">Site administrators</h1>
           </div><!-- /.col -->
-          <div class="col-sm-4">
-            <a href="{{route('managers.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Создать</a>
-          </div><!-- /.col -->
+          {{--<div class="col-sm-4">
+            <a href="{{route('managers.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Create</a>
+          </div>--}}<!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -64,11 +64,11 @@
 	                      	  <div class="btn-group">
 		                        <a href="{{route('managers.edit', $manager->id)}}" class="btn btn-sm btn-flat" title="Edit {{$manager->id}}"><i class="far fa-edit"></i></a>
 								@if($manager->id==1)
-		                       	<button type="submit" class="btn btn-sm btn-flat disabled" title="Главного администратора нельзя удалить"><i class="far fa-trash-alt"></i></button>
+		                       	<button type="submit" class="btn btn-sm btn-flat disabled" title="The main administrator cannot be deleted"><i class="far fa-trash-alt"></i></button>
 								@else
 		                        <form action="{{ route('managers.destroy' , $manager->id)}}" method="POST">
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 		                        </form>
 								@endif
 		                      </div>

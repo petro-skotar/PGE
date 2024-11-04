@@ -112,6 +112,8 @@ class ArticlesController extends Controller
 
 		if(in_array(DATA::module(),['blog'])){
 			$articles = Article::where('module',DATA::module())->orderBy('created_at','desc')->get();
+		} elseif(in_array(DATA::module(),['projects'])){
+			$articles = Article::where('module',DATA::module())->orderBy('position','desc')->get();
 		} elseif(in_array(DATA::module(),['faq'])){
 			$articles = Article::where('module',DATA::module())->orderBy('faq_category','asc')->orderBy('position','asc')->get();
 		} elseif(in_array(DATA::module(),['sections'])){
@@ -359,7 +361,7 @@ class ArticlesController extends Controller
 			->where('module','projects')
 			->where('parent_id',0)
 			->where('active','1')
-			->orderBy('position','asc')->get();
+			->orderBy('position','desc')->get();
 	}
     public function projects()
     {

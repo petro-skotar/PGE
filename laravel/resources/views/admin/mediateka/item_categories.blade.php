@@ -41,7 +41,7 @@
 				@if($category->id != 53)
 				<form action="{{ route('mediateka.destroy' , $category->id)}}?type=category" method="POST">
 					<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-					<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+					<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 				</form>
 				@endif
 			  </div>
@@ -97,7 +97,7 @@
 					<a href="{{route('mediateka.edit', $category_lv_2->id)}}?type=category" class="btn btn-sm btn-flat" title="Edit {{$category_lv_2->id}}"><i class="far fa-edit"></i></a>
 					<form action="{{ route('mediateka.destroy' , $category_lv_2->id)}}?type=category" method="POST">
 						<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-						<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+						<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 					</form>
 				  </div>
 			  </td>
@@ -151,7 +151,7 @@
 								<a href="{{route('mediateka.edit', $category_lv_3->id)}}?type=category" class="btn btn-sm btn-flat" title="Edit {{$category_lv_3->id}}"><i class="far fa-edit"></i></a>
 								<form action="{{ route('mediateka.destroy' , $category_lv_3->id)}}?type=category" method="POST">
 									<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-									<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+									<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 								</form>
 							  </div>
 						  </td>

@@ -12,7 +12,7 @@
             <h1 class="m-0 text-dark">Участники МСИ <span>/ {{ Config::get('cms.modules.uchastniki-aml.sub.users-aml.name') }}</span></h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
-            <a href="{{route('users-aml.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Создать</a>
+            <a href="{{route('users-aml.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Create</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -65,7 +65,7 @@
 								@else
 		                        <form action="{{ route('users-aml.destroy' , $manager->id)}}" method="POST">
     								<input name="_method" type="hidden" value="DELETE">{{ csrf_field() }}
-		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Действительно удалить?')" title="Удалить"><i class="far fa-trash-alt"></i></button>
+		                       		<button type="submit" class="btn btn-sm btn-flat"  onclick="return confirm('Are you sure you want to delete it?')" title="Delete"><i class="far fa-trash-alt"></i></button>
 		                        </form>
 								@endif
 		                      </div>

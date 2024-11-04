@@ -80,7 +80,7 @@
 					<input name="surname" value="{{($manager->surname ? $manager->surname : old('surname') )}}" required type="text" class="form-control" placeholder="">
 				  </div>
 				  <div class="form-group">
-					<label>Имя *</label>
+					<label>Name *</label>
 					<input name="name" value="{{($manager->name ? $manager->name : old('name') )}}" required @if($manager->id == 1)disabled @endif type="text" class="form-control">
 				  </div>
 				  <div class="form-group">
@@ -100,13 +100,13 @@
 					<input name="post" value="{{($manager->post ? $manager->post : old('post') )}}" required type="text" class="form-control" placeholder="">
 				  </div>
 				  <div class="form-group">
-					<label>Пароль *</label>
+					<label>Password *</label>
 					@if(!request()->routeIs('users-aml.create'))
 					<p>Невозможно увидеть пароль или восстановить его. Возможно только создать новый.<br>
 					<a href="" class="create_new_pass">Создать новый пароль</a></p>
 					@endif
 					<div class="input-group new_pass @if(!request()->routeIs('users-aml.create')) hide @endif">
-						<input name="password" @if(request()->routeIs('users-aml.create'))required @endif value="" type="text" class="form-control" placeholder="Пароль">
+						<input name="password" @if(request()->routeIs('users-aml.create'))required @endif value="" type="text" class="form-control" placeholder="Password">
 						<div class="input-group-append">
 							<a href="" class="input-group-text create_password_key no_submit" title="Сгенерировать пароль"><i class="fas fa-key"></i></a>
 						</div>
@@ -129,7 +129,7 @@
             <!-- general form elements disabled -->
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">Доступ</h3>
+                <h3 class="card-title">Access</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

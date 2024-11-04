@@ -58,7 +58,7 @@
                     data-frame_999="o:0;st:w;sR:6300;"
                     style="z-index:10;"
                     class="font-current-theme1"
-                ><a href="page-project-details.html" class="btn btn-theme-colored1 text-white">Read More</a>
+                ><a href="{{ route('viewProjects') }}" class="btn btn-theme-colored1 text-white">Read More</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-2-layer-3"
@@ -71,7 +71,7 @@
                     data-frame_999="o:0;st:w;sR:5980;"
                     style="z-index:9;"
                     class="font-current-theme1"
-                ><a href="/contacts" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
+                ><a href="{{ route('viewArticle',['contacts']) }}" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-2-layer-0"
@@ -131,7 +131,7 @@
                     data-frame_999="o:0;st:w;sR:6300;"
                     style="z-index:10;"
                     class="font-current-theme1"
-                ><a href="page-project-details.html" class="btn btn-theme-colored1 text-white">Read More</a>
+                ><a href="{{ route('viewProjects') }}" class="btn btn-theme-colored1 text-white">Read More</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-11-layer-3"
@@ -144,7 +144,7 @@
                     data-frame_999="o:0;st:w;sR:5980;"
                     style="z-index:9;"
                     class="font-current-theme1"
-                ><a href="/contacts" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
+                ><a href="{{ route('viewArticle',['contacts']) }}" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-11-layer-0"
@@ -204,7 +204,7 @@
                     data-frame_999="o:0;st:w;sR:6300;"
                     style="z-index:10;"
                     class="font-current-theme1"
-                ><a href="page-project-details.html" class="btn btn-theme-colored1 text-white">Read More</a>
+                ><a href="{{ route('viewProjects') }}" class="btn btn-theme-colored1 text-white">Read More</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-12-layer-3"
@@ -217,7 +217,7 @@
                     data-frame_999="o:0;st:w;sR:5980;"
                     style="z-index:9;"
                     class="font-current-theme1"
-                ><a href="/contacts" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
+                ><a href="{{ route('viewArticle',['contacts']) }}" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-12-layer-0"
@@ -277,7 +277,7 @@
                     data-frame_999="o:0;st:w;sR:6300;"
                     style="z-index:10;"
                     class="font-current-theme1"
-                ><a href="page-project-details.html" class="btn btn-theme-colored1 text-white">Read More</a>
+                ><a href="{{ route('viewProjects') }}" class="btn btn-theme-colored1 text-white">Read More</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-12-layer-3"
@@ -290,7 +290,7 @@
                     data-frame_999="o:0;st:w;sR:5980;"
                     style="z-index:9;"
                     class="font-current-theme1"
-                ><a href="/contacts" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
+                ><a href="{{ route('viewArticle',['contacts']) }}" class="btn btn-theme-colored2 text-white contact-us">Contact Us</a>
                 </rs-layer>
                 <rs-layer
                     id="slider-2-slide-12-layer-0"
@@ -375,7 +375,7 @@
                   <div class="icon bg-theme-colored2 text-center d-none d-xl-block"><span class="flaticon-roofing-compass"></span></div>
                   <div class="get-quote-form-wrapper">
                     <h3 class="mt-0"><span class="text-theme-colored1">Make </span> <span class="font-weight-500">an  Application</span></h3>
-                    <form id="request_a_quote_form" name="request_a_quote_form" action="includes/request-a-quote.php" method="post">
+                    <form id="request_a_quote_form" name="request_a_quote_form" action="includes/request-a-quote.php" method="post"  onSubmit="javascript:alert('Under development. Try again later.'); return false;">
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="mb-3">

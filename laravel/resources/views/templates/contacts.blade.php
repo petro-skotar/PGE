@@ -52,7 +52,7 @@
             <h1 class="mt-0 mb-0">{!! $article->details_one->name !!}</h1>
             <p class="font-size-18-">Active & Ready to use Contact Form!</p>
             <!-- Contact Form -->
-            <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post">
+            <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post" onSubmit="javascript:alert('Under development. Try again later.'); return false;">
               <div class="row">
                 <div class="col-sm-6">
                   <div class="mb-3">
