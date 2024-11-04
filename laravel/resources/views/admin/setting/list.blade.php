@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Настроки</h1>
+            <h1 class="m-0 text-dark">Settings</h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
             <a href="{{route('setting.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Create</a>
@@ -28,7 +28,7 @@
           @if ($setting)
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Список</h3>
+                <h3 class="card-title">List</h3>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Найти">

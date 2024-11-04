@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-8">
-            <h1 class="m-0 text-dark">Настройки <span>{{ request()->routeIs('setting.edit') ? '(Editing)': ''}} {{ request()->routeIs('setting.create') ? '(Creation)' : ''}}</span></h1>
+            <h1 class="m-0 text-dark">Settings <span>{{ request()->routeIs('setting.edit') ? '(Editing)': ''}} {{ request()->routeIs('setting.create') ? '(Creation)' : ''}}</span></h1>
           </div><!-- /.col -->
           <div class="col-sm-4">
             <button type="submit" class="btn btn-info float-right ml-2 mb-2 trigger_btn_save">Save</button>
@@ -59,17 +59,17 @@
           <div class="col-12 col-sm-8">
             <div class="card card-primary card-outline card-outline-tabs">
               <div class="card-header">
-				<h3 class="card-title">Данные</h3>
+				<h3 class="card-title">Data</h3>
               </div>
               <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
 
 				  <div class="form-group">
-					<label>Параметр *</label>
+					<label>Parameter *</label>
 					<input name="desc" required value="{{($setting->desc ? $setting->desc : old('desc') )}}" type="text" class="form-control" placeholder="">
 				  </div>
 				  <div class="form-group">
-					<label>Значение</label>
+					<label>Value</label>
 					<textarea name="val" class="form-control" rows="8" placeholder="">{{($setting->val ? $setting->val : old('val') )}}</textarea>
 				  </div>
 
@@ -100,7 +100,7 @@
 				  <div class="row">
 					  <div class="col-12 col-sm-6">
 						  <div class="form-group">
-							<label>Код параметра *</label>
+							<label>Parameter code *</label>
 							<input name="code" required value="{{($setting->code ? $setting->code : old('code') )}}" type="text" class="form-control" placeholder="code">
 						  </div>
 					  </div>

@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth', 'isadmin'],'prefix'=>'admin'], function()
 		Route::resources(['config/managers' => ManagersController::class]);
 	  # Роли
 		Route::resources(['config/roles' => RolesController::class]);
-	  # Настроки
+	  # Settings
 		Route::resources(['config/setting' => SettingController::class]);
 
 	Route::get('404','App\Http\Controllers\Admin404Controller@index')->name('Admin404');

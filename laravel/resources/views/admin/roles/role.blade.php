@@ -65,7 +65,7 @@
           <div class="col-12 col-sm-6">
             <div class="card card-primary card-outline card-outline-tabs">
               <div class="card-header">
-				<h3 class="card-title">Данные</h3>
+				<h3 class="card-title">Data</h3>
               </div>
               <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
