@@ -24,6 +24,7 @@ class StartSections extends Migration
 			'position' => $new_id,
 			'module' => 'sections',
 			'sub' => 'yes',
+			'section_name' => 'why-me',
 		));
 			DB::table('articles_details')->insert(array(
 				'article_id' => $new_id,

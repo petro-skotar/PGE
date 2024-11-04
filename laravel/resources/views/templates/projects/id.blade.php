@@ -20,10 +20,12 @@
         <div class="row">
           <div class="col-md-4">
 
-            <div class="pt-0">
-                <h4 class="mt-0">Project Description</h4>
-                {!! $article->details_one->content !!}
-            </div>
+            @if(!empty($article->details_one->content))
+                <div class="pt-0">
+                    <h4 class="mt-0">Project Description</h4>
+                    {!! $article->details_one->content !!}
+                </div>
+            @endif
 
             <dl class="description-list pt-20">
             @if(!empty($article->details_one->client))

@@ -398,7 +398,7 @@ class ArticlesController extends Controller
 			->where('parent_id',0)
 			->where('active','1')
 			->inRandomOrder()
-            ->limit(3)->get();
+            ->limit(6)->get();
 
 		if(!empty($article->details_one->name)){
 			/*$faq = Article::where('template','faq')->where('active',1)->first();

@@ -186,25 +186,25 @@
 							<div class="col-md-3">
 							  <div class="form-group">
 								<label>Client <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][client]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="">{{($Article_details[$lang]->client ? $Article_details[$lang]->client : old('details.'.$lang.'.client') )}}</textarea>
+								<textarea name="details[{{$lang}}][client]" class="form-control" rows="1" placeholder="">{{($Article_details[$lang]->client ? $Article_details[$lang]->client : old('details.'.$lang.'.client') )}}</textarea>
 							  </div>
 							</div>
 							<div class="col-md-3">
 							  <div class="form-group">
 								<label>Location <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][location]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="">{{($Article_details[$lang]->location ? $Article_details[$lang]->location : old('details.'.$lang.'.location') )}}</textarea>
+								<textarea name="details[{{$lang}}][location]" class="form-control" rows="1" placeholder="">{{($Article_details[$lang]->location ? $Article_details[$lang]->location : old('details.'.$lang.'.location') )}}</textarea>
 							  </div>
 							</div>
 							<div class="col-md-3">
 							  <div class="form-group">
 								<label>Start Date <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][start_date]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="">{{($Article_details[$lang]->start_date ? $Article_details[$lang]->start_date : old('details.'.$lang.'.start_date') )}}</textarea>
+								<textarea name="details[{{$lang}}][start_date]" class="form-control" rows="1" placeholder="">{{($Article_details[$lang]->start_date ? $Article_details[$lang]->start_date : old('details.'.$lang.'.start_date') )}}</textarea>
 							  </div>
 							</div>
 							<div class="col-md-3">
 							  <div class="form-group">
-								<label>End Date <span>[{{$lang}}]</span></label>
-								<textarea name="details[{{$lang}}][end_date]" class="form-control {{ request()->routeIs($module_info['module'].'.create') || empty($Article_details[$lang]->name) ? 'duble_post_'.$lang : ''}}" rows="1" placeholder="">{{($Article_details[$lang]->end_date ? $Article_details[$lang]->end_date : old('details.'.$lang.'.end_date') )}}</textarea>
+								<label tiitle="End Date or Project Completed">Project Completed <span>[{{$lang}}]</span></label>
+								<textarea name="details[{{$lang}}][end_date]" class="form-control" rows="1" placeholder="">{{($Article_details[$lang]->end_date ? $Article_details[$lang]->end_date : old('details.'.$lang.'.end_date') )}}</textarea>
 							  </div>
 							</div>
 							@endif

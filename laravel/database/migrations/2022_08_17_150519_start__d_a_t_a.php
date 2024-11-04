@@ -141,7 +141,7 @@ class StartDATA extends Migration
 		DB::table('setting')->insert(array(
 			'desc' => 'Contact Instagram',
 			'code' => 'contact_instagram',
-			'val' => 'Instagram',
+			'val' => '',
 			'module' => 'contacts',
 		));
 		DB::table('setting')->insert(array(
@@ -247,92 +247,6 @@ class StartDATA extends Migration
 				'slogan' => '',
 				'content' => '',
 			));
-				$parent_id = 0;
-				$new_id++;
-				DB::table('articles')->insert(array(
-					'id' => $new_id,
-					'position' => $new_id,
-					'parent_id' => $parent_id,
-					'module' => 'projects',
-					'images' => '[
-                        "templates/pgeconstruction/images/projects/01/01.jpg",
-                        "templates/pgeconstruction/images/projects/01/02.jpg",
-                        "templates/pgeconstruction/images/projects/01/03.jpg",
-                        "templates/pgeconstruction/images/projects/01/04.jpg",
-                        "templates/pgeconstruction/images/projects/01/05.jpg",
-                        "templates/pgeconstruction/images/projects/01/06.jpg"
-                    ]',
-				));
-					DB::table('articles_details')->insert(array(
-						'article_id' => $new_id,
-						'lang' => 'en',
-						'name' => 'Roof Replacement and Exterior Painting of a Heritage House in Prince Rupert',
-						'url' => 'roof-replacement-exterior-painting-heritage-house-prince-rupert',
-						'client' => 'Private house',
-						'location' => 'Prince Rupert',
-						'start_date' => 'August 01, 2024',
-						'end_date' => 'October 01, 2024',
-						'content' => '<p>Just wrapping up another roof replacement and exterior paint job in Prince Rupert. It was a pleasure to work on such a charming heritage house!<br>Call us for home renovations in Prince Rupert. 250-627-7266 <br>Kitchens, bathrooms, drywall, flooring, decks, etc. <br>Quality workmanship, quality customer service.</p>',
-					));
-				$parent_id = 0;
-				$new_id++;
-				DB::table('articles')->insert(array(
-					'id' => $new_id,
-					'position' => $new_id,
-					'parent_id' => $parent_id,
-					'module' => 'projects',
-					'images' => '[
-                        "templates/pgeconstruction/images/projects/02/02.jpg",
-                        "templates/pgeconstruction/images/projects/02/01.jpg",
-                        "templates/pgeconstruction/images/projects/02/03.jpg",
-                        "templates/pgeconstruction/images/projects/02/04.jpg",
-                        "templates/pgeconstruction/images/projects/02/05.jpg",
-                        "templates/pgeconstruction/images/projects/02/06.jpg",
-                        "templates/pgeconstruction/images/projects/02/07.jpg",
-                        "templates/pgeconstruction/images/projects/02/08.jpg",
-                        "templates/pgeconstruction/images/projects/02/09.jpg",
-                        "templates/pgeconstruction/images/projects/02/10.jpg"
-                    ]',
-				));
-					DB::table('articles_details')->insert(array(
-						'article_id' => $new_id,
-						'lang' => 'en',
-						'name' => 'Project Completion: Pressure Treated Deck, Stairs and Engineered landing.',
-						'url' => 'project-completion-pressure-treated-deck-stairs-engineered-landing',
-						'client' => 'Private house',
-						'location' => 'Prince Rupert',
-						'start_date' => 'June 01, 2024',
-						'end_date' => 'August 23, 2024',
-						'annotation' => '',
-						'content' => '<p>Finishing up a pressure treated second floor deck, staircase and engineered landing. The home owner can now access the 2nd floor access door. total height of staircase in 3.1m. Now for wood stain! <br>Call us for a quote on quality home renovations in Prince Rupert 250-627-7266</p>',
-					));
-				$parent_id = 0;
-				$new_id++;
-				DB::table('articles')->insert(array(
-					'id' => $new_id,
-					'position' => $new_id,
-					'parent_id' => $parent_id,
-					'module' => 'projects',
-					'images' => '[
-                        "templates/pgeconstruction/images/projects/03/01.jpg",
-                        "templates/pgeconstruction/images/projects/03/02.jpg",
-                        "templates/pgeconstruction/images/projects/03/03.jpg",
-                        "templates/pgeconstruction/images/projects/03/04.jpg",
-                        "templates/pgeconstruction/images/projects/03/05.jpg"
-                    ]',
-				));
-					DB::table('articles_details')->insert(array(
-						'article_id' => $new_id,
-						'lang' => 'en',
-						'name' => 'Another Roof Replacement Complete: Quality Inspected and Team Tanned!',
-						'url' => 'another-roof-replacement-complete-quality-inspected-team-tanned',
-						'client' => 'Private house',
-						'location' => 'Prince Rupert',
-						'start_date' => 'July 10, 2024',
-						'end_date' => 'August 22, 2024',
-						'annotation' => '',
-						'content' => '<p>Just finished final inspection of another roof replacement. The team have all gotten really solid tans in the last couple of months! Call us for quality home renovations in Prince Rupert! 250-627-7266 </p>',
-					));
                 $parent_id = 0;
                 $new_id++;
                 DB::table('articles')->insert(array(
@@ -341,11 +255,93 @@ class StartDATA extends Migration
                     'parent_id' => $parent_id,
                     'module' => 'projects',
                     'images' => '[
-                        "templates/pgeconstruction/images/projects/04/01.jpg",
-                        "templates/pgeconstruction/images/projects/04/02.jpg",
-                        "templates/pgeconstruction/images/projects/04/03.jpg",
-                        "templates/pgeconstruction/images/projects/04/04.jpg",
-                        "templates/pgeconstruction/images/projects/04/05.jpg"
+                        "templates/pgeconstruction/images/projects/18/05.jpg",
+                        "templates/pgeconstruction/images/projects/18/02.jpg",
+                        "templates/pgeconstruction/images/projects/18/01.jpg",
+                        "templates/pgeconstruction/images/projects/18/03.jpg",
+                        "templates/pgeconstruction/images/projects/18/04.jpg"
+                    ]',
+                ));
+                    DB::table('articles_details')->insert(array(
+                        'article_id' => $new_id,
+                        'lang' => 'en',
+                        'name' => 'Helping Homeowners Resolve Flooding with Drainage Upgrades',
+                        'url' => 'helping-homeowners-resolve-flooding-drainage-upgrades',
+                        'client' => 'Private house',
+                        'location' => 'Prince Rupert',
+                        'start_date' => '',
+                        'end_date' => 'March/April 2024',
+                        'annotation' => '',
+                        'content' => '<p>Recently we have done a number of drainage improvements for homeowners who had flooding issues. Maintenance or construction needs? Call us for an estimate 250-627-7266</p>',
+                    ));
+
+                $parent_id = 0;
+                $new_id++;
+                DB::table('articles')->insert(array(
+                    'id' => $new_id,
+                    'position' => $new_id,
+                    'parent_id' => $parent_id,
+                    'module' => 'projects',
+                    'images' => '[
+                        "templates/pgeconstruction/images/projects/18/05.jpg",
+                        "templates/pgeconstruction/images/projects/18/02.jpg",
+                        "templates/pgeconstruction/images/projects/18/01.jpg",
+                        "templates/pgeconstruction/images/projects/18/03.jpg",
+                        "templates/pgeconstruction/images/projects/18/04.jpg"
+                    ]',
+                ));
+                    DB::table('articles_details')->insert(array(
+                        'article_id' => $new_id,
+                        'lang' => 'en',
+                        'name' => 'Helping Homeowners Resolve Flooding with Drainage Upgrades',
+                        'url' => 'helping-homeowners-resolve-flooding-drainage-upgrades',
+                        'client' => 'Private house',
+                        'location' => 'Prince Rupert',
+                        'start_date' => '',
+                        'end_date' => 'March/April 2024',
+                        'annotation' => '',
+                        'content' => '<p>Recently we have done a number of drainage improvements for homeowners who had flooding issues. Maintenance or construction needs? Call us for an estimate 250-627-7266</p>',
+                    ));
+                $parent_id = 0;
+                $new_id++;
+                DB::table('articles')->insert(array(
+                    'id' => $new_id,
+                    'position' => $new_id,
+                    'parent_id' => $parent_id,
+                    'module' => 'projects',
+                    'images' => '[
+                        "templates/pgeconstruction/images/projects/19/01.jpg",
+                        "templates/pgeconstruction/images/projects/19/02.jpg",
+                        "templates/pgeconstruction/images/projects/19/03.jpg",
+                        "templates/pgeconstruction/images/projects/19/04.jpg",
+                        "templates/pgeconstruction/images/projects/19/05.jpg"
+                    ]',
+                ));
+                    DB::table('articles_details')->insert(array(
+                        'article_id' => $new_id,
+                        'lang' => 'en',
+                        'name' => 'Successfully Completed: Exterior Painting of a Tall House with Safety Precautions',
+                        'url' => 'successfully-completed-exterior-painting-tall-house-safety-precautions',
+                        'client' => 'Private house',
+                        'location' => 'Prince Rupert',
+                        'start_date' => 'July 01, 2024',
+                        'end_date' => 'July 28, 2024',
+                        'annotation' => '',
+                        'content' => '<p>just completed the exterior painting a very tall house using safety harnesses, scaffolding and ladder jacks.  Working up high is not for everyone. <br>Our team is available for home renovations in Prince Rupert.  250-627-7266</p>',
+                    ));
+                $parent_id = 0;
+                $new_id++;
+                DB::table('articles')->insert(array(
+                    'id' => $new_id,
+                    'position' => $new_id,
+                    'parent_id' => $parent_id,
+                    'module' => 'projects',
+                    'images' => '[
+                        "templates/pgeconstruction/images/projects/20/01.jpg",
+                        "templates/pgeconstruction/images/projects/20/02.jpg",
+                        "templates/pgeconstruction/images/projects/20/03.jpg",
+                        "templates/pgeconstruction/images/projects/20/04.jpg",
+                        "templates/pgeconstruction/images/projects/20/05.jpg"
                     ]',
                 ));
                     DB::table('articles_details')->insert(array(
@@ -360,60 +356,92 @@ class StartDATA extends Migration
                         'annotation' => '',
                         'content' => '<p>Finishing up a roof replacement today. Ended up peeling off the old roof from the 1940s. Replaced the structural rot, sheeted, peel-and-stuck and then replaced flashing and re-shingled. The new roof will last longer than a lot of us... Job done! Call Ray for home renovation quotes 250-627-7266</p>',
                     ));
-                    $parent_id = 0;
-                    $new_id++;
-                    DB::table('articles')->insert(array(
-                        'id' => $new_id,
-                        'position' => $new_id,
-                        'parent_id' => $parent_id,
-                        'module' => 'projects',
-                        'images' => '[
-                            "templates/pgeconstruction/images/projects/05/01.jpg",
-                            "templates/pgeconstruction/images/projects/05/02.jpg",
-                            "templates/pgeconstruction/images/projects/05/03.jpg",
-                            "templates/pgeconstruction/images/projects/05/04.jpg",
-                            "templates/pgeconstruction/images/projects/05/05.jpg"
-                        ]',
+                $parent_id = 0;
+                $new_id++;
+                DB::table('articles')->insert(array(
+                    'id' => $new_id,
+                    'position' => $new_id,
+                    'parent_id' => $parent_id,
+                    'module' => 'projects',
+                    'images' => '[
+                        "templates/pgeconstruction/images/projects/21/01.jpg",
+                        "templates/pgeconstruction/images/projects/21/02.jpg",
+                        "templates/pgeconstruction/images/projects/21/03.jpg",
+                        "templates/pgeconstruction/images/projects/21/04.jpg",
+                        "templates/pgeconstruction/images/projects/21/05.jpg"
+                    ]',
+                ));
+                    DB::table('articles_details')->insert(array(
+                        'article_id' => $new_id,
+                        'lang' => 'en',
+                        'name' => 'Another Roof Replacement Complete: Quality Inspected and Team Tanned!',
+                        'url' => 'another-roof-replacement-complete-quality-inspected-team-tanned',
+                        'client' => 'Private house',
+                        'location' => 'Prince Rupert',
+                        'start_date' => 'July 10, 2024',
+                        'end_date' => 'August 22, 2024',
+                        'annotation' => '',
+                        'content' => '<p>Just finished final inspection of another roof replacement. The team have all gotten really solid tans in the last couple of months! Call us for quality home renovations in Prince Rupert! 250-627-7266 </p>',
                     ));
-                        DB::table('articles_details')->insert(array(
-                            'article_id' => $new_id,
-                            'lang' => 'en',
-                            'name' => 'Successfully Completed: Exterior Painting of a Tall House with Safety Precautions',
-                            'url' => 'successfully-completed-exterior-painting-tall-house-safety-precautions',
-                            'client' => 'Private house',
-                            'location' => 'Prince Rupert',
-                            'start_date' => 'July 01, 2024',
-                            'end_date' => 'July 28, 2024',
-                            'annotation' => '',
-                            'content' => '<p>just completed the exterior painting a very tall house using safety harnesses, scaffolding and ladder jacks.  Working up high is not for everyone. <br>Our team is available for home renovations in Prince Rupert.  250-627-7266</p>',
-                        ));
-                    $parent_id = 0;
-                    $new_id++;
-                    DB::table('articles')->insert(array(
-                        'id' => $new_id,
-                        'position' => $new_id,
-                        'parent_id' => $parent_id,
-                        'module' => 'projects',
-                        'images' => '[
-                            "templates/pgeconstruction/images/projects/06/05.jpg",
-                            "templates/pgeconstruction/images/projects/06/02.jpg",
-                            "templates/pgeconstruction/images/projects/06/01.jpg",
-                            "templates/pgeconstruction/images/projects/06/03.jpg",
-                            "templates/pgeconstruction/images/projects/06/04.jpg"
-                        ]',
+                $parent_id = 0;
+                $new_id++;
+                DB::table('articles')->insert(array(
+                    'id' => $new_id,
+                    'position' => $new_id,
+                    'parent_id' => $parent_id,
+                    'module' => 'projects',
+                    'images' => '[
+                        "templates/pgeconstruction/images/projects/22/02.jpg",
+                        "templates/pgeconstruction/images/projects/22/01.jpg",
+                        "templates/pgeconstruction/images/projects/22/03.jpg",
+                        "templates/pgeconstruction/images/projects/22/04.jpg",
+                        "templates/pgeconstruction/images/projects/22/05.jpg",
+                        "templates/pgeconstruction/images/projects/22/06.jpg",
+                        "templates/pgeconstruction/images/projects/22/07.jpg",
+                        "templates/pgeconstruction/images/projects/22/08.jpg",
+                        "templates/pgeconstruction/images/projects/22/09.jpg",
+                        "templates/pgeconstruction/images/projects/22/10.jpg"
+                    ]',
+                ));
+                    DB::table('articles_details')->insert(array(
+                        'article_id' => $new_id,
+                        'lang' => 'en',
+                        'name' => 'Project Completion: Pressure Treated Deck, Stairs and Engineered landing.',
+                        'url' => 'project-completion-pressure-treated-deck-stairs-engineered-landing',
+                        'client' => 'Private house',
+                        'location' => 'Prince Rupert',
+                        'start_date' => 'June 01, 2024',
+                        'end_date' => 'August 23, 2024',
+                        'annotation' => '',
+                        'content' => '<p>Finishing up a pressure treated second floor deck, staircase and engineered landing. The home owner can now access the 2nd floor access door. total height of staircase in 3.1m. Now for wood stain! <br>Call us for a quote on quality home renovations in Prince Rupert 250-627-7266</p>',
                     ));
-                        DB::table('articles_details')->insert(array(
-                            'article_id' => $new_id,
-                            'lang' => 'en',
-                            'name' => 'Flooding Issues Resolved: Drainage Improvements Completed',
-                            'url' => 'flooding-issues-resolved-drainage-improvements-completed',
-                            'client' => 'Private house',
-                            'location' => 'Prince Rupert',
-                            'start_date' => 'January 20, 2024',
-                            'end_date' => 'February 01, 2024',
-                            'annotation' => '',
-                            'content' => '<p>Recently we have done a number of drainage improvements for homeowners who had flooding issues.   Maintenance or construction needs? Call us for an estimate 250-627-7266 -booking for March/April 2024</p>',
-                        ));
+                $parent_id = 0;
+                $new_id++;
+                DB::table('articles')->insert(array(
+                    'id' => $new_id,
+                    'position' => $new_id,
+                    'parent_id' => $parent_id,
+                    'module' => 'projects',
+                    'images' => '[
+                        "templates/pgeconstruction/images/projects/23/01.jpg",
+                        "templates/pgeconstruction/images/projects/23/02.jpg",
+                        "templates/pgeconstruction/images/projects/23/03.jpg",
+                        "templates/pgeconstruction/images/projects/23/04.jpg",
+                        "templates/pgeconstruction/images/projects/23/05.jpg",
+                        "templates/pgeconstruction/images/projects/23/06.jpg"
+                    ]',
+                ));
+                    DB::table('articles_details')->insert(array(
+                        'article_id' => $new_id,
+                        'lang' => 'en',
+                        'name' => 'Roof Replacement and Exterior Painting of a Heritage House in Prince Rupert',
+                        'url' => 'roof-replacement-exterior-painting-heritage-house-prince-rupert',
+                        'client' => 'Private house',
+                        'location' => 'Prince Rupert',
+                        'start_date' => 'August 01, 2024',
+                        'end_date' => 'October 01, 2024',
+                        'content' => '<p>Just wrapping up another roof replacement and exterior paint job in Prince Rupert. It was a pleasure to work on such a charming heritage house!<br>Call us for home renovations in Prince Rupert. 250-627-7266 <br>Kitchens, bathrooms, drywall, flooring, decks, etc. <br>Quality workmanship, quality customer service.</p>',
+                    ));
 
 		# Contacts
         $new_id++;
@@ -544,24 +572,17 @@ class StartDATA extends Migration
 
 		// Get all the tables from your database
 		$tables = \DB::select('SELECT table_name FROM information_schema.tables WHERE table_schema = \'public\' ORDER BY table_name;');
-
 		// Set the tables in the database you would like to ignore
 		$ignores = array('admin_setting', 'model_has_permissions', 'model_has_roles', 'password_resets', 'role_has_permissions', 'sessions');
-
 		//loop through the tables
 		foreach ($tables as $table) {
-
 		   // if the table is not to be ignored then:
 		   if (!in_array($table->table_name, $ignores)) {
-
 			   //Get the max id from that table and add 1 to it
 			   $seq = \DB::table($table->table_name)->max('id') + 1;
-
 			   // alter the sequence to now RESTART WITH the new sequence index from above
 			   \DB::select('ALTER SEQUENCE ' . $table->table_name . '_id_seq RESTART WITH ' . $seq);
-
 			}
-
 		}
 
 

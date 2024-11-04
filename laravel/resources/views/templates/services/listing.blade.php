@@ -161,7 +161,7 @@
             <div class="col-xl-7">
                 <div class="tm-sc tm-divider-box text-center">
                 <h2 class="title font-size-36 mt-0 mb-30 text-white">Schedule a consultation, and we will come for a free assessment of the work</h2>
-                <a class="btn btn-theme-colored2 appointment-btn text-white" href="#contacts_form">Make an Appointment</a>
+                <a class="btn btn-theme-colored2 appointment-btn text-white" href="#contacts_form">Make an Application</a>
                 </div>
             </div>
             </div>

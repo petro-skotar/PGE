@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('template', 100)->nullable(true)->default('');
             $table->string('sub_template', 100)->nullable(true)->default('');
 			$table->string('module',30)->nullable(true)->default('articles');
+			$table->string('section_name',30)->nullable(true);
 			$table->string('sub',3)->nullable(true)->default('no');
 			$table->integer('in_nav')->nullable(true)->default(0);
 			$table->integer('faq_category')->nullable(true)->default(0);
@@ -32,6 +33,7 @@ class CreateArticlesTable extends Migration
 			$table->integer('open_comments')->nullable(true)->default(0);
 			$table->string('employmenttype',500)->nullable(true)->default('');
             $table->timestamps();
+            $table->unique(['section_name']);
         });
 
         Schema::create('articles_details', function (Blueprint $table) {

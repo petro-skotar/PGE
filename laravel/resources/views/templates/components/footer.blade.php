@@ -6,24 +6,18 @@
           <div class="col-md-6 col-lg-6 col-xl-3 pl-0 pl-lg-15">
             <div class="widget tm-widget-contact-info contact-info-style1 contact-icon-theme-colored4">
               <h4 class="widget-title">About</h4>
-              <div class="description">Lorem ipsum dolor sit amet, consect etur adi pisicing elit sed do eiusmod tempor ut labore.</div>
-              <ul class="styled-icons icon-dark icon-md icon-hover-theme-colored2 icon-circled clearfix">
-                <li><a class="social-link" href="#" ><i class="fab fa-facebook"></i></a></li>
-                <li><a class="social-link" href="#" ><i class="fab fa-instagram"></i></a></li>
-              </ul>
+              <div class="description">Choose us for your construction needs and gain a team dedicated to quality at every stage. We use top-grade materials and modern tech for durable, reliable results, with a personalized approach tailored to your preferences and budget.</div>
+
             </div>
           </div>
-          <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="col-md-6 col-lg-6 col-xl-2">
             <div class="widget widget_nav_menu split-nav-menu">
               <h4 class="widget-title">Explore</h4>
               <ul class="menu">
-                <li><a href="index-mp-layout2.html">About Us</a></li>
-                <li><a href="index-mp-layout2.html">Company</a></li>
-                <li><a href="index-mp-layout2.html">Services</a></li>
-                <li><a href="index-mp-layout2.html">Our Projects</a></li>
-                <li><a href="index-mp-layout2.html">Press & Blog</a></li>
-                <li><a href="index-mp-layout2.html">Privacy Policy</a></li>
-                <li><a href="index-mp-layout2.html">Faq</a></li>
+                <li><a href="{{ route('viewServices') }}">Services</a></li>
+                <li><a href="{{ route('viewProjects') }}">Our Projects</a></li>
+                <li><a href="{{ route('viewBlog') }}">Press & Blog</a></li>
+                <li><a href="{{ route('viewArticle',['contacts']) }}">Contacts</a></li>
               </ul>
             </div>
           </div>
@@ -58,7 +52,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="widget widget-contact clearfix mb-0 mt-lg-40">
               <h4 class="widget-title">Contact</h4>
               <div class="tm-widget tm-widget-contact">
@@ -67,6 +61,10 @@
                   <li class="contact-email"><i class="fas fa-envelope font-icon sm-display-block mr-10"></i> {!! $SETTING['contact_email']['val'] !!}</li>
                   <li class="contact-phone"><i class="fas fa-phone font-icon sm-display-block mr-10"></i> Tel: <a href="tel:{{Str::of($SETTING['contact_phone']['val'])->replace([' ','(',')','-'], '')}}">{!! $SETTING['contact_phone']['val'] !!}</a></li>
                 </ul>
+                <ul class="mt-10 styled-icons icon-dark icon-md icon-hover-theme-colored2 icon-circled clearfix">
+                    <li><a class="social-link" href="#" ><i class="fab fa-facebook"></i></a></li>
+                    <li><a class="social-link" href="#" ><i class="fab fa-instagram"></i></a></li>
+                  </ul>
                 {{--<div class="tm-sc-button">
                   <a href="#" class="btn btn-theme-colored2 mt-10">Request a Quote</a>
                 </div>

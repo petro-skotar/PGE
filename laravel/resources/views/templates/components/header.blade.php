@@ -13,12 +13,12 @@
             <div class="col-xl-auto ms-xl-auto header-top-right align-self-center text-center text-xl-end">
               <div class="element pt-0 pb-0">
                 <ul class="styled-icons icon-dark icon-theme-colored1 icon-circled clearfix">
-                  <li><a class="social-link" href="{!! $SETTING['contact_facebook']['val'] !!}" ><i class="fab fa-facebook"></i></a></li>
-                  <li><a class="social-link" href="#" ><i class="fab fa-instagram"></i></a></li>
+                  @if(!empty($SETTING['contact_facebook']['val']))<li><a class="social-link" href="{!! $SETTING['contact_facebook']['val'] !!}" ><i class="fab fa-facebook"></i></a></li>@endif
+                  @if(!empty($SETTING['contact_instagram']['val']))<li><a class="social-link" href="{!! $SETTING['contact_instagram']['val'] !!}" ><i class="fab fa-instagram"></i></a></li>@endif
                 </ul>
               </div>
               <div class="element pt-0 pt-lg-10 pb-0">
-                <a href="/#contacts_form" class="btn btn-theme-colored2 text-white btn-sm ajaxload-popup-off">Make an Appointment</a>
+                <a href="/#contacts_form" class="btn btn-theme-colored2 text-white btn-sm ajaxload-popup-off">Make an Application</a>
               </div>
             </div>
           </div>
@@ -39,6 +39,9 @@
                   <img class="logo-dark logo-default logo-2x retina" src="{{ asset('templates/pgeconstruction/images/logo-wide@2x.png') }}" alt="Logo">
                 </a>
               </div>
+              {{--<div class="col-sm-auto align-self-center">
+                <a href="tel:{{Str::of($SETTING['contact_phone']['val'])->replace([' ','(',')','-'], '')}}">{!! $SETTING['contact_phone']['val'] !!}</a>
+              </div>--}}
               <div class="col-sm-auto ms-auto pr-0 align-self-center">
                 <nav id="top-primary-nav" class="menuzord theme-color2" data-effect="slide" data-animation="none" data-align="right">
                   <ul id="main-nav" class="menuzord-menu">

@@ -374,33 +374,22 @@
                 <div class="tm-get-quote-wrapper pt-30 pb-30 pl-40 pr-40 bg-white">
                   <div class="icon bg-theme-colored2 text-center d-none d-xl-block"><span class="flaticon-roofing-compass"></span></div>
                   <div class="get-quote-form-wrapper">
-                    <h3 class="mt-0"><span class="text-theme-colored1">Make </span> <span class="font-weight-500">an  application</span></h3>
+                    <h3 class="mt-0"><span class="text-theme-colored1">Make </span> <span class="font-weight-500">an  Application</span></h3>
                     <form id="request_a_quote_form" name="request_a_quote_form" action="includes/request-a-quote.php" method="post">
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="form_name" type="text" placeholder="Enter Name" class="form-control">
+                            <input name="name" type="text" placeholder="Enter Name" class="form-control required">
                           </div>
                         </div>
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
-                          </div>
-                        </div>
-                        <div class="col-sm-12">
-                          <div class="mb-3">
-                            <select name="form_service" class="form-select form-control required">
-                              <option value="">Select Service</option>
-                              <option value="Painting">Painting</option>
-                              <option value="Roofing">Roofing</option>
-                              <option value="Staircasing">Staircasing</option>
-                              <option value="Staiting">Staiting</option>
-                            </select>
+                            <input name="email" class="form-control required email" type="email" placeholder="Enter Email">
                           </div>
                         </div>
                       </div>
                       <div class="mb-3">
-                        <textarea name="form_message" class="form-control required" rows="2" placeholder="Your message"></textarea>
+                        <textarea name="message" class="form-control required" rows="5" placeholder="Your message" style="height:auto;"></textarea>
                       </div>
                       <div class="mb-3 tm-sc-button mb-0 mt-20">
                         <input name="form_botcheck" class="form-control" type="hidden" value="">
@@ -643,7 +632,7 @@
           <div class="col-xl-7">
             <div class="tm-sc tm-divider-box text-center">
               <h2 class="title font-size-36 mt-0 mb-30 text-white">Schedule a consultation, and we will come for a free assessment of the work</h2>
-              <a class="btn btn-theme-colored2 appointment-btn text-white" href="#contacts_form">Make an Appointment</a>
+              <a class="btn btn-theme-colored2 appointment-btn text-white" href="#contacts_form">Make an Application</a>
             </div>
           </div>
         </div>
