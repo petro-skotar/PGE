@@ -146,7 +146,7 @@ class SettingController extends Controller
 		$setting->save();
 
 		if(isset($request->desc)){
-			$messages_save = 'Данные сохранены.';
+			$messages_save = 'Data saved.';
 			return redirect()->route('setting.edit',$id)
 				->with('setting',$setting)
 				->with('messages_save',$messages_save);

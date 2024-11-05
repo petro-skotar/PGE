@@ -63,11 +63,13 @@
 
           </div>
           <div class="col-md-8">
+            @if(!empty($article->images))
             <div class="tm-owl-carousel-1col" data-dots="true" data-nav="true">
                 @foreach($article->img('all') as $img)
                     <div class="item"><img src="{{ $img }}" alt="images"></div>
                 @endforeach
             </div>
+            @endif
           </div>
         </div>
         <div class="row mt-60">

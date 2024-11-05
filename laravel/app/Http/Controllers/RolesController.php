@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 
 class RolesController extends Controller
-{	
+{
 
 	/**
      * Display a listing of the resource.
@@ -23,11 +23,11 @@ class RolesController extends Controller
     {
 		$roles = Roles::all();
 		$roles = $roles->sortBy('id');
-		
+
 		return view('admin/roles/roles')->with([
-			'roles'=>$roles			
+			'roles'=>$roles
 		]);
-		
+
     }
 
     /**
@@ -36,10 +36,10 @@ class RolesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {		
-		$role = new Roles;		
+    {
+		$role = new Roles;
 		$roleRolesArray = array();
-		
+
 		return view('admin/roles/role')->with([
 			'role'=>$role,
 			'roleRolesArray'=>$roleRolesArray,
@@ -54,7 +54,7 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-    	
+
 		$validate_messsages = [
 			'name.required'=>'Поле <b>Роль</b> обязательно для заполнения.',
 		];
@@ -63,9 +63,9 @@ class RolesController extends Controller
 		], $validate_messsages);
         $role = Roles::create([
 		    'name' => $request->name,
-		]);	    	    
+		]);
 	    $role->save();
-	    		
+
 		$roleRolesArray = array();
 		if(!empty($request->security)){
 			foreach ($request->security as $mod){
@@ -78,8 +78,8 @@ class RolesController extends Controller
 				$roleRoles->save();
 			}
 		}
-			    		    
-	    return redirect()->route('roles.index');       
+
+	    return redirect()->route('roles.index');
     }
 
     /**
@@ -100,18 +100,18 @@ class RolesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {        
-        $role = Roles::find($id);        
+    {
+        $role = Roles::find($id);
 
 		$roleRolesArray = array();
 		$RolesModules = RolesModules::select()->where('role_id',$id)->get();
 		foreach($RolesModules as $r){
 			$roleRolesArray[]=$r->module;
 		}
-		
+
 		return view('admin/roles/role')->with([
-			'role'=>$role,		
-			'roleRolesArray'=>$roleRolesArray,		
+			'role'=>$role,
+			'roleRolesArray'=>$roleRolesArray,
 		]);
     }
 
@@ -123,20 +123,20 @@ class RolesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {    	    	    	
+    {
 		$validate_messsages = [
 			'name.required'=>'Поле <b>Роль</b> обязательно для заполнения.',
 		];
 		$this->validate($request,[
 			'name' => 'required',
 		], $validate_messsages);
-    	
-    	$role = Roles::find($id); 
-		
+
+    	$role = Roles::find($id);
+
 		$role->name = $request->name;
-		
+
 		$role->save();
-				
+
 		$roleRolesArray = array();
 		if(isset($request->name)){
 			RolesModules::where('role_id',$id)->delete();
@@ -152,15 +152,15 @@ class RolesController extends Controller
 				}
 			}
 		}
-		
-		if(isset($request->name)){	
-			$messages['save'] = 'Данные сохранены.';			
+
+		if(isset($request->name)){
+			$messages['save'] = 'Data saved.';
 			return view('admin/roles/role')->with([
 				'role'=>$role,
 				'roleRolesArray'=>$roleRolesArray,
 				'messages'=>$messages,
 			]);
-		} elseif(isset($request->active)){	
+		} elseif(isset($request->active)){
 			return "ajax_update_active";
 		} else {
 			return false;
@@ -175,11 +175,11 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        
+
         RolesModules::where('role_id', '=', $id)->delete();
         Roles::where('id', '=', $id)->delete();
-        
+
         return redirect()->route('roles.index');
     }
-   
+
 }

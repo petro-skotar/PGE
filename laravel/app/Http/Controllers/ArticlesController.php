@@ -1006,11 +1006,11 @@ class ArticlesController extends Controller
 			}
 
 			/*if(in_array($Article->module,['articles'])){
-				$messages_save = 'Страница успешно сохранена. <a href="/'.$Article->url.'" target="_blank">Посмотреть</a>';
+				$messages_save = 'The page has been saved successfully.. <a href="/'.$Article->url.'" target="_blank">Посмотреть</a>';
 			} else {
-				$messages_save = 'Страница успешно сохранена. <a href="/'.$Article->module.'/'.$Article->url.'" target="_blank">Посмотреть</a>';
+				$messages_save = 'The page has been saved successfully.. <a href="/'.$Article->module.'/'.$Article->url.'" target="_blank">Посмотреть</a>';
 			}*/
-			$messages_save = 'Страница успешно сохранена.';
+			$messages_save = 'The page has been saved successfully..';
 			return redirect()->route(DATA::module().'.edit',$id)
 				->with('messages_save',$messages_save)
 				->with('date_errors',$date_errors);
