@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
-{	
+{
 	# Модули
 	protected function modules(){
 		return array(
 			'custom' => 'Общий',
 		);
 	}
-	
+
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +27,9 @@ class SettingController extends Controller
     public function index()
     {
         $setting = Setting::orderBy('id')->get();
-		
+
 		return view('admin/setting/list')->with([
-			'setting'=>$setting			
+			'setting'=>$setting
 		]);
     }
 
@@ -40,8 +40,8 @@ class SettingController extends Controller
      */
     public function create()
     {
-        $setting = new Setting;		
-		
+        $setting = new Setting;
+
 		return view('admin/setting/item')->with([
 			'setting'=>$setting,
 			'modules'=>$this->modules(),
@@ -65,7 +65,7 @@ class SettingController extends Controller
 		    'val' => ($request->val ? $request->val : ''),
 		    'code' => $request->code,
 		    'module' => $request->module,
-		]);	 
+		]);
         if($request->hasFile('files')) {
 			$files = [];
 			foreach($request->file('files') as $image){
@@ -73,9 +73,9 @@ class SettingController extends Controller
 				$files[] = DATA::module().'/'.$image->getClientOriginalName();
 			}
 			$setting->files = $files;
-		}  	    
+		}
 	    $setting->save();
-		
+
 		return redirect()->route('setting.index');
     }
 
@@ -118,14 +118,14 @@ class SettingController extends Controller
 			'desc' => 'required',
 			'code' => 'required',
 		]);
-    	
-    	$setting = Setting::find($id); 
-		
+
+    	$setting = Setting::find($id);
+
 		$setting->desc = $request->desc;
 		$setting->val = $request->val;
 		$setting->code = $request->code;
 		$setting->module = $request->module;
-		
+
         $files = $setting->files;
         if(isset($request->files_remove) && !empty($files)){
             foreach($request->files_remove as $index=>$val){
@@ -142,16 +142,16 @@ class SettingController extends Controller
             $files = array_values($files);
         }
         $setting->files = $files;
-        
+
 		$setting->save();
-		
-		if(isset($request->desc)){	
-			$messages_save = 'Данные сохранены.';			
+
+		if(isset($request->desc)){
+			$messages_save = 'Данные сохранены.';
 			return redirect()->route('setting.edit',$id)
 				->with('setting',$setting)
 				->with('messages_save',$messages_save);
-			
-		} elseif(isset($request->active)){	
+
+		} elseif(isset($request->active)){
 			return "ajax_update_active";
 		} else {
 			return false;
@@ -167,7 +167,7 @@ class SettingController extends Controller
     public function destroy($id)
     {
         Setting::where('id', '=', $id)->delete();
-        
+
         return redirect()->route('setting.index');
     }
 }

@@ -20,6 +20,7 @@ class CreateSettingTable extends Migration
 			$table->text('val')->nullable(true);
 			$table->string('module', 20)->nullable(true)->default('');
 			$table->string('lang', 3)->nullable(true)->default('ru');
+            $table->json('files')->nullable(true);
         });
 
     }
