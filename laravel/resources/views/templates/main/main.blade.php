@@ -382,17 +382,17 @@
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="firstName" type="text" placeholder="Enter name" class="form-control required">
+                            <input name="firstName" type="text" placeholder="Enter Name" class="form-control required">
                           </div>
                         </div>
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="phone" class="form-control required" type="text" placeholder="Enter phone">
+                            <input name="phone" class="form-control required" type="text" placeholder="Enter Phone">
                           </div>
                         </div>
                       </div>
                       <div class="mb-3">
-                        <textarea name="message" class="form-control required" rows="5" placeholder="Your message" style="height:auto;"></textarea>
+                        <textarea name="message" class="form-control required" rows="5" placeholder="Your Message" style="height:auto;"></textarea>
                       </div>
                       <div class="mb-3 tm-sc-button mb-0 mt-20">
                         <button type="submit" class="btn btn-theme-colored1 cp-btn-send text-white" data-loading-text="Please wait...">  Send </button>
