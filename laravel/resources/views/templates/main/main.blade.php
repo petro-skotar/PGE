@@ -382,12 +382,12 @@
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="firstName" type="text" placeholder="Enter Name" class="form-control required">
+                            <input name="firstName" type="text" placeholder="Enter name" class="form-control required">
                           </div>
                         </div>
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="phone" class="form-control required" type="text" placeholder="Enter Phone">
+                            <input name="phone" class="form-control required" type="text" placeholder="Enter phone">
                           </div>
                         </div>
                       </div>
