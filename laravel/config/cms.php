@@ -338,7 +338,7 @@ return [
 	'sites' => [
 		'production' => [
 			'site_name' => 'PGE Construction',
-			'site_url' => 'https://pgeconstruction.ca/',
+			'site_url' => 'https://pge.construction/',
 			'system_email' => 'info@example.com',
 		],
 		'local' => [

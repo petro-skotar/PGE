@@ -8,9 +8,9 @@
 	<tbody>
 		<tr>
 			<td><br><br>
-				<table align="center" border="0" cellpadding="0" cellspacing="0" width="640" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;  color: #000000; background-color: #212b42;">
-					<tbody>		
-						<tr><td valign="top" align="center"><br><img src="{{ env('APP_URL').'/templates/dist/img/logo.png' }}" border="0" valign="top" width="201" style="vertical-align:top; border-collapse: collapse;" alt="" /><br><br></td></tr>
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="640" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;  color: #000000; background-color: #fbfbfb;">
+					<tbody>
+						<tr><td valign="top" align="center"><br><img src="{{ 'https://pge.construction/templates/pgeconstruction/images/logo-wide@2x.png' }}" border="0" valign="top" width="201" style="vertical-align:top; border-collapse: collapse;" alt="" /><br><br></td></tr>
 					</tbody>
 				</table>
 			</td>
@@ -23,23 +23,22 @@
 							<td valign="top" align="center" width="55"></td>
 							<td valign="top" align="left" style="font-size: 19px; text-align: left; font-family: Calibri, Arial, 'Helvetica Neue', Helvetica, sans-serif;  color: #3f454b;">
 								<p style="font-size: 10px;">&nbsp;</p>
-								
+
 								<h2 style="font-size: 26px;"><b>{{$feedback->subject}}</b></h2>
 								<p style="font-size: 18px;">
-								<b>Imię:</b> {{$feedback->firstName}}
-								@if(!empty($feedback->lastName))<br><b>Nazwisko:</b> {{$feedback->lastName}}@endif
+								<b>Name:</b> {{$feedback->firstName}}
+								@if(!empty($feedback->lastName))<br><b>Name:</b> {{$feedback->lastName}}@endif
 								@if(!empty($feedback->email))<br><b>Email:</b> {{$feedback->email}}@endif
-								@if(!empty($feedback->phone))<br><b>Telefon:</b> {{$feedback->phone}}@endif
-								@if(!empty($feedback->stanowisko))<br><b>Stanowisko:</b> {{$feedback->stanowisko}}@endif
-								@if(!empty($feedback->speed))<br><b>Kiedy powinien się rozpocząć projekt:</b> {{$feedback->speed}}@endif
-								@if(!empty($feedback->firma))<br><b>Firma:</b> {{$feedback->firma}}@endif
+								@if(!empty($feedback->phone))<br><b>Phone:</b> {{$feedback->phone}}@endif
 								</p>
 								@if(!empty($feedback->message))
-									<p style="font-size: 18px;"><b>Treść pytania:</b> {{$feedback->message}}</p>
+									<p style="font-size: 18px;"><b>Message:</b> {!! nl2br($feedback->message) !!}</p>
 								@endif
 								@if(!empty($feedback->files))
-									<p style="font-size: 18px;"><b>Załączone pliki:</b><ul> {!!$feedback->files!!}</ul></p>
+									<p style="font-size: 18px;"><b>Files:</b><ul> {!!$feedback->files!!}</ul></p>
 								@endif
+
+                                {{--
 								@if(!empty($feedback->checkbox2) || !empty($feedback->checkbox3))
 									<p style="font-size: 18px;">
 									@if(!empty($feedback->checkbox2))<br><b>@if(!empty(App\Models\Article::getArticle(45)->details_one->name)){!! App\Models\Article::getArticle(45)->details_one->name !!}@endif:</b> {{$feedback->checkbox2}}@endif
@@ -81,6 +80,7 @@
 									@if(!empty($feedback->add_check_6)){{$feedback->add_check_6}}@endif
 									</p>
 								@endif
+                                --}}
 								<p style="font-size: 10px;">&nbsp;</p>
 							</td>
 							<td valign="top" align="center" width="55"></td>
@@ -97,9 +97,9 @@
 							<td valign="top" align="center" width="55"></td>
 							<td valign="top" align="center" style="font-size: 20px; font-family: Calibri, Arial, 'Helvetica Neue', Helvetica, sans-serif;  color: #000000;">
 								<p style="font-size: 10px;">&nbsp;</p>
-								
-								<p style="font-size: 16px; font-family: Calibri, Arial, 'Helvetica Neue', Helvetica, sans-serif;  color: #b2b4b5;">fin-asi.com, {{ date('Y') }}</p>
-								
+
+								<p style="font-size: 16px; font-family: Calibri, Arial, 'Helvetica Neue', Helvetica, sans-serif;  color: #b2b4b5;">{{ env('APP_NAME') }}, {{ date('Y') }}</p>
+
 								<p style="font-size: 20px;">&nbsp;</p>
 							</td>
 							<td valign="top" align="center" width="55"></td>
@@ -108,8 +108,8 @@
 				</table>
 			</td>
 		</tr>
-		
-					
+
+
 	</tbody>
 </table>
 

@@ -14,6 +14,6 @@ class SendMailsController extends Controller
     # Общий майлер
 	public function send_mailer($toEmail, $feedback, $subject, $template) {
 		Mail::to($toEmail)->send(new SendMailer($feedback, $subject, $template));
-		return 'Сообщение отправлено на адрес '. $toEmail;
+		return 'The message has been sent to the email address '. $toEmail;
 	}
 }

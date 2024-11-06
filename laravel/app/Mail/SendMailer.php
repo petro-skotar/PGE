@@ -11,11 +11,11 @@ use Config;
 class SendMailer extends Mailable
 {
     use Queueable, SerializesModels;
-	
+
 	public $feedback;
 	public $subject;
 	public $template;
-	
+
 	# Меняем настройки ENV файла на лету
 	public function setEnvironmentValue($envKey, $envValue)
 	{
@@ -50,7 +50,8 @@ class SendMailer extends Mailable
      */
     public function build()
     {
-		//$this->setEnvironmentValue('APP_NAME',Config::get('cms.sites.'.\DATA::mode().'.site_name'));
+		//$this->setEnvironmentValue('MAIL_FROM_ADDRESS',$this->feedback->email);
+		//$this->setEnvironmentValue('MAIL_FROM_NAME',$this->feedback->firstName);
 		//usleep(200000); // задержка 0,2 сек
 		return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
 				->subject($this->subject)->view('templates.emails.'.$this->template);

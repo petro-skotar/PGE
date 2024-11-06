@@ -103,6 +103,7 @@
     <!-- Footer Scripts -->
     <!-- JS | Custom script for all pages -->
     <script src="{{ asset('templates/pgeconstruction/js/custom.js') }}?{{ $VERSION }}"></script>
+    <script src="{{ asset('templates/pgeconstruction/js/validate.js') }}?{{ $VERSION }}"></script>
 
   </body>
 </html>

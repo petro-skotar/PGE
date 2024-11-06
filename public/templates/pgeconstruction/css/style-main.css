@@ -17900,3 +17900,32 @@ header#header .header-top .element .btn{
   background-color: rgb(238, 33, 43);
   border-color: rgb(238, 33, 43);
 }
+
+form.sending{
+	position: relative;
+}
+form.sending>* {
+	transition: 0;
+    filter: blur(1px);
+}
+form.sending:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background: url(../images/icon/loader_form.gif) center center no-repeat;
+    background-size: 60px;
+    transition: .3s;
+}
+form.sending.sended:after {
+    background-image: url(../images/icon/check.svg);
+    background-size: 110px;
+}
+form.sending.sendError:after {
+    background-image: url(../images/icon/error.svg);
+    background-size: 110px;
+}

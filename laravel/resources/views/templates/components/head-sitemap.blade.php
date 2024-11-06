@@ -12,7 +12,7 @@
                 "name":"{{$HOME->details_one->name}}",
                 "logo":{
                     "@type":"ImageObject",
-                    "url":"{{ asset('templates/dist/img/icon/logo.svg') }}",
+                    "url":"{{ asset('templates/pgeconstruction/images/logo-wide-white@2x.png') }}",
                     "name":"{{$HOME->details_one->name}}"
                 }
             }
@@ -22,10 +22,10 @@
             "@type": "Organization",
             "name": "{!! strip_tags($HOME->details_one->name) !!}",
             "url": "{{route('index')}}",
-            "logo": "{{ asset('templates/dist/img/icon/logo.svg') }}",{{--
+            "logo": "{{ asset('templates/pgeconstruction/images/logo-wide-white@2x.png') }}",{{--
             "sameAs":[
-                "https://www.instagram.com/fasteptech/",
-                "https://www.facebook.com/fasteptech",
+                @if(!empty($SETTING['contact_instagram']['val']))"{!! $SETTING['contact_instagram']['val'] !!}",@endif
+                @if(!empty($SETTING['contact_facebook']['val']))"{!! $SETTING['contact_facebook']['val'] !!}",@endif
             ],--}}
             "slogan": "",
             "keywords": "PGE, construction, Prince Rupert, company",

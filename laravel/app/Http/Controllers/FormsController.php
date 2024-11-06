@@ -86,7 +86,9 @@ class FormsController extends Controller
 
 			if(\App::isProduction()){
 				$toEmails[] = DATA::setting('system_email');
-				$toEmails[] = DATA::setting('trello_email');
+                if(!empty(DATA::setting('trello_email'))){
+				    $toEmails[] = DATA::setting('trello_email');
+                }
 			} else {
 				$toEmails[] = Config::get('cms.sites.local.system_email');
 			}
@@ -95,7 +97,7 @@ class FormsController extends Controller
 				app('App\Http\Controllers\SendMailsController')->send_mailer(
 					$toEmail,
 					$feedback,
-					$feedback->subject.' - '.time(),
+					$feedback->subject.' - '.date("Y-m-d H:i:s",time()),
 					'email'
 				);
 			}

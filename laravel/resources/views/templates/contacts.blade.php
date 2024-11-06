@@ -49,31 +49,39 @@
             </div>
           </div>
           <div class="col-lg-8">
-            <h1 class="mt-0 mb-0">{!! $article->details_one->name !!}</h1>
-            <p class="font-size-18-">Active & Ready to use Contact Form!</p>
+            <h1 class="mt-0 mb-20">{!! $article->details_one->name !!}</h1>
+            {{--<p class="font-size-18-">Active & Ready to use Contact Form!</p>--}}
             <!-- Contact Form -->
-            <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post" onSubmit="javascript:alert('Under development. Try again later.'); return false;">
+            <form id="form_{{$article->template}}" name="contact_form" class="js-form" action="{{ route('forms') }}" method="post">
+              @csrf
+              <input type="hidden" name="subject" value="From contacts page">
+              <input autocomplete="nope" type="text" name="name" value="" style="display: none;">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-12 col-sm-12 col-md-4">
                   <div class="mb-3">
-                    <label>Name <small>*</small></label>
-                    <input name="form_name" class="form-control" type="text" placeholder="Enter Name">
+                    <label for="firstName">Name <small>*</small></label>
+                    <input name="firstName" class="form-control required" required type="text" placeholder="Enter Name">
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-12 col-sm-6 col-md-4">
                   <div class="mb-3">
-                    <label>Email <small>*</small></label>
-                    <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                    <label for="email">Email <small>*</small></label>
+                    <input name="email" class="form-control required email" required type="email" placeholder="Enter Email">
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <div class="mb-3">
+                    <label for="phone">Phone <small>*</small></label>
+                    <input name="phone" class="form-control required" required type="text" placeholder="Enter Phone">
                   </div>
                 </div>
               </div>
 
               <div class="mb-3">
                 <label>Message</label>
-                <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+                <textarea name="message" class="form-control required" required rows="5" placeholder="Enter Message"></textarea>
               </div>
               <div class="mb-3">
-                <input name="form_botcheck" class="form-control" type="hidden" value="" />
                 <button type="submit" class="btn btn-theme-colored1 text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">Send your message</button>
                 <button type="reset" class="btn btn-theme-colored2 text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">Reset</button>
               </div>

@@ -375,16 +375,19 @@
                   <div class="icon bg-theme-colored2 text-center d-none d-xl-block"><span class="flaticon-roofing-compass"></span></div>
                   <div class="get-quote-form-wrapper">
                     <h3 class="mt-0"><span class="text-theme-colored1">Make </span> <span class="font-weight-500">an  Application</span></h3>
-                    <form id="request_a_quote_form" name="request_a_quote_form" action="includes/request-a-quote.php" method="post"  onSubmit="javascript:alert('Under development. Try again later.'); return false;">
+                    <form id="form_{{$article->template}}" name="form_{{$article->template}}" action="{{ route('forms') }}" class="js-form" method="post">
+                      @csrf
+                      <input type="hidden" name="subject" value="Application from main page">
+                      <input autocomplete="nope" type="text" name="name" value="" style="display: none;">
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="name" type="text" placeholder="Enter Name" class="form-control required">
+                            <input name="firstName" type="text" placeholder="Enter Name" class="form-control required">
                           </div>
                         </div>
                         <div class="col-sm-12">
                           <div class="mb-3">
-                            <input name="email" class="form-control required email" type="email" placeholder="Enter Email">
+                            <input name="phone" class="form-control required" type="text" placeholder="Enter Phone">
                           </div>
                         </div>
                       </div>
@@ -392,7 +395,6 @@
                         <textarea name="message" class="form-control required" rows="5" placeholder="Your message" style="height:auto;"></textarea>
                       </div>
                       <div class="mb-3 tm-sc-button mb-0 mt-20">
-                        <input name="form_botcheck" class="form-control" type="hidden" value="">
                         <button type="submit" class="btn btn-theme-colored1 cp-btn-send text-white" data-loading-text="Please wait...">  Send </button>
                       </div>
                     </form>
