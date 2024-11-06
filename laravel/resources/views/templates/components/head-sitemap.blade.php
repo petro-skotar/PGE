@@ -29,7 +29,7 @@
             ],--}}
             "slogan": "",
             "keywords": "PGE, construction, Prince Rupert, company",
-            "image": "{{ asset('templates/dist/img/how_work_1.webp') }}",
+            "image": "{{ asset('templates/pgeconstruction/images/logo-wide-white@2x.png') }}",
             "telephone": "{!! $SETTING['contact_phone']['val'] !!}",
             "email": "{!! $SETTING['contact_email']['val'] !!}"@if($LANG == 'pl'),
             "address": [{
@@ -77,7 +77,7 @@
             "name": "{!! strip_tags($article->details_one->name) !!}",
             "description": "{{ $article->details_one->description }}",
             "url": "{{ route('viewArticle', $article->details_one->url) }}",
-            "image": "{{ asset('templates/dist/img/history/history.png') }}"
+            "image": "{{ asset('templates/pgeconstruction/images/logo-wide-white@2x.png') }}"
         },
     @endif
         {
